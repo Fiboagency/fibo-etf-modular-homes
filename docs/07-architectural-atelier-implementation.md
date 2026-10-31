@@ -75,3 +75,13 @@ Parent concept: `feature/etf-photo-brand-exploration-20261101` (PR #2), not merg
 3. Prepare LV/EN/LT/ET/RU localized copy and typography matrix; proper localization in product architecture comes after MVP architecture is approved.
 4. Decide whether bathroom needs independently selectable walls and floor (requires more image coverage), and define actual option/model dependency matrix.
 5. Design backend validation, administration and lead capture only after scope agreement; use PRs and separate release approval.
+
+## Isolated Render owner preview — deployed and checked
+
+- Preview: https://fibo-etf-atelier-owner-preview.onrender.com
+- Workspace ID: `tea-dba7n2gm7kps73fq8j30`; service: `srv-dbj7148473hc73bb1k7g`.
+- Live deploy ID: `dep-dbj714g473hc73bb1krg`, status `live`.
+- Deployed source commit `ad82f071db6071e3d47c7ff2d9c2ea94590fa890` (subsequent changes to this document do **not** affect prototype HTML). `autoDeploy: no`.
+- Verified via independently opened public page: HTTP 200; title and hero present; image assets K/E/C loaded (natural sizes 1447/1445/1445 px); natural facade day A, natural night B, cherry floor F and example total 108650 EUR; no observed JS page errors. Desktop viewport 1440×960; mobile viewport 390×844 had no observed horizontal overflow.
+- The existing `fibo-etf-configurator-demo` preview service and `main` remain unchanged. This published address is for Fibo Agency owner review only; **not** a production release or a client-approved commercial presentation.
+- A separate owner decision is required for any client-facing publication, application backend, or merging to `main`.
