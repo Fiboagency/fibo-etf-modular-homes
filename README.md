@@ -49,3 +49,12 @@ The owner selected **Architectural Atelier (Direction A)** for an interactive pr
 - Important: dynamic options/values are invented demonstrations, server request delivery and back office are **not implemented**.
 - Next: owner review of draft PR; approve logo/rights, actual model/material/price data and locales before real MVP.
 
+
+## Current owner-review preview (2026-11-01)
+
+- Architectural Atelier A was selected by Fibo Agency owner and implemented in a Draft PR (not merged).
+- Separate owner-review static preview: https://fibo-etf-atelier-owner-preview.onrender.com
+- Its live build corresponds to commit `ad82f071db6071e3d47c7ff2d9c2ea94590fa890` on `feature/etf-architectural-atelier-ui-20261101`; deployment tested via HTTP/interactive browser.
+- Existing generic prototype Render service and `main` remain intact.
+- Next: owner visual review → clarify image commercial rights/client-facing publication scope → real models and pricing rules → locale samples → backend/admin design with acceptance tests.
+
