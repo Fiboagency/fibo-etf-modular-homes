@@ -49,3 +49,10 @@
 - Изображения разрешены для внутреннего просмотра прототипа владельцем; права на конечную коммерческую публикацию пока не документированы. Не публиковать в production без отдельного подтверждения.
 
 Проверка в изолированном браузере 2026-11-01: переключения natural → A, natural/night → B, cherry floor → F, warm bathroom → D; ошибок JS не наблюдалось. Проверены настольный 1280×960 и мобильный 390×844 верх экрана (реальные изображения загрузились). Полный клавиатурный, контрастный и многоязычный аудит ещё не проведён. Текущий Render статик-сервис использует старую ветку; **этот фото-вариант не опубликован**.
+
+## Architectural Atelier — owner-selected direction A (2026-11-01)
+
+The prototype UI now uses a restrained architecture-editorial brand system (warm limestone, deep forest green, serif headings, precise photo-led selection). All original uploaded files A/B/C/D/E/F/G/H/J/K are bound to matching image choices. All hypothetical house types and prices remain illustrative. The form is local-only with no server submission.
+
+See `../docs/07-architectural-atelier-implementation.md` for source evidence, exact colors, current test coverage and open launch gates. No client production or main-branch release is implied by the Fibo Agency owner selecting the concept.
+
