@@ -25,36 +25,236 @@ dialog{border:1px solid #e1e8dd;border-radius:20px;padding:0;width:min(470px,cal
 @media(max-width:500px){.shell{padding:0 13px}.topbar{height:67px}.brand-sub{font-size:9px}.headline{padding:26px 0 24px}.headline h1{font-size:35px}.visual-top{top:12px;left:10px;right:10px}.view-counter,.image-notice{font-size:9px;padding:8px 9px}.image-notice{max-width:145px;text-align:right}.scene{aspect-ratio:1.18}.view-tabs{width:100%;justify-content:space-around}.view-tab{font-size:11px;padding:11px 9px}.visual-bottom{left:9px;right:9px}.swatch{width:63px}.swatch-color{width:43px;height:43px}.group{padding:20px 15px}.config-title{padding:24px 15px}.total-box{padding:20px 15px}.below-card{padding:22px}.top-note .dot{display:none}.intro{font-size:12px}.foot{flex-direction:column;gap:5px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 .photo-scene img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.day-night{display:flex;gap:7px;margin-top:15px}.light-choice{border:1px solid #d9e1d7;border-radius:30px;padding:8px 14px;font-size:11px;font-weight:750;color:#526253;background:#fff}.light-choice[aria-pressed=true]{color:#fff;background:#344a39;border-color:#344a39}.light-choice:disabled{opacity:.45;cursor:not-allowed}.bath-help{font-size:11px;line-height:1.5;color:#78847a;margin:0 0 13px}.bath-preset-list{display:grid;gap:9px}.bath-preset{width:100%;background:#f8f8f6;display:flex;align-items:center;gap:11px;text-align:left;padding:8px;border-radius:12px;border:1px solid #ebebe6}.bath-preset[aria-pressed=true]{border-color:#4b7055;box-shadow:0 0 0 2px #e4eee2 inset;background:#f8fbf7}.bath-preset img{width:76px;height:64px;object-fit:cover;border-radius:7px}.bath-preset span:nth-child(2){flex:1}.bath-preset strong{font-size:12px;display:block;line-height:1.3}.bath-preset small{font-size:10px;color:#899087;margin-top:5px;display:block}.bath-preset .delta{font-size:11px;white-space:nowrap;color:#526253;font-weight:750}@media(max-width:500px){.bath-preset img{width:60px;height:60px}.bath-preset .delta{font-size:10px}}
+
+/* Architectural Atelier — approved brand direction A · editorial implementation */
+:root {
+  --ink:#292C26;
+  --muted:#64695f;
+  --border:#dcd9d0;
+  --accent:#314338;
+  --paper:#F0EDE6;
+  --surface:#F0EDE6;
+  --radius:5px;
+  --stone:#F0EDE6;
+  --forest:#314338;
+  --taupe:#A48F76;
+  --burgundy:#793F46;
+  --line:#d8d4c9;
+  --type-editorial:Georgia,"Times New Roman",serif;
+}
+body{background:#F0EDE6;color:#292C26;font-family:"Segoe UI",Arial,sans-serif}
+.shell{max-width:1500px;padding-left:48px;padding-right:48px}
+.topbar{height:88px;background:#F0EDE6;border-bottom:1px solid #d7d3c7}
+.top-inner{gap:16px}
+.brand{gap:23px}
+.brandmark{width:auto;height:auto;background:none;display:inline-flex;align-items:baseline;font-family:Arial,"Segoe UI",sans-serif;font-weight:780;font-size:30px;letter-spacing:-.12em;color:#292c26;border-radius:0;padding-right:4px}
+.brandmark-dot{font-size:26px;color:#a48f76;margin-left:0}
+.brand-identity{padding-left:20px;border-left:1px solid #a8a99e}
+.brand-title{font-size:11px;font-weight:650;letter-spacing:.23em;line-height:1.35}
+.brand-sub{font-size:10px;letter-spacing:.09em;text-transform:none;color:#74796c;margin-top:4px}
+.top-note{letter-spacing:.04em;color:#657062}
+.dot{background:#314338;width:5px;height:5px}
+.demo-tag{border-radius:0;background:transparent;border:1px solid #7c8777;color:#314338;font-size:10px;letter-spacing:.11em;font-weight:650;padding:10px 12px}
+.headline{padding-top:67px;padding-bottom:41px;align-items:end;gap:55px}
+.headline-primary{flex:1}
+.eyebrow{font-size:10px;letter-spacing:.15em;color:#5f6f60;font-weight:600;margin-bottom:24px;display:flex;gap:10px;align-items:center}
+.eyebrow-line{width:34px;height:1px;background:#8e9b89;display:inline-block}
+.eyebrow-separator{color:#a48f76;padding:0 2px}
+.headline h1{font-family:var(--type-editorial);font-size:clamp(49px,5vw,77px);font-weight:400;letter-spacing:-.055em;line-height:1.04}
+.headline h1 em{font-weight:400;color:#798574}
+.headline-aside{flex:0 0 310px;margin-bottom:5px;padding-left:27px;border-left:1px solid #b8b8a9}
+.hero-index{font-size:10px;letter-spacing:.14em;color:#576957;font-weight:700;display:block;margin-bottom:18px}
+.intro{font-size:14px;line-height:1.78;color:#5f675c;max-width:310px}
+.hero-instruction{display:flex;align-items:center;gap:12px;color:#314338;font-size:11px;letter-spacing:.04em;margin-top:18px}
+.hero-instruction:first-letter{font-size:20px}
+.layout{grid-template-columns:minmax(0,1.58fr) minmax(368px,.88fr);gap:27px;padding-bottom:86px}
+.visual-card{border-radius:3px;border:none;background:#d5d3c9;box-shadow:none}
+.scene{aspect-ratio:1.33;min-height:370px}
+.photo-scene img{object-position:center center}
+.visual-card:after{content:"";pointer-events:none;position:absolute;left:0;right:0;bottom:0;height:133px;background:linear-gradient(0deg,#111d16a1 0%,#111d1600 100%)}
+.visual-top{top:24px;left:25px;right:25px}
+.view-counter,.image-notice{background:#f2eee8df;color:#314338;border-radius:1px;backdrop-filter:blur(9px);padding:10px 12px;letter-spacing:.1em;font-size:9px;font-weight:650}
+.image-notice{max-width:205px;line-height:1.5;text-align:right}
+.visual-bottom{bottom:23px;left:25px;right:25px}
+.view-tabs{border-radius:2px;background:#f0ede6f1;box-shadow:none;padding:4px;gap:4px}
+.view-tab{font-size:11px;font-weight:650;letter-spacing:.02em;border-radius:2px;padding:11px 14px;color:#35473a}
+.view-tab[aria-selected=true]{background:#314338;color:#fff}
+.scene-label{background:none;color:#fff;border:none;font-size:12px;letter-spacing:.02em;border-radius:0;text-shadow:0 1px 7px #131d15}
+.photo-disclaimer{color:#59645c;font-size:10px;line-height:1.7;margin:13px 0 25px}
+.below-card{border:1px solid #d8d3c6;border-radius:2px;padding:35px 37px 34px;background:transparent}
+.below-heading{display:flex;justify-content:space-between;align-items:center}
+.section-kicker{font-size:10px;letter-spacing:.18em;color:#526453;font-weight:700}
+.side-ornament{font-size:25px;color:#9b9787}
+.below-card h2{font-family:var(--type-editorial);font-size:clamp(31px,3vw,45px);letter-spacing:-.045em;font-weight:400;line-height:1.09;margin:14px 0 14px}
+.below-card h2 em{font-weight:400;color:#7e8a7a}
+.below-card p{font-size:13px;line-height:1.9;max-width:620px;color:#61685e}
+.summary-heading{margin-top:24px;display:flex;justify-content:space-between;border-top:1px solid #c6c7bb;padding-top:17px;color:#3d5442;font-size:10px;letter-spacing:.15em;font-weight:700}
+.summary-heading span{font-size:16px}
+.summary-pills{margin-top:17px;gap:8px}
+.summary-pill{background:#e6e3d9;border:1px solid #dad6ca;border-radius:1px;padding:9px 11px;color:#3b4d40;font-size:11px}
+.config{background:#faf8f2;border:1px solid #dcd6ca;border-radius:3px;box-shadow:none}
+.config-title{padding:34px 29px 27px;background:#faf8f2}
+.config-overline{font-size:10px;letter-spacing:.2em;font-weight:700;color:#667663;margin-bottom:17px}
+.config h2{font-family:var(--type-editorial);font-weight:400;font-size:clamp(30px,2.8vw,38px);line-height:1.1;letter-spacing:-.04em;margin:0 0 15px}
+.config h2 em{color:#83907d;font-weight:400}
+.config .help{font-size:12px;line-height:1.7;color:#59665c}
+.group{padding:26px 29px;border-top:1px solid #e5e0d6}
+.group-head{margin-bottom:17px}
+.group h3{font-size:13px;font-weight:700;letter-spacing:.01em}
+.stepno{width:21px;height:21px;border:1px solid #adb5a7;color:#50644f;margin-right:11px;font-size:10px;border-radius:50%}
+.included{font-size:10px;font-weight:650;letter-spacing:.02em;color:#566f59}
+.choices{gap:8px}
+.model{border-radius:2px;padding:17px 6px 16px;background:#f1eee7;border-color:#e0dcd1;min-width:82px;gap:7px}
+.model strong{font-family:var(--type-editorial);font-size:22px;letter-spacing:-.04em;font-weight:400}
+.model small{font-size:11px;color:#576456}
+.model[aria-pressed=true],.option-card[aria-pressed=true],.mini-select[aria-pressed=true],.swatch[aria-pressed=true],.bath-preset[aria-pressed=true]{border-color:#314338;box-shadow:inset 0 0 0 1px #314338;background:#f2f3ed}
+.swatch{width:auto;min-height:auto;border-radius:2px;border:1px solid #dddcd2;padding:6px 6px 12px;gap:10px;align-items:stretch;background:#f9f7f1;flex-direction:column;overflow:hidden}
+.swatch-color{width:100%;height:72px;border:none;border-radius:1px;box-shadow:none;background-position:center;background-size:cover}
+.swatch[aria-pressed=true] .swatch-color:after{background:#21352746;color:#fff;text-shadow:none;font-size:19px}
+.swatch-name{color:#354739;font-size:11px;text-align:left;line-height:1.35;padding:0 3px;min-height:28px}
+.swatch[aria-pressed=true] .swatch-name{color:#24392b;font-weight:750}
+.facade-choices .swatch{flex:1;min-width:0}
+.facade-choices .swatch-color{background-position:center}
+.floor-choices .swatch{width:calc(50% - 4px);padding-bottom:10px}
+.floor-choices .swatch-color{height:65px;background-position:50% 83%}
+.day-night{margin-top:16px;gap:7px}
+.light-choice{border:1px solid #b5bdae;border-radius:1px;padding:9px 16px;background:transparent;color:#334638;font-size:11px;font-weight:700}
+.light-choice[aria-pressed=true]{background:#314338;color:#fff;border-color:#314338}
+.light-choice:disabled{opacity:.5}
+.bath-help{color:#5f695f;font-size:12px;line-height:1.7}
+.bath-preset-list{gap:10px}
+.bath-preset{border:1px solid #ddd8cd;border-radius:2px;background:#f7f5ef;padding:7px;gap:12px}
+.bath-preset img{width:86px;height:71px;border-radius:1px;object-position:center}
+.bath-preset strong{font-size:12px;line-height:1.45;color:#2d3930}
+.bath-preset small{font-size:10px;line-height:1.5;color:#646c62}
+.bath-preset .delta{font-size:11px;color:#304734}
+.packages{gap:9px}
+.option-card{border:1px solid #e2ded3;background:#f6f3eb;border-radius:2px;padding:17px 14px}
+.option-card strong{font-size:13px;font-weight:700;color:#303a31}
+.option-card small{font-size:11px;line-height:1.65;color:#646b62}
+.option-card .delta{font-size:11px;color:#314338}
+.switch-row{padding:14px 0}
+.switch-copy strong{font-size:12px;color:#29382d}
+.switch-copy small{font-size:11px;line-height:1.5;color:#5d685e}
+.cost{color:#314338}
+.switch-track{background:#c7d0c4}
+.switch input:checked+.switch-track{background:#314338}
+.quantity{border-radius:2px;border-color:#c5cabc}
+.quantity button{background:#edece3;height:35px;width:34px;color:#304633}
+.quantity output{font-size:13px}
+.mini-select{border-radius:2px;background:#f2f0e8;border-color:#dedbcf}
+.total-box{padding:31px 29px 30px;background:#eae8de;border-top:1px solid #d8d8cd}
+.total-top{align-items:start;flex-direction:column;gap:12px}
+.total-top small{font-size:10px;color:#3d5641;letter-spacing:.17em;font-weight:700}
+.total-top strong{font-family:var(--type-editorial);font-size:42px;font-weight:400;letter-spacing:-.045em;color:#202d23}
+.total-notice{font-size:11px;line-height:1.7;color:#576459;margin:10px 0 20px}
+.breakdown{border-top:1px solid #cbd0c4;padding-top:18px;gap:11px;margin-bottom:23px}
+.breakdown .line{font-size:11px;color:#4e5d51}
+.breakdown .line strong{color:#273c2d;font-weight:700}
+.cta{background:#314338;border-radius:2px;font-size:12px;letter-spacing:.06em;font-weight:700;padding:18px}
+.cta:hover{background:#233629}
+.cta-secondary{border-radius:2px;background:transparent;color:#314338;border-color:#afb9ab;padding:15px;font-size:11px;letter-spacing:.015em}
+.cta-secondary:hover{background:#e2e7db}
+.foot{border-top:1px solid #c4c8ba;color:#5c6a5d;font-size:11px}
+.foot strong{font-size:18px;letter-spacing:-.1em;margin-right:8px;color:#293c2e}
+dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
+.modal-content{padding:30px}
+.modal-heading h2{font-family:var(--type-editorial);font-size:30px;font-weight:400}
+.modal-content p{color:#516153}
+.field input{border-radius:2px;background:#fffefa;border-color:#aeb9aa}
+.close{background:#e4e5db}
+@media(max-width:1100px){
+.shell{padding-left:24px;padding-right:24px}
+.headline{padding-top:51px}
+.headline-aside{flex-basis:250px}
+.layout{grid-template-columns:minmax(0,1.16fr) minmax(360px,.84fr);gap:17px}
+.group{padding:23px 21px}
+.config-title{padding:26px 21px}
+.total-box{padding:24px 21px}
+}
+@media(max-width:840px){
+.headline{flex-direction:column;align-items:start;gap:27px}
+.headline-aside{flex:none;max-width:540px}
+.intro{max-width:490px}
+.layout{grid-template-columns:1fr}
+.scene{aspect-ratio:1.33;min-height:0}
+.below-card{padding:29px}
+.config h2{font-size:35px}
+.config-title,.group,.total-box{padding-left:28px;padding-right:28px}
+.top-note .top-status{display:none}
+}
+@media(max-width:500px){
+.shell{padding-left:16px;padding-right:16px}
+.topbar{height:70px}
+.brand{gap:12px}
+.brandmark{font-size:25px}
+.brandmark-dot{font-size:19px}
+.brand-identity{padding-left:12px}
+.brand-title{font-size:9px;letter-spacing:.13em}
+.brand-sub{font-size:9px;letter-spacing:.025em}
+.top-note{display:flex}
+.demo-tag{font-size:8px;padding:7px 8px;max-width:105px;text-align:center}
+.headline{padding:36px 0 28px;gap:23px}
+.eyebrow{font-size:9px;letter-spacing:.07em;line-height:1.5;margin-bottom:15px}
+.eyebrow-line{width:17px}
+.headline h1{font-size:clamp(38px,10.2vw,55px);line-height:1.07}
+.headline-aside{padding-left:16px}
+.hero-index{font-size:9px;margin-bottom:11px}
+.intro{font-size:13px}
+.scene{aspect-ratio:1.18}
+.visual-top{top:12px;left:12px;right:12px}
+.view-counter,.image-notice{font-size:8px;padding:7px;letter-spacing:.035em}
+.image-notice{max-width:135px}
+.visual-bottom{left:9px;right:9px;bottom:10px}
+.scene-label{display:none}
+.view-tabs{width:100%;justify-content:space-evenly}
+.view-tab{font-size:11px;padding:11px 9px}
+.photo-disclaimer{font-size:10px}
+.below-card{padding:25px 19px}
+.below-card h2{font-size:35px}
+.below-card p{font-size:12px}
+.config-title,.group,.total-box{padding:23px 18px}
+.config h2{font-size:34px}
+.facade-choices .swatch-color{height:62px}
+.swatch-name{font-size:10px;padding:0 1px}
+.bath-preset img{width:61px;height:67px}
+.bath-preset{gap:8px}
+.bath-preset strong{font-size:11px}
+.bath-preset .delta{font-size:10px}
+.total-top strong{font-size:37px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body>
-<header class="topbar"><div class="shell top-inner"><div class="brand"><div class="brandmark">E<span style="font-size:12px;margin-left:1px">▰</span></div><div><div class="brand-title">ETF <span style="font-weight:400">modular living</span></div><div class="brand-sub">Concept by Fibo Agency</div></div></div><div class="top-note"><span class="dot"></span> Внутреннее согласование <span class="demo-tag">Interactive prototype / 01</span></div></div></header>
+<header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div><div class="brand-sub">Architecture to live in</div></div></div><div class="top-note"><span class="dot"></span><span class="top-status">FIBO AGENCY / Внутренний просмотр</span><span class="demo-tag">КОНЦЕПТ / 01</span></div></div></header>
 <main class="shell">
-<div class="headline"><div><div class="eyebrow">Your home, your choices · Концепция</div><h1>Создайте дом под себя.</h1></div><p class="intro">Выбирайте архитектурные оттенки, материалы интерьера и полезные опции. Смотрите изменения сразу — и получайте понятный расчёт комплектации.</p></div>
+<div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> ETF / ARCHITECTURAL ATELIER <span class="eyebrow-separator">—</span> КОНЦЕПЦИЯ</div><h1>Дом, в котором<br><em>хочется жить.</em></h1></div><div class="headline-aside"><span class="hero-index">КОЛЛЕКЦИЯ / 01 — ВАШЕ ПРОСТРАНСТВО</span><p class="intro">Продуманные пропорции. Натуральные материалы. Спокойная архитектура. Настройте будущий дом — от фасада до деталей интерьера.</p><span class="hero-instruction">↓ <span>Выберите материалы и комплектацию</span></span></div></div>
 <div class="layout">
 <section class="showcase" aria-label="Предпросмотр конфигурации">
 <div class="visual-card">
-<div class="visual-top"><span id="viewIndex" class="view-counter">01 / Экстерьер</span><span class="image-notice">Готовые визуализации · не 3D</span></div>
+<div class="visual-top"><span id="viewIndex" class="view-counter">01 / Экстерьер</span><span class="image-notice">01 — АРХИТЕКТУРНАЯ ВИЗУАЛИЗАЦИЯ</span></div>
 <div id="scene-exterior" class="scene photo-scene active" role="img" aria-label="Модульный дом в антрацитовом цвете"><img id="photo-exterior" src="assets/images/K.webp" alt="Модульный дом в антрацитовом цвете" decoding="async"></div>
 <div id="scene-floor" class="scene photo-scene" role="img" aria-label="Интерьер с натуральным дубовым полом"><img id="photo-floor" src="assets/images/E.webp" alt="Интерьер с натуральным дубовым полом" decoding="async"></div>
 <div id="scene-bathroom" class="scene photo-scene" role="img" aria-label="Ванная: белый мрамор и чёрная матовая плитка"><img id="photo-bathroom" src="assets/images/C.webp" alt="Ванная: белый мрамор и чёрная матовая плитка" decoding="async"></div>
 <div class="visual-bottom"><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" role="tab" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" role="tab" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" role="tab" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
 </div>
-<p class="photo-disclaimer">Изображения предоставлены владельцем проекта для концептуальной демонстрации. Реальные модели, материалы и права коммерческого использования требуют подтверждения.</p>
-<div class="below-card"><span class="section-kicker">01 — Ваш проект</span><h2>Дом, который отражает вас.</h2><p>Просматривайте отделку на подготовленных изображениях. Эти кадры показывают возможности выбора; модели, спецификации, опции и цены SIA ETF требуют согласования.</p><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
+<p class="photo-disclaimer">Демонстрационные визуализации из материалов проекта. Изображения иллюстрируют варианты отделки и не подтверждают техническую спецификацию дома.</p>
+<div class="below-card"><div class="below-heading"><span class="section-kicker">ВАШ ПРОЕКТ / 01</span><span class="side-ornament" aria-hidden="true">✳</span></div><h2>У каждой детали<br><em>свой характер.</em></h2><p>Ваши решения формируют пространство: оттенок фасада, фактуру пола и сочетание материалов ванной. Посмотрите, как меняется настроение дома.</p><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
 <aside class="config" aria-label="Параметры дома">
-<div class="config-title"><h2>Настройте свой дом</h2><p class="help">Переключайте параметры — визуализация и расчёт обновляются без перезагрузки.</p></div>
+<div class="config-title"><div class="config-overline">КОНФИГУРАТОР / 01–06</div><h2>Создайте своё<br><em>пространство.</em></h2><p class="help">Каждый выбранный материал и опция обновляют визуализацию или демонстрационный расчёт.</p></div>
 <section class="group"><div class="group-head"><h3><span class="stepno">1</span> Размер дома</h3><span class="included">Один вариант</span></div><div class="choices" role="group" aria-label="Размер дома"><button class="model" data-group="model" data-value="60" aria-pressed="false" type="button"><strong>60 м²</strong><small>Compact</small></button><button class="model" data-group="model" data-value="80" aria-pressed="true" type="button"><strong>80 м²</strong><small>Living</small></button><button class="model" data-group="model" data-value="100" aria-pressed="false" type="button"><strong>100 м²</strong><small>Family</small></button></div></section>
-<section class="group"><div class="group-head"><h3><span class="stepno">2</span> Цвет фасада</h3><span class="included">Включено</span></div><div class="choices" role="group" aria-label="Цвет фасада">
-<button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background:#343a3b"></span><span class="swatch-name">Антрацит</span></button>
-<button type="button" class="swatch" data-group="facade" data-value="natural" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(90deg,#c7af8d,#c7af8d 8px,#b39a78 9px)"></span><span class="swatch-name">Натуральное дерево</span></button>
-<button type="button" class="swatch" data-group="facade" data-value="burgundy" aria-pressed="false"><span class="swatch-color" style="background:#693942"></span><span class="swatch-name">Бургунди</span></button></div>
+<section class="group"><div class="group-head"><h3><span class="stepno">2</span> Цвет фасада</h3><span class="included">Включено</span></div><div class="choices facade-choices" role="group" aria-label="Цвет фасада">
+<button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background-image:url('assets/images/K.webp')"></span><span class="swatch-name">Антрацит</span></button>
+<button type="button" class="swatch" data-group="facade" data-value="natural" aria-pressed="false"><span class="swatch-color" style="background-image:url('assets/images/A.webp')"></span><span class="swatch-name">Натуральное дерево</span></button>
+<button type="button" class="swatch" data-group="facade" data-value="burgundy" aria-pressed="false"><span class="swatch-color" style="background-image:url('assets/images/J.webp')"></span><span class="swatch-name">Бургунди</span></button></div>
 <div class="day-night" role="group" aria-label="Освещение экстерьера"><button type="button" class="light-choice" data-light="day" aria-pressed="true">День</button><button type="button" class="light-choice" data-light="night" aria-pressed="false" disabled>Ночь <span id="nightHint">(для дерева)</span></button></div></section>
-<section class="group"><div class="group-head"><h3><span class="stepno">3</span> Напольное покрытие</h3></div><div class="choices" role="group" aria-label="Напольное покрытие">
-<button type="button" class="swatch" data-group="floor" data-value="oak" aria-pressed="true"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#c5a77a,#c5a77a 9px,#af9068 10px,#e0c59c 17px)"></span><span class="swatch-name">Дуб · 0 €</span></button>
-<button type="button" class="swatch" data-group="floor" data-value="grey" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#999b97,#999b97 9px,#787e7a 10px,#b7bbb6 17px)"></span><span class="swatch-name">Серый · +450 €</span></button>
-<button type="button" class="swatch" data-group="floor" data-value="cherry" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#8d5b47,#8d5b47 9px,#704332 10px,#b07a60 17px)"></span><span class="swatch-name">Вишня · +650 €</span></button>
-<button type="button" class="swatch" data-group="floor" data-value="light-oak" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#c2b49b,#c2b49b 9px,#ab9e8a 10px,#d9cbb3 17px)"></span><span class="swatch-name">Светлый дуб · +350 €</span></button>
+<section class="group"><div class="group-head"><h3><span class="stepno">3</span> Напольное покрытие</h3></div><div class="choices floor-choices" role="group" aria-label="Напольное покрытие">
+<button type="button" class="swatch" data-group="floor" data-value="oak" aria-pressed="true"><span class="swatch-color" style="background-image:url('assets/images/E.webp')"></span><span class="swatch-name">Дуб · 0 €</span></button>
+<button type="button" class="swatch" data-group="floor" data-value="grey" aria-pressed="false"><span class="swatch-color" style="background-image:url('assets/images/G.webp')"></span><span class="swatch-name">Серый · +450 €</span></button>
+<button type="button" class="swatch" data-group="floor" data-value="cherry" aria-pressed="false"><span class="swatch-color" style="background-image:url('assets/images/F.webp')"></span><span class="swatch-name">Вишня · +650 €</span></button>
+<button type="button" class="swatch" data-group="floor" data-value="light-oak" aria-pressed="false"><span class="swatch-color" style="background-image:url('assets/images/H.webp')"></span><span class="swatch-name">Светлый дуб · +350 €</span></button>
 </div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">4</span> Ванная · сочетание материалов</h3></div><p class="bath-help">Переключайте готовые сочетания, для которых уже есть изображения.</p><div class="bath-preset-list" role="group" aria-label="Сочетание материалов ванной">
 <button type="button" class="bath-preset" data-group="bathPreset" data-value="marble" aria-pressed="true"><img src="assets/images/C.webp" alt="" loading="lazy"><span><strong>Белый мрамор + чёрная матовая</strong><small>Контрастная отделка</small></span><span class="delta">+2 100 €</span></button>
@@ -71,10 +271,10 @@ dialog{border:1px solid #e1e8dd;border-radius:20px;padding:0;width:min(470px,cal
 <div class="switch-row"><div class="switch-copy"><strong>Мансардные окна</strong><small>До трёх штук, 1 100 € / шт.</small></div><div class="switch-right"><div class="quantity"><button id="lessWindow" type="button" aria-label="Убрать одно окно">−</button><output id="windowCount" aria-live="polite">1</output><button id="moreWindow" type="button" aria-label="Добавить одно окно">+</button></div></div></div>
 <div class="divider-mini"></div><p class="subheading">Ориентация планировки</p><div class="mini-options" role="group" aria-label="Ориентация планировки"><button type="button" class="mini-select" data-group="layout" data-value="standard" aria-pressed="true">Стандартная</button><button type="button" class="mini-select" data-group="layout" data-value="mirror" aria-pressed="false">Зеркальная</button></div>
 </section>
-<div class="total-box" aria-live="polite"><div class="total-top"><small>Примерная стоимость</small><strong id="totalPrice">108 000 €</strong></div><p class="total-notice">Цифры вымышлены исключительно для демонстрации арифметики. Не являются предложением SIA ETF, цены и НДС не согласованы.</p><div class="breakdown" id="breakdown"></div><button type="button" class="cta" id="openRequest">Посмотреть заявку <span aria-hidden="true">↗</span></button><button type="button" class="cta-secondary" id="downloadSummary">↓ Скачать выбранную комплектацию</button></div>
+<div class="total-box" aria-live="polite"><div class="total-top"><small>ОРИЕНТИРОВОЧНАЯ СТОИМОСТЬ</small><strong id="totalPrice">108 000 €</strong></div><p class="total-notice">Примерные суммы придуманы для демонстрации работы конфигуратора. Это не коммерческое предложение SIA ETF; цены и НДС не согласованы.</p><div class="breakdown" id="breakdown"></div><button type="button" class="cta" id="openRequest">Сформировать запрос <span aria-hidden="true">↗</span></button><button type="button" class="cta-secondary" id="downloadSummary">↓ Скачать выбранную комплектацию</button></div>
 </aside>
 </div></main>
-<footer class="shell foot"><span>Fibo Agency × ETF Modular Homes — Концепция функционала · 01.11.2026</span><span>Неофициальный прототип. Без сервера, CRM и отправки данных.</span></footer>
+<footer class="shell foot"><span><strong>ETF.</strong> Architectural Atelier · Концепция для SIA ETF / Fibo Agency</span><span>Рабочий прототип · без серверной отправки и оплаты · 01.11.2026</span></footer>
 <dialog id="requestDialog" aria-labelledby="requestTitle"><div class="modal-content"><div class="modal-heading"><h2 id="requestTitle">Предпросмотр заявки</h2><button type="button" class="close" id="closeRequest" aria-label="Закрыть">×</button></div><p>Так клиент сможет передать выбранную конфигурацию менеджеру. Сейчас это локальная демонстрация: данные никуда не отправляются.</p><div class="summary-pills" id="requestPills"></div><form id="requestForm"><label class="field"><span>Имя для заявки</span><input id="customerName" placeholder="Ваше имя" autocomplete="off" required></label><label class="field"><span>Электронная почта</span><input id="customerEmail" type="email" placeholder="name@example.com" autocomplete="off" required></label><button type="submit" class="cta">Сформировать демо-заявку <span>↓</span></button><div id="requestStatus" class="status" role="status"></div></form><p class="smallnote">Демо-заявка скачивается как текстовый файл и не сохраняется на сервере. Отправка письма будет реализована только после согласования backend и обработки персональных данных.</p></div></dialog>
 <noscript><p style="padding:30px;background:white">Для демонстрационного конфигуратора необходимо включить JavaScript.</p></noscript>
 <script>
