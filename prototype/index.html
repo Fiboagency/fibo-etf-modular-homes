@@ -24,6 +24,7 @@ dialog{border:1px solid #e1e8dd;border-radius:20px;padding:0;width:min(470px,cal
 @media(max-width:840px){.layout{grid-template-columns:1fr}.headline{align-items:start;flex-direction:column}.intro{max-width:640px}.scene{min-height:0}.config{max-width:none}.visual-bottom{bottom:14px}.scene-label{display:none}.photo-disclaimer{margin-bottom:18px}.below-card{margin-bottom:0}.group{padding:22px}.top-note{font-size:0}.top-note .demo-tag{font-size:10px}}
 @media(max-width:500px){.shell{padding:0 13px}.topbar{height:67px}.brand-sub{font-size:9px}.headline{padding:26px 0 24px}.headline h1{font-size:35px}.visual-top{top:12px;left:10px;right:10px}.view-counter,.image-notice{font-size:9px;padding:8px 9px}.image-notice{max-width:145px;text-align:right}.scene{aspect-ratio:1.18}.view-tabs{width:100%;justify-content:space-around}.view-tab{font-size:11px;padding:11px 9px}.visual-bottom{left:9px;right:9px}.swatch{width:63px}.swatch-color{width:43px;height:43px}.group{padding:20px 15px}.config-title{padding:24px 15px}.total-box{padding:20px 15px}.below-card{padding:22px}.top-note .dot{display:none}.intro{font-size:12px}.foot{flex-direction:column;gap:5px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+.photo-scene img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.day-night{display:flex;gap:7px;margin-top:15px}.light-choice{border:1px solid #d9e1d7;border-radius:30px;padding:8px 14px;font-size:11px;font-weight:750;color:#526253;background:#fff}.light-choice[aria-pressed=true]{color:#fff;background:#344a39;border-color:#344a39}.light-choice:disabled{opacity:.45;cursor:not-allowed}.bath-help{font-size:11px;line-height:1.5;color:#78847a;margin:0 0 13px}.bath-preset-list{display:grid;gap:9px}.bath-preset{width:100%;background:#f8f8f6;display:flex;align-items:center;gap:11px;text-align:left;padding:8px;border-radius:12px;border:1px solid #ebebe6}.bath-preset[aria-pressed=true]{border-color:#4b7055;box-shadow:0 0 0 2px #e4eee2 inset;background:#f8fbf7}.bath-preset img{width:76px;height:64px;object-fit:cover;border-radius:7px}.bath-preset span:nth-child(2){flex:1}.bath-preset strong{font-size:12px;display:block;line-height:1.3}.bath-preset small{font-size:10px;color:#899087;margin-top:5px;display:block}.bath-preset .delta{font-size:11px;white-space:nowrap;color:#526253;font-weight:750}@media(max-width:500px){.bath-preset img{width:60px;height:60px}.bath-preset .delta{font-size:10px}}
 </style>
 </head>
 <body>
@@ -33,119 +34,31 @@ dialog{border:1px solid #e1e8dd;border-radius:20px;padding:0;width:min(470px,cal
 <div class="layout">
 <section class="showcase" aria-label="Предпросмотр конфигурации">
 <div class="visual-card">
-<div class="visual-top"><span id="viewIndex" class="view-counter">01 / Экстерьер</span><span class="image-notice">Иллюстрация · не 3D</span></div>
-<div id="scene-exterior" class="scene active" role="img" aria-label="Иллюстрация модульного дома, фасад перекрашивается при выборе цвета">
-<svg viewBox="0 0 1000 650" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="sky" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#c2d0cf"/><stop offset=".52" stop-color="#e1d6bd"/><stop offset="1" stop-color="#c6c6a4"/></linearGradient>
-<radialGradient id="sunlight" cx=".84" cy=".24" r=".55"><stop stop-color="#fff1cd" stop-opacity=".9"/><stop offset=".5" stop-color="#f7dfb7" stop-opacity=".28"/><stop offset="1" stop-color="#f8e6ca" stop-opacity="0"/></radialGradient>
-<linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9da48c"/><stop offset="1" stop-color="#687b61"/></linearGradient>
-<linearGradient id="glass" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#2e474f"/><stop offset=".52" stop-color="#78918c"/><stop offset="1" stop-color="#eac69c"/></linearGradient>
-<linearGradient id="roof" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#34393a"/><stop offset="1" stop-color="#161c1e"/></linearGradient>
-<linearGradient id="glassGold" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ecd2a2" stop-opacity=".42"/><stop offset="1" stop-color="#efca87" stop-opacity=".75"/></linearGradient>
-<clipPath id="houseFront"><polygon points="152,341 334,244 334,532 152,545"/></clipPath>
-<clipPath id="houseSide"><polygon points="334,244 881,321 881,538 334,532"/></clipPath>
-<filter id="softshadow"><feGaussianBlur stdDeviation="11"/></filter>
-</defs>
-<rect width="1000" height="650" fill="url(#sky)"/><rect width="1000" height="650" fill="url(#sunlight)"/>
-<path d="M0 326 Q175 300 305 329 T600 323 T1000 304 L1000 490 L0 490Z" fill="#95a292" opacity=".65"/>
-<path d="M0 391 C190 370 305 400 470 377 S825 362 1000 392 V650 H0Z" fill="url(#grass)"/>
-<g fill="#6e826f" opacity=".75"><circle cx="43" cy="298" r="113"/><circle cx="98" cy="285" r="79"/><circle cx="957" cy="302" r="99"/><circle cx="910" cy="260" r="61"/><circle cx="990" cy="226" r="52"/></g><g fill="#4e6854" opacity=".72"><circle cx="17" cy="273" r="70"/><circle cx="953" cy="258" r="74"/><circle cx="88" cy="331" r="49"/></g>
-<path d="M55 440 C80 389 75 310 63 253 M942 441 C934 356 942 276 968 193" stroke="#596353" stroke-width="12" fill="none" opacity=".65"/>
-<ellipse cx="552" cy="562" rx="420" ry="32" fill="#2a2d29" opacity=".28" filter="url(#softshadow)"/>
-<polygon points="143,535 890,528 947,585 190,597" fill="#b9a28a"/><polygon points="143,544 890,540 946,593 186,605" fill="#706654"/>
-<g stroke="#8e7b64" stroke-width="3" opacity=".8"><path d="M157 554L908 550M173 567L920 563M186 580L932 578M292 543L321 597M460 541L482 600M639 541L652 592M810 542L826 592"/></g>
-<polygon points="152,341 334,244 334,532 152,545" data-surface="facade"/>
-<polygon points="334,244 881,321 881,538 334,532" data-surface="facade"/>
-<polygon points="152,341 334,244 334,532 152,545" fill="#000" opacity=".13"/><polygon points="334,244 881,321 881,538 334,532" fill="#f7f7e5" opacity=".03"/>
-<g clip-path="url(#houseFront)" stroke="#fff" stroke-opacity=".12" stroke-width="2">
-<path d="M158 205V570M172 205V570M186 205V570M200 205V570M214 205V570M228 205V570M242 205V570M256 205V570M270 205V570M284 205V570M298 205V570M312 205V570M326 205V570"/>
-</g>
-<g clip-path="url(#houseSide)" stroke="#fff" stroke-opacity=".15" stroke-width="2">
-<path d="M341 220V562M357 220V562M373 220V562M389 220V562M405 220V562M421 220V562M437 220V562M453 220V562M469 220V562M485 220V562M501 220V562M517 220V562M533 220V562M549 220V562M565 220V562M581 220V562M597 220V562M613 220V562M629 220V562M645 220V562M661 220V562M677 220V562M693 220V562M709 220V562M725 220V562M741 220V562M757 220V562M773 220V562M789 220V562M805 220V562M821 220V562M837 220V562M853 220V562M869 220V562"/>
-</g>
-<polygon points="141,347 326,226 343,229 335,250 155,360" fill="url(#roof)"/>
-<polygon points="326,225 803,246 892,316 876,335 328,249" fill="url(#roof)"/>
-<path d="M329 230 L873 315" stroke="#7f8582" stroke-opacity=".6" stroke-width="3"/>
-<g fill="#1d2425"><polygon points="199,379 300,326 300,536 199,541"/><rect x="398" y="342" width="200" height="191"/><rect x="639" y="371" width="129" height="164"/><rect x="802" y="390" width="59" height="150"/></g>
-<polygon points="207,385 293,340 293,530 207,533" fill="url(#glass)"/><rect x="407" y="351" width="182" height="173" fill="url(#glass)"/><rect x="648" y="379" width="111" height="146" fill="url(#glass)"/><rect x="810" y="397" width="42" height="137" fill="#27373a"/>
-<rect x="408" y="430" width="182" height="96" fill="url(#glassGold)" opacity=".7"/><rect x="648" y="444" width="111" height="82" fill="url(#glassGold)" opacity=".54"/>
-<g stroke="#172326" stroke-width="7"><path d="M498 349V532M705 377V534M250 361V536"/></g>
-<g opacity=".48" fill="#c1dad0"><path d="M415 356L457 356L418 510Z"/><path d="M519 355L535 355L560 515L535 515Z"/><path d="M652 387L671 385L667 497Z"/><path d="M209 389L226 380L216 514Z"/></g>
-<g fill="#c9c0ad" opacity=".78"><rect x="450" y="485" width="70" height="20" rx="4"/><rect x="667" y="492" width="54" height="20" rx="2"/></g>
-<path d="M146 541L885 537" stroke="#282d2b" stroke-width="6"/>
-<g opacity=".84"><ellipse cx="86" cy="568" rx="80" ry="27" fill="#556b51"/><ellipse cx="935" cy="559" rx="92" ry="42" fill="#566c51"/><circle cx="971" cy="543" r="31" fill="#6a815c"/><circle cx="921" cy="541" r="28" fill="#536d53"/></g>
-<g fill="#a1aa83" opacity=".45"><circle cx="75" cy="564" r="9"/><circle cx="899" cy="559" r="10"/><circle cx="964" cy="557" r="7"/></g>
-<path d="M0 610 C250 582 470 618 690 603 S909 606 1000 580" stroke="#e4deb7" stroke-width="4" stroke-opacity=".35" fill="none"/>
-</svg>
-</div>
-<div id="scene-floor" class="scene" role="img" aria-label="Схематичный интерьер: цвет напольного покрытия меняется при выборе">
-<svg viewBox="0 0 1000 650" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-<defs><linearGradient id="roomWall" x1="0" y1="0" x2="1" y2=".7"><stop stop-color="#f8f5ee"/><stop offset="1" stop-color="#dadacf"/></linearGradient><linearGradient id="roomWindow" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9aabb0"/><stop offset="1" stop-color="#c3c3ab"/></linearGradient><linearGradient id="floorLight" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff" stop-opacity=".32"/><stop offset="1" stop-color="#24221b" stop-opacity=".18"/></linearGradient></defs>
-<rect width="1000" height="650" fill="url(#roomWall)"/><rect x="110" y="64" width="510" height="343" fill="#d0d3cd"/><rect x="122" y="76" width="485" height="318" fill="url(#roomWindow)"/>
-<path d="M130 285 Q240 185 360 278T604 265V392H130Z" fill="#8f9f90"/><path d="M122 320 Q220 260 303 311T500 291T608 309V392H122Z" fill="#718676"/>
-<path d="M366 76V394" stroke="#e7e9e2" stroke-width="15"/><path d="M122 76H610V394H122Z" fill="none" stroke="#f5f2e9" stroke-width="17"/>
-<rect x="0" y="390" width="1000" height="260" data-surface="floor"/><path d="M0 390H1000V650H0Z" fill="url(#floorLight)"/>
-<g stroke="#fff" stroke-opacity=".24" stroke-width="3"><path d="M0 439H1000M0 503H1000M0 585H1000"/><path d="M340 390L150 650M570 390L690 650M800 390L985 650"/><path d="M220 439L160 503M700 503L755 585M400 585L373 650"/></g>
-<g opacity=".16" stroke="#5a4935" stroke-width="2" fill="none"><path d="M60 466Q250 455 445 470M605 565Q740 555 950 573M84 616Q265 607 395 620"/></g>
-<path d="M0 397H1000" stroke="#afb1a8" stroke-width="13"/>
-<ellipse cx="742" cy="521" rx="180" ry="29" fill="#3b4039" opacity=".16"/>
-<g><rect x="618" y="312" width="278" height="120" rx="18" fill="#dddbcf"/><rect x="605" y="354" width="302" height="95" rx="18" fill="#e8e5dc"/><rect x="612" y="432" width="24" height="70" rx="4" fill="#aaa89f"/><rect x="876" y="432" width="24" height="70" rx="4" fill="#aaa89f"/><path d="M614 398H900" stroke="#c3c1b5" stroke-width="5"/><rect x="627" y="332" width="78" height="51" rx="16" fill="#c3cab9"/><rect x="805" y="332" width="77" height="51" rx="16" fill="#aeb6a5"/></g>
-<ellipse cx="448" cy="490" rx="147" ry="41" fill="#a8aa9e" opacity=".5"/><ellipse cx="440" cy="483" rx="103" ry="24" fill="#eee6d6"/><rect x="427" y="483" width="12" height="48" fill="#514a40"/><rect x="353" y="459" width="179" height="26" rx="13" fill="#9b917e"/>
-<g><rect x="42" y="343" width="83" height="76" fill="#b6a68f"/><rect x="42" y="330" width="83" height="15" fill="#c6b9a5"/><rect x="62" y="310" width="29" height="20" rx="4" fill="#e2d8c4"/><path d="M78 312C62 277 63 255 82 222M78 293Q100 260 122 280M78 275Q39 249 44 226" stroke="#647e63" stroke-width="7" fill="none"/></g>
-<path d="M0 585L610 390" stroke="#ffffff" stroke-width="20" opacity=".08"/>
-</svg>
-</div>
-<div id="scene-bathroom" class="scene" role="img" aria-label="Ванная комната: плитка на стене и на полу меняются независимо">
-<svg viewBox="0 0 1000 650" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-<defs><linearGradient id="bathGlow" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#fff" stop-opacity=".43"/><stop offset="1" stop-color="#333" stop-opacity=".15"/></linearGradient><linearGradient id="bathGlass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d4f4f0" stop-opacity=".36"/><stop offset="1" stop-color="#648c91" stop-opacity=".12"/></linearGradient></defs>
-<rect width="1000" height="650" fill="#e1e4df"/><rect x="0" y="0" width="1000" height="454" data-surface="wall"/><path d="M0 0H1000V454H0Z" fill="url(#bathGlow)"/>
-<g stroke="#828b83" stroke-opacity=".28" stroke-width="2"><path d="M0 145H1000M0 296H1000M0 454H1000M192 0V454M391 0V454M591 0V454M793 0V454"/></g>
-<g stroke="#8e9b98" stroke-opacity=".2" fill="none" stroke-width="3"><path d="M54 50L108 104L86 150M312 189L280 240L310 284M530 11L578 80L562 117M826 346L857 386L847 453"/></g>
-<path d="M0 454H1000V650H0Z" data-surface="bathfloor"/><path d="M0 454H1000V650H0Z" fill="url(#bathGlow)" opacity=".35"/>
-<g stroke="#fafbfa" stroke-opacity=".31" stroke-width="2"><path d="M0 534H1000M0 607H1000M260 454L100 650M540 454L580 650M802 454L960 650"/></g>
-<rect x="97" y="60" width="459" height="404" fill="none" stroke="#262b2b" stroke-width="11"/>
-<rect x="110" y="71" width="433" height="382" fill="url(#bathGlass)"/>
-<rect x="319" y="72" width="5" height="382" fill="#232b2b"/>
-<path d="M378 260V310" stroke="#31393a" stroke-width="8" stroke-linecap="round"/>
-<rect x="225" y="95" width="10" height="197" fill="#222c2d"/><rect x="169" y="95" width="127" height="10" rx="5" fill="#212a2b"/>
-<path d="M219 111C193 112 191 135 187 150M232 111C232 145 245 153 248 165" stroke="#91b2b1" stroke-opacity=".55" stroke-width="2" fill="none"/>
-<ellipse cx="320" cy="451" rx="225" ry="15" fill="#333c39" opacity=".18"/>
-<g><rect x="614" y="135" width="248" height="249" rx="125" fill="#252e2d"/><rect x="627" y="148" width="222" height="222" rx="111" fill="#c2cbc5"/><path d="M635 252Q718 158 845 211V148H627Z" fill="#e6e6dd" opacity=".36"/></g>
-<rect x="578" y="398" width="331" height="23" rx="4" fill="#b99e78"/><rect x="604" y="422" width="277" height="121" rx="4" fill="#ad9473"/><rect x="609" y="483" width="268" height="3" fill="#917657"/><ellipse cx="749" cy="402" rx="89" ry="30" fill="#f9f8f4"/><ellipse cx="749" cy="395" rx="70" ry="19" fill="#d9dcd8"/>
-<path d="M742 376V344Q743 333 757 333H784" stroke="#272f2e" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M784 337V357" stroke="#272f2e" stroke-width="8"/>
-<rect x="916" y="228" width="12" height="208" fill="#282f30"/><rect x="890" y="272" width="59" height="9" rx="4" fill="#282f30"/><rect x="890" y="366" width="59" height="9" rx="4" fill="#282f30"/>
-<rect x="604" y="420" width="277" height="124" fill="#fff" opacity=".03"/>
-</svg>
-</div>
+<div class="visual-top"><span id="viewIndex" class="view-counter">01 / Экстерьер</span><span class="image-notice">Готовые визуализации · не 3D</span></div>
+<div id="scene-exterior" class="scene photo-scene active" role="img" aria-label="Модульный дом в антрацитовом цвете"><img id="photo-exterior" src="assets/images/K.webp" alt="Модульный дом в антрацитовом цвете" decoding="async"></div>
+<div id="scene-floor" class="scene photo-scene" role="img" aria-label="Интерьер с натуральным дубовым полом"><img id="photo-floor" src="assets/images/E.webp" alt="Интерьер с натуральным дубовым полом" decoding="async"></div>
+<div id="scene-bathroom" class="scene photo-scene" role="img" aria-label="Ванная: белый мрамор и чёрная матовая плитка"><img id="photo-bathroom" src="assets/images/C.webp" alt="Ванная: белый мрамор и чёрная матовая плитка" decoding="async"></div>
 <div class="visual-bottom"><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" role="tab" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" role="tab" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" role="tab" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
 </div>
-<p class="photo-disclaimer">Визуализации схематические, созданы специально для прототипа. Не являются фотографиями или строительными чертежами.</p>
-<div class="below-card"><span class="section-kicker">01 — Ваш проект</span><h2>Один дом. Множество сочетаний.</h2><p>Этот прототип показывает механику будущего конфигуратора: независимые материалы на разных сценах, взаимосвязанные варианты выбора и мгновенную смету. В полном продукте иллюстрации могут быть заменены фотореалистичными ракурсами для каждой модели.</p><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div>
-</section>
+<p class="photo-disclaimer">Изображения предоставлены владельцем проекта для концептуальной демонстрации. Реальные модели, материалы и права коммерческого использования требуют подтверждения.</p>
+<div class="below-card"><span class="section-kicker">01 — Ваш проект</span><h2>Дом, который отражает вас.</h2><p>Просматривайте отделку на подготовленных изображениях. Эти кадры показывают возможности выбора; модели, спецификации, опции и цены SIA ETF требуют согласования.</p><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
 <aside class="config" aria-label="Параметры дома">
 <div class="config-title"><h2>Настройте свой дом</h2><p class="help">Переключайте параметры — визуализация и расчёт обновляются без перезагрузки.</p></div>
 <section class="group"><div class="group-head"><h3><span class="stepno">1</span> Размер дома</h3><span class="included">Один вариант</span></div><div class="choices" role="group" aria-label="Размер дома"><button class="model" data-group="model" data-value="60" aria-pressed="false" type="button"><strong>60 м²</strong><small>Compact</small></button><button class="model" data-group="model" data-value="80" aria-pressed="true" type="button"><strong>80 м²</strong><small>Living</small></button><button class="model" data-group="model" data-value="100" aria-pressed="false" type="button"><strong>100 м²</strong><small>Family</small></button></div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">2</span> Цвет фасада</h3><span class="included">Включено</span></div><div class="choices" role="group" aria-label="Цвет фасада">
-<button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true" aria-label="Антрацит"><span class="swatch-color" style="background:repeating-linear-gradient(90deg,#333a3c,#333a3c 8px,#485153 9px)"></span><span class="swatch-name">Антрацит</span></button>
-<button type="button" class="swatch" data-group="facade" data-value="sand" aria-pressed="false" aria-label="Светлый песок"><span class="swatch-color" style="background:repeating-linear-gradient(90deg,#c5b29a,#c5b29a 8px,#ab967d 9px)"></span><span class="swatch-name">Песочный</span></button>
-<button type="button" class="swatch" data-group="facade" data-value="burgundy" aria-pressed="false" aria-label="Бургунди"><span class="swatch-color" style="background:repeating-linear-gradient(90deg,#693b42,#693b42 8px,#80515a 9px)"></span><span class="swatch-name">Бургунди</span></button>
-<button type="button" class="swatch" data-group="facade" data-value="moss" aria-pressed="false" aria-label="Оливково-зелёный"><span class="swatch-color" style="background:repeating-linear-gradient(90deg,#555e48,#555e48 8px,#737963 9px)"></span><span class="swatch-name">Оливковый</span></button>
-</div></section>
+<button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background:#343a3b"></span><span class="swatch-name">Антрацит</span></button>
+<button type="button" class="swatch" data-group="facade" data-value="natural" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(90deg,#c7af8d,#c7af8d 8px,#b39a78 9px)"></span><span class="swatch-name">Натуральное дерево</span></button>
+<button type="button" class="swatch" data-group="facade" data-value="burgundy" aria-pressed="false"><span class="swatch-color" style="background:#693942"></span><span class="swatch-name">Бургунди</span></button></div>
+<div class="day-night" role="group" aria-label="Освещение экстерьера"><button type="button" class="light-choice" data-light="day" aria-pressed="true">День</button><button type="button" class="light-choice" data-light="night" aria-pressed="false" disabled>Ночь <span id="nightHint">(для дерева)</span></button></div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">3</span> Напольное покрытие</h3></div><div class="choices" role="group" aria-label="Напольное покрытие">
 <button type="button" class="swatch" data-group="floor" data-value="oak" aria-pressed="true"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#c5a77a,#c5a77a 9px,#af9068 10px,#e0c59c 17px)"></span><span class="swatch-name">Дуб · 0 €</span></button>
 <button type="button" class="swatch" data-group="floor" data-value="grey" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#999b97,#999b97 9px,#787e7a 10px,#b7bbb6 17px)"></span><span class="swatch-name">Серый · +450 €</span></button>
 <button type="button" class="swatch" data-group="floor" data-value="cherry" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#8d5b47,#8d5b47 9px,#704332 10px,#b07a60 17px)"></span><span class="swatch-name">Вишня · +650 €</span></button>
+<button type="button" class="swatch" data-group="floor" data-value="light-oak" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(18deg,#c2b49b,#c2b49b 9px,#ab9e8a 10px,#d9cbb3 17px)"></span><span class="swatch-name">Светлый дуб · +350 €</span></button>
 </div></section>
-<section class="group"><div class="group-head"><h3><span class="stepno">4</span> Ванная — два покрытия</h3></div>
-<p class="subheading">Плитка на стенах</p><div class="choices" role="group" aria-label="Отделка стен ванной">
-<button type="button" class="swatch" data-group="wall" data-value="marble" aria-pressed="true"><span class="swatch-color" style="background:linear-gradient(125deg,#f8f7f3 23%,#aaa9a6 24%,#f5f4ef 27%,#e8e9e5 71%,#999f9c 73%,#f6f6f1 77%)"></span><span class="swatch-name">Белый мрамор</span></button>
-<button type="button" class="swatch" data-group="wall" data-value="ash" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(0deg,#c1c5c0,#c1c5c0 20px,#929b94 21px)"></span><span class="swatch-name">Серый</span></button>
-<button type="button" class="swatch" data-group="wall" data-value="cream" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(0deg,#d9c9b2,#d9c9b2 20px,#bbab91 21px)"></span><span class="swatch-name">Песочный</span></button>
-</div><div class="divider-mini"></div><p class="subheading">Плитка на полу</p><div class="choices" role="group" aria-label="Отделка пола ванной">
-<button type="button" class="swatch" data-group="bathfloor" data-value="light" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(0deg,#bfc3c0,#bfc3c0 18px,#959a99 19px)"></span><span class="swatch-name">Светло-серая</span></button>
-<button type="button" class="swatch" data-group="bathfloor" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background:repeating-linear-gradient(0deg,#454a4a,#454a4a 18px,#303536 19px)"></span><span class="swatch-name">Чёрная матовая</span></button>
-<button type="button" class="swatch" data-group="bathfloor" data-value="beige" aria-pressed="false"><span class="swatch-color" style="background:repeating-linear-gradient(0deg,#bcaa92,#bcaa92 18px,#99866d 19px)"></span><span class="swatch-name">Бежевый камень</span></button>
+<section class="group"><div class="group-head"><h3><span class="stepno">4</span> Ванная · сочетание материалов</h3></div><p class="bath-help">Переключайте готовые сочетания, для которых уже есть изображения.</p><div class="bath-preset-list" role="group" aria-label="Сочетание материалов ванной">
+<button type="button" class="bath-preset" data-group="bathPreset" data-value="marble" aria-pressed="true"><img src="assets/images/C.webp" alt="" loading="lazy"><span><strong>Белый мрамор + чёрная матовая</strong><small>Контрастная отделка</small></span><span class="delta">+2 100 €</span></button>
+<button type="button" class="bath-preset" data-group="bathPreset" data-value="warm" aria-pressed="false"><img src="assets/images/D.webp" alt="" loading="lazy"><span><strong>Камень тауп + тёплая доска</strong><small>Природные материалы</small></span><span class="delta">+1 450 €</span></button>
 </div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">5</span> Комплектация</h3></div><div class="packages" role="group" aria-label="Комплектация">
 <button type="button" class="option-card" data-group="pack" data-value="basic" aria-pressed="false"><span><strong>Basic</strong><small>Конструкция, окна, отделка и инженерный минимум</small></span><span class="delta">В базе</span></button>
