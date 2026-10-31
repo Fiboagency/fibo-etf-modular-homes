@@ -82,38 +82,42 @@ dialog{border:1px solid #e1e8dd;border-radius:20px;padding:0;width:min(470px,cal
 "use strict";
 var models={"60":78000,"80":92000,"100":108000};
 var palette={
- facade:{graphite:["Антрацит","#343b3d"],sand:["Песочный","#bfa98d"],burgundy:["Бургунди","#693942"],moss:["Оливковый","#545e49"]},
- floor:{oak:["Дуб","#c6a87c",0],grey:["Серый","#969d9c",450],cherry:["Вишня","#91614b",650]},
- wall:{marble:["Белый мрамор","#eeede8",1400],ash:["Серый","#c4c8c3",0],cream:["Песочный","#decdb5",800]},
- bathfloor:{light:["Светло-серая","#b8c0bd",0],graphite:["Чёрная матовая","#45494a",700],beige:["Бежевый камень","#baa790",500]},
+ facade:{graphite:["Антрацит","K"],natural:["Натуральное дерево","A"],burgundy:["Бургунди","J"]},
+ floor:{oak:["Дуб","E",0],grey:["Серый","G",450],cherry:["Вишня","F",650],"light-oak":["Светлый дуб","H",350]},
+ bathPreset:{marble:["Белый мрамор / чёрная матовая плитка","C",2100],warm:["Камень тауп / тёплая древесина","D",1450]},
  pack:{basic:["Basic",0],comfort:["Comfort",8900],premium:["Premium",17900]}
 };
-var state={model:"80",facade:"graphite",floor:"oak",wall:"marble",bathfloor:"graphite",pack:"comfort",terrace:false,pump:true,windows:1,layout:"standard",view:"exterior"};
+var state={model:"80",facade:"graphite",floor:"oak",bathPreset:"marble",pack:"comfort",terrace:false,pump:true,windows:1,layout:"standard",view:"exterior",light:"day"};
 var format=function(n){return new Intl.NumberFormat("ru-RU",{maximumFractionDigits:0}).format(n)+" €";};
 var escapeHtml=function(s){return String(s).replace(/[&<>"']/g,function(x){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x];});};
 function calc(){var parts=[
 ["Дом "+state.model+" м²",models[state.model]],
 ["Комплектация "+palette.pack[state.pack][0],palette.pack[state.pack][1]],
 ["Пол: "+palette.floor[state.floor][0],palette.floor[state.floor][2]],
-["Стены ванной: "+palette.wall[state.wall][0],palette.wall[state.wall][2]],
-["Пол ванной: "+palette.bathfloor[state.bathfloor][0],palette.bathfloor[state.bathfloor][2]]
+["Ванная: "+palette.bathPreset[state.bathPreset][0],palette.bathPreset[state.bathPreset][2]]
 ];if(state.terrace)parts.push(["Терраса",6200]);if(state.pump)parts.push(["Тепловой насос",3900]);if(state.windows)parts.push(["Мансардные окна × "+state.windows,1100*state.windows]);return {parts:parts,total:parts.reduce(function(n,p){return n+p[1];},0)};}
 function text(id,v){document.getElementById(id).textContent=v;}
 function showScene(view){state.view=view;["exterior","floor","bathroom"].forEach(function(name){document.getElementById("scene-"+name).classList.toggle("active",name===view);document.querySelector('[data-view="'+name+'"]').setAttribute("aria-selected",String(name===view));});
 var index={"exterior":"01 / Экстерьер","floor":"02 / Интерьер","bathroom":"03 / Ванная"};text("viewIndex",index[view]);updateSceneLabel();}
-function updateSceneLabel(){var s=state.view==="exterior"?"Фасад: "+palette.facade[state.facade][0]:state.view==="floor"?"Напольное покрытие: "+palette.floor[state.floor][0]:"Ванная: "+palette.wall[state.wall][0]+" + "+palette.bathfloor[state.bathfloor][0];text("sceneLabel",s);}
-function pills(){return ["ETF "+state.model+" м²",palette.facade[state.facade][0],palette.floor[state.floor][0],"Ванная: "+palette.wall[state.wall][0]+" / "+palette.bathfloor[state.bathfloor][0],palette.pack[state.pack][0],state.windows+" мансардн. окн."].map(function(v){return '<span class="summary-pill">'+escapeHtml(v)+"</span>";}).join("");}
-function render(){document.documentElement.style.setProperty("--facade",palette.facade[state.facade][1]);document.documentElement.style.setProperty("--floor",palette.floor[state.floor][1]);document.documentElement.style.setProperty("--wall",palette.wall[state.wall][1]);document.documentElement.style.setProperty("--bathfloor",palette.bathfloor[state.bathfloor][1]);
+function updateSceneLabel(){var s=state.view==="exterior"?"Фасад: "+palette.facade[state.facade][0]+(state.light==="night"&&state.facade==="natural"?" · ночь":""):state.view==="floor"?"Напольное покрытие: "+palette.floor[state.floor][0]:"Ванная: "+palette.bathPreset[state.bathPreset][0];text("sceneLabel",s);}
+function pills(){return ["ETF "+state.model+" м²",palette.facade[state.facade][0],palette.floor[state.floor][0],"Ванная: "+palette.bathPreset[state.bathPreset][0],palette.pack[state.pack][0],state.windows+" мансардн. окн."].map(function(v){return '<span class="summary-pill">'+escapeHtml(v)+"</span>";}).join("");}
+function render(){
+var extFile=(state.facade==="natural"&&state.light==="night")?"B":palette.facade[state.facade][1];
+var ext=document.getElementById("photo-exterior");ext.src="assets/images/"+extFile+".webp";ext.alt="Фасад "+palette.facade[state.facade][0]+(extFile==="B"?", ночной вид":"");
+var floorImg=document.getElementById("photo-floor");floorImg.src="assets/images/"+palette.floor[state.floor][1]+".webp";floorImg.alt="Пол: "+palette.floor[state.floor][0];
+var bathImg=document.getElementById("photo-bathroom");bathImg.src="assets/images/"+palette.bathPreset[state.bathPreset][1]+".webp";bathImg.alt="Ванная: "+palette.bathPreset[state.bathPreset][0];
+document.querySelectorAll("[data-light]").forEach(function(btn){btn.setAttribute("aria-pressed",String(state.light===btn.dataset.light));btn.disabled=(btn.dataset.light==="night"&&state.facade!=="natural");});
 document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.setAttribute("aria-pressed",String(state[btn.dataset.group]===btn.dataset.value));});
 document.getElementById("terrace").checked=state.terrace;document.getElementById("pump").checked=state.pump;
 text("windowCount",state.windows);document.getElementById("lessWindow").disabled=state.windows===0;document.getElementById("moreWindow").disabled=state.windows===3;
 var result=calc();text("totalPrice",format(result.total));document.getElementById("breakdown").innerHTML=result.parts.map(function(p){return '<div class="line"><span>'+escapeHtml(p[0])+'</span><strong>'+format(p[1])+"</strong></div>";}).join("");document.getElementById("summaryPills").innerHTML=pills();document.getElementById("requestPills").innerHTML=pills();updateSceneLabel();}
-document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.dataset.group;state[group]=btn.dataset.value;if(group==="facade")showScene("exterior");if(group==="floor")showScene("floor");if(group==="wall"||group==="bathfloor")showScene("bathroom");render();});});
+document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.dataset.group;state[group]=btn.dataset.value;if(group==="facade"){if(state.facade!=="natural")state.light="day";showScene("exterior");}if(group==="floor")showScene("floor");if(group==="bathPreset")showScene("bathroom");render();});});
+document.querySelectorAll("[data-light]").forEach(function(btn){btn.addEventListener("click",function(){if(btn.disabled)return;state.light=btn.dataset.light;showScene("exterior");render();});});
 document.querySelectorAll("[data-view]").forEach(function(btn){btn.addEventListener("click",function(){showScene(btn.dataset.view);});});
 ["terrace","pump"].forEach(function(k){document.getElementById(k).addEventListener("change",function(e){state[k]=e.target.checked;render();});});
 document.getElementById("lessWindow").addEventListener("click",function(){state.windows=Math.max(0,state.windows-1);render();});
 document.getElementById("moreWindow").addEventListener("click",function(){state.windows=Math.min(3,state.windows+1);render();});
-function summary(name,email){var data=calc();return ["ETF HOMES / DEMO CONFIGURATION","Независимый демонстрационный прототип Fibo Agency","Дата: 01.11.2026","Это не коммерческое предложение. Все цены вымышлены.","","Модель: "+state.model+" м²","Фасад: "+palette.facade[state.facade][0],"Напольное покрытие: "+palette.floor[state.floor][0],"Стены ванной: "+palette.wall[state.wall][0],"Пол ванной: "+palette.bathfloor[state.bathfloor][0],"Комплектация: "+palette.pack[state.pack][0],"Терраса: "+(state.terrace?"да":"нет"),"Тепловой насос: "+(state.pump?"да":"нет"),"Мансардные окна: "+state.windows,"Планировка: "+(state.layout==="standard"?"стандартная":"зеркальная"),name?"Имя: "+name:"",email?"Email: "+email:"","","Расчёт:",...data.parts.map(function(p){return p[0]+": "+format(p[1]);}),"ИТОГО (демонстрация): "+format(data.total),"","Заявка не отправлена. Для реальной отправки требуется backend, согласованные цены и правила обработки данных."].filter(function(x){return x!==null;}).join("\n");}
+function summary(name,email){var data=calc();return ["ETF HOMES / DEMO CONFIGURATION","Независимый демонстрационный прототип Fibo Agency","Дата: 01.11.2026","Это не коммерческое предложение. Все цены вымышлены.","","Модель: "+state.model+" м²","Фасад: "+palette.facade[state.facade][0],"Напольное покрытие: "+palette.floor[state.floor][0],"Отделка ванной: "+palette.bathPreset[state.bathPreset][0],"Комплектация: "+palette.pack[state.pack][0],"Терраса: "+(state.terrace?"да":"нет"),"Тепловой насос: "+(state.pump?"да":"нет"),"Мансардные окна: "+state.windows,"Планировка: "+(state.layout==="standard"?"стандартная":"зеркальная"),name?"Имя: "+name:"",email?"Email: "+email:"","","Расчёт:",...data.parts.map(function(p){return p[0]+": "+format(p[1]);}),"ИТОГО (демонстрация): "+format(data.total),"","Заявка не отправлена. Для реальной отправки требуется backend, согласованные цены и правила обработки данных."].filter(function(x){return x!==null;}).join("\n");}
 function download(name,email){var blob=new Blob([summary(name,email)],{type:"text/plain;charset=utf-8"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="etf-demo-configuration.txt";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);}
 document.getElementById("downloadSummary").addEventListener("click",function(){download("","");});
 var dialog=document.getElementById("requestDialog");document.getElementById("openRequest").addEventListener("click",function(){text("requestStatus","");dialog.showModal();});document.getElementById("closeRequest").addEventListener("click",function(){dialog.close();});
