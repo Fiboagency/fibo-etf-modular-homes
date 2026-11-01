@@ -250,14 +250,14 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 @media(max-width:840px){.mobile-view-action{display:block}.config-tools{justify-content:space-between;flex-wrap:wrap}}
 
 /* Preview UX: image pinned alongside options, current estimate pinned inside configuration. */
-@media(min-width:841px){.showcase{position:sticky;top:16px;align-self:start}.scene{height:clamp(360px,55vh,660px);min-height:0;aspect-ratio:auto}.photo-scene img{width:100%;height:100%;object-fit:cover}}
+@media(min-width:841px){.showcase{position:sticky;top:36px;align-self:start}.scene{height:clamp(310px,48vh,535px);min-height:0;aspect-ratio:auto}.photo-scene img{width:100%;height:100%;object-fit:cover}}
 .config{overflow:visible}
-.sticky-quote{position:sticky;top:10px;z-index:21;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 26px;background:#e8e7df;border-block:1px solid #ccd1c5;box-shadow:0 5px 16px #17251a12}
+.summary-quote{position:static;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:13px;padding:13px 0 0;background:transparent;border-top:1px solid #c6c7bb;box-shadow:none}
 .quick-total{min-width:0;display:flex;flex-direction:column;gap:4px}
 .quick-total-label{font-size:9px;letter-spacing:.13em;font-weight:700;color:#425d49}
-.quick-total output{font-family:var(--type-editorial);font-size:clamp(25px,2.2vw,31px);line-height:1.05;white-space:nowrap;color:#202d23}
-.quick-cta{background:#314338;color:#fff;border:1px solid #314338;border-radius:2px;font-size:11px;font-weight:700;padding:12px 14px;line-height:1.35;max-width:185px;text-align:center}
-.quick-cta:hover{background:#233629}
+.quick-total output{font-family:var(--type-editorial);font-size:clamp(23px,2vw,29px);line-height:1.05;white-space:nowrap;color:#202d23}
+.quick-cta{background:transparent;color:#314338;border:1px solid #acb7a9;border-radius:2px;font-size:11px;font-weight:700;padding:10px 12px;line-height:1.35;max-width:205px;text-align:center}
+.quick-cta:hover{background:#e5e9e0}
 .quick-cta:focus-visible,.theme-choice:focus-visible{outline:3px solid #829d7f;outline-offset:3px}
 .theme-nav{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid #9da69a;background:#e7e6df}
 .theme-choice{display:inline-flex;align-items:center;justify-content:center;min-height:34px;min-width:62px;padding:7px 10px;font-size:11px;font-weight:700;letter-spacing:.01em;color:#314338;text-decoration:none}
@@ -306,11 +306,13 @@ body[data-theme="nightfall"] .quantity button{background:#3e463e;color:#f1ece3}
 body[data-theme="nightfall"] .quantity output{color:#f1ece3}
 body[data-theme="nightfall"] .switch-track{background:#637063}
 body[data-theme="nightfall"] .switch input:checked+.switch-track{background:#bd9c70}
-body[data-theme="nightfall"] .sticky-quote{background:#1e2420;border-color:#786b55;box-shadow:0 5px 18px #0005}
+body[data-theme="nightfall"] .summary-quote{background:transparent;border-color:#4f574e;box-shadow:none}
 body[data-theme="nightfall"] .quick-total-label,body[data-theme="nightfall"] .total-top small{color:#d9b88a}
 body[data-theme="nightfall"] .quick-total output,body[data-theme="nightfall"] .total-top strong{color:#f4efe5}
-body[data-theme="nightfall"] .quick-cta,body[data-theme="nightfall"] .cta{background:#bd9c70;border-color:#bd9c70;color:#171b19}
-body[data-theme="nightfall"] .quick-cta:hover,body[data-theme="nightfall"] .cta:hover{background:#dac19b}
+body[data-theme="nightfall"] .quick-cta{background:transparent;border-color:#bd9c70;color:#e7cda5}
+body[data-theme="nightfall"] .cta{background:#bd9c70;border-color:#bd9c70;color:#171b19}
+body[data-theme="nightfall"] .quick-cta:hover{background:#394036}
+body[data-theme="nightfall"] .cta:hover{background:#dac19b}
 body[data-theme="nightfall"] .total-notice,body[data-theme="nightfall"] .breakdown .line{color:#cbcec1}
 body[data-theme="nightfall"] .breakdown{border-color:#4d574d}
 body[data-theme="nightfall"] .breakdown .line strong{color:#f1ece3}
@@ -321,9 +323,18 @@ body[data-theme="nightfall"] .modal-content p,body[data-theme="nightfall"] .fiel
 body[data-theme="nightfall"] .field input{background:#303932;border-color:#969582;color:#f1ece3}
 body[data-theme="nightfall"] .close{background:#3e493f;color:#f1ece3}
 body[data-theme="nightfall"] .smallnote{color:#d1bea1}
-@media(max-width:840px){.showcase{position:static}.sticky-quote{top:0}.quick-cta{max-width:175px}}
-@media(max-width:500px){.top-note .demo-tag{display:none}.theme-choice{min-width:48px;padding:8px 5px;font-size:10px}.theme-nav{gap:0;padding:2px}.top-inner{gap:8px}.top-note{gap:7px}.sticky-quote{padding:12px 13px;gap:8px}.quick-total-label{font-size:8px}.quick-total output{font-size:25px}.quick-cta{font-size:10px;padding:9px;max-width:150px}}
+@media(max-width:840px){.showcase{position:static}.quick-cta{max-width:190px}}
+@media(max-width:500px){.top-note .demo-tag{display:none}.theme-choice{min-width:48px;padding:8px 5px;font-size:10px}.theme-nav{gap:0;padding:2px}.top-inner{gap:8px}.top-note{gap:7px}.summary-quote{padding:12px 0 0;gap:10px}.quick-total-label{font-size:8px}.quick-total output{font-size:25px}.quick-cta{font-size:10px;padding:9px;max-width:162px}}
 @media(prefers-reduced-motion:reduce){.theme-choice{transition:none}}
+
+
+/* The compact estimate lives below the visual inside the selected-configuration
+   block. It does not cover the right-side controls. */
+@media(min-width:841px){
+ .showcase .below-card{padding:18px 24px 20px}
+ .showcase .summary-pills{margin-top:12px;gap:6px}
+ .showcase .summary-pill{padding:7px 9px}
+}
 
 </style>
 </head>
@@ -341,10 +352,10 @@ body[data-theme="nightfall"] .smallnote{color:#d1bea1}
 <div class="visual-bottom"><div class="visual-light"><div class="day-night" role="group" aria-label="Освещение экстерьера"><button type="button" class="light-choice" data-light="day" aria-pressed="true">День</button><button type="button" class="light-choice" data-light="night" aria-pressed="false" disabled>Ночь </button></div></div><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" id="view-tab-exterior" role="tab" aria-controls="scene-exterior" tabindex="0" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" id="view-tab-floor" role="tab" aria-controls="scene-floor" tabindex="-1" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" id="view-tab-bathroom" role="tab" aria-controls="scene-bathroom" tabindex="-1" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
 </div>
 <p class="photo-disclaimer">Изображения демонстрационные и не подтверждают технические характеристики дома.</p>
-<div class="below-card"><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
+<div class="below-card"><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div class="summary-quote" aria-label="Демонстрационный расчёт"><div class="quick-total"><span class="quick-total-label">ДЕМОНСТРАЦИОННЫЙ РАСЧЁТ</span><output id="quickPrice" aria-live="polite" aria-atomic="true">108 000 €</output></div><button class="quick-cta" type="button" id="quickRequest">Посмотреть демо-заявку <span aria-hidden="true">↗</span></button></div>
+<div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
 <aside class="config" aria-label="Параметры дома">
 <div class="config-title"><div class="config-overline">КОНФИГУРАТОР</div><h2>Параметры дома</h2><p class="help">Выберите материалы и комплектацию. Изменения отразятся на визуализации или в демонстрационном расчёте.</p><div class="config-tools"><button id="viewChanges" type="button" class="mobile-view-action">↑ Посмотреть изменения</button><button id="resetConfig" type="button" class="reset-action">Сбросить настройки</button></div></div>
-<div class="sticky-quote" aria-label="Демонстрационный расчёт"><div class="quick-total"><span class="quick-total-label">ДЕМОНСТРАЦИОННЫЙ РАСЧЁТ</span><output id="quickPrice" aria-live="polite" aria-atomic="true">108 000 €</output></div><button class="quick-cta" type="button" id="quickRequest">Посмотреть демо-заявку <span aria-hidden="true">↗</span></button></div>
 <section class="group"><div class="group-head"><h3><span class="stepno">1</span> Размер дома</h3></div><div class="choices" role="group" aria-label="Размер дома"><button class="model" data-group="model" data-value="60" aria-pressed="false" type="button"><strong>60 м²</strong></button><button class="model" data-group="model" data-value="80" aria-pressed="true" type="button"><strong>80 м²</strong></button><button class="model" data-group="model" data-value="100" aria-pressed="false" type="button"><strong>100 м²</strong></button></div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">2</span> Цвет фасада</h3></div><div class="choices facade-choices" role="group" aria-label="Цвет фасада">
 <button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background-image:url('assets/images/K.webp')"></span><span class="swatch-name">Антрацит</span></button>
