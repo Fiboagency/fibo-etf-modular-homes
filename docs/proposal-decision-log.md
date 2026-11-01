@@ -13,13 +13,22 @@ Status: Fibo Agency owner-approved approach; not yet a client agreement.
 
 6. **Localization:** The client provides the source descriptions, model details and technical specifications. Fibo Agency prepares LV, EN, LT, ET and RU translations for the client's review and sign-off. Specialist language proofreading, if needed, is scoped and priced separately. The admin panel must allow per-language content edits. Neither language quality nor the technical accuracy of source specifications is assumed approved until client sign-off.
 
+7. **Schedule:** Use phased delivery. Define an agreed MVP and prioritize its required features, with additional enhancements in later stages. Do not guarantee the client's desired 3–6 week delivery window without technical scope, asset readiness, acceptance criteria and effort assessment. Provide a realistic schedule after estimating and agreeing the scope.
+
 ## Open matters
 
 - Details of admin panel permissions, supported edits and enquiry email/anti-spam delivery.
 - Catalogue models/options and pricing logic.
 - Translation workflow, proofreader choice, translation volume and client approval of all five locales.
-- Milestones, delivery schedule, acceptance criteria.
+- MVP boundaries, implementation milestones, delivery schedule and acceptance criteria; identify what is mandatory in the first release.
 - Separate commercial estimates for the website, configurator, administration, localization, visual production and support.
+
+## Next actions
+
+- Prepare client-facing response for Fibo Agency approval, emphasizing a bespoke prototype and explicitly distinguishing demonstration-only behavior from production features.
+- Collect the client's six-plus house model data, source materials and price/option rules; clarify budget range, priorities and target launch conditions.
+- Produce scoped technical specification and separate cost estimates, then establish delivery milestones and acceptance criteria.
+- Obtain owner approval before sending any client communication or committing to budget/timeline.
 
 ## Demonstrator limitations
 
