@@ -70,3 +70,18 @@ Status: OWNER REVIEW / PREVIEW ONLY
 - Mobile/facade/price extended automation timed out; corresponding responsive and extended interaction criteria remain **NOT_CHECKED**. No claims of a complete mobile or accessibility audit.
 - No new Render services or separate review URLs were created; main and client production remain unchanged.
 - Next: owner reviews this exact URL and requests direct iterations in the current prototype; verify mobile/edge states as needed.
+
+## Owner-requested UX adjustment — 2026-11-01, in-place
+
+Owner reviewed scrolled desktop screenshot and requested (1) more breathing room above the sticky left image, approximately matching the page side gutter, and (2) move the compact calculation away from the sticky RIGHT configuration panel to the area below the image on the LEFT, adjacent to the selected-configuration pills.
+
+Implemented directly in the existing owner-preview source branch, without a new site or feature branch:
+- `prototype/index.html`, commit `648ad75478612d41e31aa7bf10dcfc2bbc767ab4`.
+- Desktop sticky left visual top offset changed 16px → 36px; visual height `clamp(310px,48vh,535px)` supports room for quote and selections beneath it.
+- `quickPrice` and `quickRequest` relocated into left `.below-card`, under `ВЫБРАННАЯ КОНФИГУРАЦИЯ`. No sticky overlay inside right configuration. Compact quote uses minimal outline CTA and no elevation, including Nightfall theme.
+- Reuses original `calc()`, `quickRequest` handler and the bottom detailed total. Original RU/LV localization intact.
+- Source validation: one `quickPrice`, left of `<aside class="config">`; one bottom `totalPrice`; JavaScript inline source parsed; both theme styling paths preserved.
+- In-place Render deploy `dep-dbjerg5g1s2s73fhu3ng` of the exact HTML commit finished with status `live`; unchanged URL https://fibo-etf-atelier-owner-preview.onrender.com/.
+- Fresh external rawHTML fetch HTTP 200 confirmed the new price lives within left markup and the right markup no longer contains price overlay. Screenshot capture succeeded. Extended full interactive desktop/mobile QA did not complete (browser automation timeout) and remains NOT_CHECKED.
+
+Next: owner visual review of same URL, particularly at scrolled desktop position and on narrow laptop screens; adjust directly there if requested.
