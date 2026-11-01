@@ -225,12 +225,135 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
 
+
+/* Nightfall Residence — independent visual language for the same configurator */
+.theme-copy-b,.headline-b,.below-b,.config-title-b{display:none!important}
+.theme-nav{display:inline-flex;gap:3px;align-items:center;padding:4px;border:1px solid #929b8e;background:#e7e4da}
+.theme-choice{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.055em;min-width:93px;min-height:35px;font-weight:700;color:#314338;padding:7px 11px;transition:background-color .2s ease,color .2s ease}
+.theme-choice:hover{background:#d2d6c9}
+.theme-choice[aria-current="page"]{background:#314338;color:#fff}
+.theme-choice:focus-visible{outline:3px solid #9aa893;outline-offset:2px}
+body[data-theme="nightfall"]{
+  background:#171B19;color:#F1ECE3;--ink:#F1ECE3;--muted:#C7C6BC;--border:#424c45;--accent:#BD9C70;--paper:#171B19;--surface:#202623;--forest:#BD9C70;--stone:#171B19;--line:#414942
+}
+body[data-theme="nightfall"] .theme-copy-a,body[data-theme="nightfall"] .headline-a,body[data-theme="nightfall"] .below-a,body[data-theme="nightfall"] .config-title-a{display:none!important}
+body[data-theme="nightfall"] .theme-copy-b{display:initial!important}
+body[data-theme="nightfall"] .headline-b,body[data-theme="nightfall"] .below-b,body[data-theme="nightfall"] .config-title-b{display:block!important}
+body[data-theme="nightfall"] .topbar{background:#171B19;border-color:#3c413a}
+body[data-theme="nightfall"] .brandmark{color:#F6F2E7;letter-spacing:.08em}
+body[data-theme="nightfall"] .brandmark-dot{color:#BD9C70}
+body[data-theme="nightfall"] .brand-identity{border-color:#7a765f}
+body[data-theme="nightfall"] .brand-title{color:#E5DED1}
+body[data-theme="nightfall"] .brand-sub{color:#BDB8AB}
+body[data-theme="nightfall"] .top-note{color:#C8C6B9}
+body[data-theme="nightfall"] .dot{background:#BD9C70}
+body[data-theme="nightfall"] .theme-nav{background:#242925;border-color:#6c6151}
+body[data-theme="nightfall"] .theme-choice{color:#E0C6A2}
+body[data-theme="nightfall"] .theme-choice:hover{background:#393c31}
+body[data-theme="nightfall"] .theme-choice[aria-current="page"]{background:#BD9C70;color:#171B19}
+body[data-theme="nightfall"] .headline{
+  display:grid;grid-template-columns:minmax(0,45%) minmax(0,55%);min-height:510px;margin:31px 0 28px;padding:0;background:#171B19;border:1px solid #363d35;align-items:stretch;gap:0;overflow:hidden
+}
+body[data-theme="nightfall"] .headline-primary{min-width:0;padding:47px 26px 38px 43px;display:flex;flex-direction:column;justify-content:center}
+body[data-theme="nightfall"] .eyebrow{font-size:10px;letter-spacing:.13em;color:#BD9C70;margin-bottom:28px;line-height:1.5}
+body[data-theme="nightfall"] .eyebrow-line{background:#BD9C70}
+body[data-theme="nightfall"] .eyebrow-separator{color:#776a57}
+body[data-theme="nightfall"] .headline h1{font-family:Arial,"Segoe UI",sans-serif;font-size:clamp(48px,5.5vw,83px);line-height:.94;letter-spacing:-.07em;font-weight:700;text-transform:uppercase;color:#F1ECE3;margin:0}
+body[data-theme="nightfall"] .headline h1 em{font-family:Georgia,"Times New Roman",serif;font-size:1.03em;text-transform:none;font-weight:400;letter-spacing:-.085em;color:#BD9C70}
+body[data-theme="nightfall"] .headline-aside{
+  margin:0;min-width:0;border:none;max-width:none;flex:none;padding:0 30px 30px;display:flex;flex-direction:column;justify-content:end;position:relative;isolation:isolate;color:#EEE6DA;
+  background:linear-gradient(180deg,transparent 45%,rgba(13,17,15,.8) 100%),url("assets/images/B.webp") 55% center/cover no-repeat
+}
+body[data-theme="nightfall"] .headline-aside:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#171b193d,transparent 35%);z-index:-1}
+body[data-theme="nightfall"] .hero-index{color:#DECAA5;letter-spacing:.16em;margin-bottom:11px}
+body[data-theme="nightfall"] .intro{color:#F3EEE2;font-size:12px;line-height:1.7;max-width:375px;text-shadow:0 1px 10px #141715}
+body[data-theme="nightfall"] .hero-instruction{color:#DECAA5;font-size:10px;margin-top:14px;letter-spacing:.12em}
+body[data-theme="nightfall"] .config{background:#242A27;border:1px solid #454B42}
+body[data-theme="nightfall"] .config-title{background:#242A27}
+body[data-theme="nightfall"] .config-overline,body[data-theme="nightfall"] .section-kicker{color:#C8A980}
+body[data-theme="nightfall"] .config h2{font-family:Arial,"Segoe UI",sans-serif;font-weight:650;letter-spacing:-.05em;color:#F1ECE3}
+body[data-theme="nightfall"] .config h2 em{font-family:Georgia,serif;font-size:1.1em;font-weight:400;color:#BD9C70}
+body[data-theme="nightfall"] .config .help{color:#CBCBC0}
+body[data-theme="nightfall"] .group{border-color:#444B43}
+body[data-theme="nightfall"] .group h3,body[data-theme="nightfall"] .group .included,body[data-theme="nightfall"] .switch-copy strong{color:#EDEADF}
+body[data-theme="nightfall"] .stepno{border-color:#9D9580;color:#E8D8BE}
+body[data-theme="nightfall"] .model,body[data-theme="nightfall"] .option-card,body[data-theme="nightfall"] .mini-select{background:#2E3530;border-color:#4B554C;color:#F2EEE5}
+body[data-theme="nightfall"] .model strong{color:#F5F1E8}
+body[data-theme="nightfall"] .model small,body[data-theme="nightfall"] .option-card small,body[data-theme="nightfall"] .switch-copy small,body[data-theme="nightfall"] .bath-help{color:#CFD0C5}
+body[data-theme="nightfall"] .model[aria-pressed=true],body[data-theme="nightfall"] .swatch[aria-pressed=true],body[data-theme="nightfall"] .option-card[aria-pressed=true],body[data-theme="nightfall"] .mini-select[aria-pressed=true],body[data-theme="nightfall"] .bath-preset[aria-pressed=true]{background:#3C4035;border-color:#BD9C70;box-shadow:inset 0 0 0 1px #BD9C70}
+body[data-theme="nightfall"] .swatch,body[data-theme="nightfall"] .bath-preset{background:#2D332F;border-color:#4A514A}
+body[data-theme="nightfall"] .swatch-name,body[data-theme="nightfall"] .swatch[aria-pressed=true] .swatch-name{color:#F0E8DC}
+body[data-theme="nightfall"] .bath-preset strong,body[data-theme="nightfall"] .bath-preset .delta,body[data-theme="nightfall"] .option-card strong,body[data-theme="nightfall"] .option-card .delta,body[data-theme="nightfall"] .cost{color:#E8D1B0}
+body[data-theme="nightfall"] .bath-preset small{color:#D0CABF}
+body[data-theme="nightfall"] .day-night .light-choice{background:#2E352F;border-color:#677161;color:#EFE8D8}
+body[data-theme="nightfall"] .day-night .light-choice[aria-pressed=true]{background:#BD9C70;border-color:#BD9C70;color:#171B19}
+body[data-theme="nightfall"] .divider-mini,body[data-theme="nightfall"] .switch-row + .switch-row{background:#454C43;border-color:#454C43}
+body[data-theme="nightfall"] .quantity{border-color:#7C806F}
+body[data-theme="nightfall"] .quantity button{background:#3B453C;color:#F0E7D6}
+body[data-theme="nightfall"] .quantity output{color:#F1EBDD}
+body[data-theme="nightfall"] .switch-track{background:#697466}
+body[data-theme="nightfall"] .switch input:checked + .switch-track{background:#BD9C70}
+body[data-theme="nightfall"] .below-card{border-color:#444b44}
+body[data-theme="nightfall"] .below-card h2{font-family:Arial,"Segoe UI",sans-serif;font-size:clamp(33px,3vw,46px);font-weight:620;letter-spacing:-.055em;text-transform:uppercase;line-height:1.13;color:#F1ECE3}
+body[data-theme="nightfall"] .below-card h2 em{font-family:Georgia,serif;text-transform:none;font-weight:400;color:#BD9C70}
+body[data-theme="nightfall"] .below-card p,body[data-theme="nightfall"] .photo-disclaimer{color:#C9CABF}
+body[data-theme="nightfall"] .side-ornament{color:#BD9C70}
+body[data-theme="nightfall"] .summary-heading{color:#D8C29E;border-color:#555b52}
+body[data-theme="nightfall"] .summary-pill{background:#2B322D;color:#ECE2D1;border-color:#4F564C}
+body[data-theme="nightfall"] .view-counter,body[data-theme="nightfall"] .image-notice{background:#202b26e0;color:#EFDBC0}
+body[data-theme="nightfall"] .view-tabs{background:#1F2A24ee}
+body[data-theme="nightfall"] .view-tab{color:#DAD3C5}
+body[data-theme="nightfall"] .view-tab[aria-selected=true]{background:#BD9C70;color:#171B19}
+body[data-theme="nightfall"] .scene-label{color:#F1ECE3}
+body[data-theme="nightfall"] .total-box{background:#1E2420;border-color:#434b41}
+body[data-theme="nightfall"] .total-top small{color:#D9B88A}
+body[data-theme="nightfall"] .total-top strong{color:#F4EFE5;font-family:Arial,"Segoe UI",sans-serif;font-weight:600;font-size:40px}
+body[data-theme="nightfall"] .total-notice,body[data-theme="nightfall"] .breakdown .line{color:#D2D0C4}
+body[data-theme="nightfall"] .breakdown{border-color:#52594e}
+body[data-theme="nightfall"] .breakdown .line strong{color:#F3E5C9}
+body[data-theme="nightfall"] .cta{background:#BD9C70;color:#171B19}
+body[data-theme="nightfall"] .cta:hover{background:#DAC19B}
+body[data-theme="nightfall"] .cta-secondary{border-color:#BD9C70;color:#E9D5B6}
+body[data-theme="nightfall"] .cta-secondary:hover{background:#303A32}
+body[data-theme="nightfall"] .foot{border-color:#51564c;color:#C9C8BA}
+body[data-theme="nightfall"] .foot strong{color:#F1ECE3}
+body[data-theme="nightfall"] dialog{background:#242A27;border-color:#6B6B5D;color:#F1ECE3}
+body[data-theme="nightfall"] .modal-content p{color:#D7D6C9}
+body[data-theme="nightfall"] .field input{background:#343A34;color:#F5F2E9;border-color:#8D927F}
+body[data-theme="nightfall"] .close{background:#444B43;color:#EFEBDD}
+body[data-theme="nightfall"] .smallnote{color:#D7C9AC}
+body[data-theme="nightfall"] .status{color:#E9CAA0}
+@media(max-width:1100px){
+ body[data-theme="nightfall"] .headline{min-height:470px}
+ body[data-theme="nightfall"] .headline-primary{padding:35px 22px}
+ body[data-theme="nightfall"] .headline h1{font-size:clamp(40px,5vw,68px)}
+}
+@media(max-width:840px){
+ body[data-theme="nightfall"] .headline{grid-template-columns:1fr;min-height:0}
+ body[data-theme="nightfall"] .headline-primary{padding:42px 29px;min-height:370px}
+ body[data-theme="nightfall"] .headline-aside{min-height:355px;padding:0 29px 29px}
+ body[data-theme="nightfall"] .headline h1{font-size:clamp(48px,8vw,77px)}
+}
+@media(max-width:500px){
+ .theme-nav{gap:1px;padding:2px}
+ .theme-choice{font-size:9px;letter-spacing:0;min-width:73px;min-height:31px;padding:5px 7px}
+ body[data-theme="nightfall"] .headline{margin:19px 0 20px}
+ body[data-theme="nightfall"] .headline-primary{padding:30px 19px;min-height:300px}
+ body[data-theme="nightfall"] .headline h1{font-size:clamp(40px,10vw,54px)}
+ body[data-theme="nightfall"] .eyebrow{font-size:9px;margin-bottom:19px}
+ body[data-theme="nightfall"] .headline-aside{min-height:290px;padding:0 19px 19px}
+ body[data-theme="nightfall"] .intro{font-size:11px}
+ body[data-theme="nightfall"] .below-card h2{font-size:32px}
+ body[data-theme="nightfall"] .total-top strong{font-size:34px}
+}
+@media(prefers-reduced-motion:reduce){.theme-choice{transition:none}}
+
 </style>
 </head>
 <body>
-<header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div><div class="brand-sub">Architecture to live in</div></div></div><div class="top-note"><span class="dot"></span><span class="top-status">FIBO AGENCY / Внутренний просмотр</span><span class="demo-tag">КОНЦЕПТ / 01</span></div></div></header>
+<header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div><div class="brand-sub">Architecture to live in</div></div></div><div class="top-note"><span class="dot"></span><span class="top-status">FIBO AGENCY / Внутренний просмотр</span><nav class="theme-nav" aria-label="Варианты дизайна" role="navigation"><a href="?variant=1" class="theme-choice" data-theme-choice="1" aria-current="page">Вариант 1</a><a href="?variant=2" class="theme-choice" data-theme-choice="2">Вариант 2</a></nav></div></div></header>
 <main class="shell">
-<div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> ETF / ARCHITECTURAL ATELIER <span class="eyebrow-separator">—</span> КОНЦЕПЦИЯ</div><h1>Дом, в котором<br><em>хочется жить.</em></h1></div><div class="headline-aside"><span class="hero-index">КОЛЛЕКЦИЯ / 01 — ВАШЕ ПРОСТРАНСТВО</span><p class="intro">Продуманные пропорции. Натуральные материалы. Спокойная архитектура. Настройте будущий дом — от фасада до деталей интерьера.</p><span class="hero-instruction">↓ <span>Выберите материалы и комплектацию</span></span></div></div>
+<div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> <span class="theme-copy-a">ETF / ARCHITECTURAL ATELIER</span><span class="theme-copy-b">ETF / NIGHTFALL RESIDENCE</span><span class="eyebrow-separator">—</span> КОНЦЕПЦИЯ</div><h1 class="headline-a">Дом, в котором<br><em>хочется жить.</em></h1><h1 class="headline-b">ТВОЯ<br><em>частная</em><br>ВСЕЛЕННАЯ.</h1></div><div class="headline-aside"><span class="hero-index"><span class="theme-copy-a">КОЛЛЕКЦИЯ / 01 — ВАШЕ ПРОСТРАНСТВО</span><span class="theme-copy-b">THE ARCHITECTURE OF LIGHT · 02</span></span><p class="intro"><span class="theme-copy-a">Продуманные пропорции. Натуральные материалы. Спокойная архитектура. Настройте будущий дом — от фасада до деталей интерьера.</span><span class="theme-copy-b">Пространство без компромиссов. Выбирайте материалы, детали и атмосферу вашей частной резиденции.</span></p><span class="hero-instruction"><span class="theme-copy-a">↓ Выберите материалы и комплектацию</span><span class="theme-copy-b">NIGHTFALL / PRIVATE RESIDENCES ↗</span></span></div></div>
 <div class="layout">
 <section class="showcase" aria-label="Предпросмотр конфигурации">
 <div class="visual-card">
@@ -241,9 +364,9 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 <div class="visual-bottom"><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" role="tab" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" role="tab" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" role="tab" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
 </div>
 <p class="photo-disclaimer">Демонстрационные визуализации из материалов проекта. Изображения иллюстрируют варианты отделки и не подтверждают техническую спецификацию дома.</p>
-<div class="below-card"><div class="below-heading"><span class="section-kicker">ВАШ ПРОЕКТ / 01</span><span class="side-ornament" aria-hidden="true">✳</span></div><h2>У каждой детали<br><em>свой характер.</em></h2><p>Ваши решения формируют пространство: оттенок фасада, фактуру пола и сочетание материалов ванной. Посмотрите, как меняется настроение дома.</p><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
+<div class="below-card"><div class="below-heading"><span class="section-kicker">ВАШ ПРОЕКТ / 01</span><span class="side-ornament" aria-hidden="true">✳</span></div><h2 class="below-a">У каждой детали<br><em>свой характер.</em></h2><h2 class="below-b">Свет. Материал.<br><em>Атмосфера.</em></h2><p>Ваши решения формируют пространство: оттенок фасада, фактуру пола и сочетание материалов ванной. Посмотрите, как меняется настроение дома.</p><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
 <aside class="config" aria-label="Параметры дома">
-<div class="config-title"><div class="config-overline">КОНФИГУРАТОР / 01–06</div><h2>Создайте своё<br><em>пространство.</em></h2><p class="help">Каждый выбранный материал и опция обновляют визуализацию или демонстрационный расчёт.</p></div>
+<div class="config-title"><div class="config-overline">КОНФИГУРАТОР / 01–06</div><h2 class="config-title-a">Создайте своё<br><em>пространство.</em></h2><h2 class="config-title-b">Искусство<br><em>выбора.</em></h2><p class="help">Каждый выбранный материал и опция обновляют визуализацию или демонстрационный расчёт.</p></div>
 <section class="group"><div class="group-head"><h3><span class="stepno">1</span> Размер дома</h3><span class="included">Один вариант</span></div><div class="choices" role="group" aria-label="Размер дома"><button class="model" data-group="model" data-value="60" aria-pressed="false" type="button"><strong>60 м²</strong><small>Compact</small></button><button class="model" data-group="model" data-value="80" aria-pressed="true" type="button"><strong>80 м²</strong><small>Living</small></button><button class="model" data-group="model" data-value="100" aria-pressed="false" type="button"><strong>100 м²</strong><small>Family</small></button></div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">2</span> Цвет фасада</h3><span class="included">Включено</span></div><div class="choices facade-choices" role="group" aria-label="Цвет фасада">
 <button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background-image:url('assets/images/K.webp')"></span><span class="swatch-name">Антрацит</span></button>
@@ -322,7 +445,29 @@ function download(name,email){var blob=new Blob([summary(name,email)],{type:"tex
 document.getElementById("downloadSummary").addEventListener("click",function(){download("","");});
 var dialog=document.getElementById("requestDialog");document.getElementById("openRequest").addEventListener("click",function(){text("requestStatus","");dialog.showModal();});document.getElementById("closeRequest").addEventListener("click",function(){dialog.close();});
 document.getElementById("requestForm").addEventListener("submit",function(e){e.preventDefault();download(document.getElementById("customerName").value.trim(),document.getElementById("customerEmail").value.trim());text("requestStatus","Файл подготовлен локально. Ничего не отправлено.");});
-showScene("exterior");render();
+/* Theme navigation changes presentation, not the configured product. */
+function themeFromUrl(){return new URLSearchParams(window.location.search).get("variant")==="2"?"2":"1";}
+function applyTheme(version,mutateUrl){
+  version=version==="2"?"2":"1";
+  document.body.dataset.theme=version==="2"?"nightfall":"atelier";
+  document.querySelectorAll("[data-theme-choice]").forEach(function(link){
+    if(link.dataset.themeChoice===version){link.setAttribute("aria-current","page");}
+    else{link.removeAttribute("aria-current");}
+  });
+  document.title="ETF Modular Homes — "+(version==="2"?"Nightfall Residence":"Architectural Atelier")+" · Fibo Agency";
+  if(mutateUrl){
+    var url=new URL(window.location.href);
+    url.searchParams.set("variant",version);
+    window.history.pushState({theme:version},"",url.pathname+url.search+url.hash);
+  }
+}
+document.querySelectorAll("[data-theme-choice]").forEach(function(link){
+  link.addEventListener("click",function(e){e.preventDefault();applyTheme(link.dataset.themeChoice,true);});
+});
+window.addEventListener("popstate",function(){applyTheme(themeFromUrl(),false);});
+var initialVersion=themeFromUrl();
+if(initialVersion==="2"){state.facade="natural";state.light="night";}
+showScene("exterior");render();applyTheme(initialVersion,false);
 })();
 </script>
 </body>
