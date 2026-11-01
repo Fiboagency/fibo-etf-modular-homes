@@ -8,6 +8,8 @@ var sourceNodes=new WeakMap(),sourceAttrs=new WeakMap(),observer;
 function translateRU(str){
 var s=String(str),m;
 if(Object.prototype.hasOwnProperty.call(dict,s))return dict[s];
+if((m=s.match(/^ETF (\d+) м²$/)))return "ETF "+m[1]+" m²";
+if((m=s.match(/^(\d+) м²$/)))return m[1]+" m²";
 if((m=s.match(/^Дом (\d+) м²$/)))return "Māja "+m[1]+" m²";
 if((m=s.match(/^Комплектация (.+)$/)))return "Komplektācija "+translateRU(m[1]);
 if((m=s.match(/^Пол: (.+)$/)))return "Grīda: "+translateRU(m[1]);
