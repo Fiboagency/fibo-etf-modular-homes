@@ -134,3 +134,33 @@ Status: small UI implementation released to existing owner prototype; user accep
 - Source: inline JavaScript syntax parsed; price and accessibility mappings remain present. No changes to pricing data.
 
 **Next:** owner inspects scrolled desktop view and compares facade, floor and bathroom framing. If necessary, adjust only picture framing breakpoints and crop position without reworking approved content.
+
+
+## Owner request: Fibo Agency credit on free demo prototype — 2026-11-01
+
+Owner affirmed the current ETF day/night prototype design and requested modest but visible Fibo Agency attribution with the company's authentic logo at both top and bottom, explicitly emphasizing that Fibo Agency provided the demonstration prototype for free. This is a **prototype credit** only; no claim that a production customer website is complete or free.
+
+### Origin and handling of original identity
+- Source repository: `Fiboagency/fiboagency-website`, `main`.
+- Header mobile symbol: `artifacts/fibo-agency/public/fiboznak.svg` (source blob `7f4b271ca12b4ea651de121f964ef7bb71099ca8`); copied unchanged to `prototype/assets/brand/fibo-symbol.svg`.
+- Header desktop and footer wordmark: `artifacts/fibo-agency/public/brand/fibo-wordmark-cropped.svg` (source blob `1b9c6140ec9cb7165b6fef1d7948378bcad4089b`); copied unchanged to `prototype/assets/brand/fibo-wordmark.svg`.
+- Files self-hosted with the prototype, no hotlink to private GitHub resources and no recreated third-party mark.
+- Official agency link: `https://fiboagency.com/`; the link opens in a new tab with `rel=noopener noreferrer`.
+
+### Implemented within approved scope
+- Header: compact `Прототип by` + authentic Fibo Agency SVG wordmark, with full ETF masthead staying dominant. At <=760px, only authentic Fibo Agency mark is shown to prevent header crowding.
+- Footer: `Концепция для SIA ETF` and a restrained author credit `Бесплатный демонстрационный прототип by` + original agency wordmark; text translated into Latvian `Bezmaksas demonstrācijas prototips`.
+- Dark Nightfall theme inverts the black SVG mark to remain visible and preserves existing bronze/cream text values. Light theme uses original black vector.
+- `prototype/i18n.js`: LV/RU translation keys for the new header/footer text, title and link names; asset version bumped to `20261101-author-credit-v4`.
+- Confirmed original photo framing, config prices, day/night theme switch, demo request UI and customer model texts unchanged.
+- Updated the **existing Render-connected feature branch** directly; no new branches, no new services, no production merge.
+
+### Deployment and verification
+- Code commit `aa7d0c6ba0c6fa24b01ab880a7b1c21e74bdbf3a`; localization commit `31b6f05330532e314ae4ba08c2ffe5a26be18d97`.
+- Existing Render service `srv-dbj7148473hc73bb1k7g` in workspace `tea-dba7n2gm7kps73fq8j30`, static site URL `https://fibo-etf-atelier-owner-preview.onrender.com/`.
+- Render deploy `dep-dbjf9retlv9c73d2cb1g` returned **live** on exact HEAD `31b6f05330532e314ae4ba08c2ffe5a26be18d97`.
+- Live rendered page: HTTP 200, both author-credit regions and actual local logo URLs in HTML; Latvian free-demo wording visible.
+- Firecrawl read-only desktop QA at ~1440px: ETF remains prominent, branded credit visible, header controls unaffected, footer linked wordmark present, dark theme remains visible.
+- Firecrawl responsive QA at 390×844: ETF header x16–182.2px; Fibo mobile mark x192–225px (symbol x198–219px); Day/Night x231–321px; language selector x327–359px; no overlaps or horizontal overflow; footer wordmark visible x226.5–341.5px.
+- Remaining: actual human artistic approval of the co-branding treatment in both themes; full keyboard/screen reader evaluation, exhaustive viewport testing and independent screenshot review are not claimed.
+- Project stage: Owner preview branded; **next task** is owner visual sign-off. Preserve exact style/functional baselines for any further iteration.
