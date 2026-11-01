@@ -27,6 +27,9 @@ window.etfLang=function(){return language;};
 function translateNow(){
 if(observer)observer.disconnect();
 document.documentElement.lang=language;
+document.title=language==="lv"?"ETF Homes — moduļu māju konfiguratora prototips · Fibo Agency":"ETF Homes — интерактивный прототип конфигуратора · Fibo Agency";
+var description=document.querySelector('meta[name="description"]');
+if(description)description.content=language==="lv"?"Interaktīvs moduļu māju konfiguratora demonstrācijas prototips SIA ETF prezentācijai.":"Интерактивный демонстрационный прототип конфигуратора модульных домов для презентации SIA ETF.";
 var select=document.getElementById("siteLanguage");if(select)select.value=language;
 var it=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),items=[],node;
 while((node=it.nextNode()))items.push(node);
