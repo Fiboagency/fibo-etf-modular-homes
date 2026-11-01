@@ -56,3 +56,17 @@ Status: OWNER REVIEW / PREVIEW ONLY
 - SELECTED: preserve the current light copy/layout instead of merging the older dual concept HTML, which would have overwritten LV text and localization.
 - SELECTED: sticky in-flow price rather than a fixed overlay, to reduce occlusion.
 - OWNER APPROVAL PENDING: this new revision, final sticky placement, and night visual treatment.
+
+
+## In-place owner preview release — 2026-11-01
+
+- Owner explicitly authorized updating the existing **single** owner-preview URL, instead of creating any additional test sites or branching more prototypes.
+- GitHub PR #6 merged into the branch already linked to the owner-preview: `feature/etf-architectural-atelier-ui-20261101`, merge SHA `c2fdc792f45f2fa1104025caa1c3d27ef6f75dba`.
+- Render service: `fibo-etf-atelier-owner-preview` (`srv-dbj7148473hc73bb1k7g`), static site publishing `prototype/`; manual deployment because `autoDeploy=no`.
+- New deploy `dep-dbjejtfb9u1s73dqdd00`: final status **live** with merge SHA `c2fdc792f45f2fa1104025caa1c3d27ef6f75dba`.
+- Unchanged canonical preview: https://fibo-etf-atelier-owner-preview.onrender.com/
+- Published raw HTML fetch: HTTP 200; confirmed `theme-nav`, `quickPrice`, night-theme CSS, photo mappings and asset references are present.
+- Independent browser read-only check (LV): main header contains `Diena/Nakts`, initial compact estimate **108 000 €**; switching theme to Night sets page background `rgb(23,27,25)` and anthracite-night.webp; returning Day shows K.webp; estimate unchanged and no browser errors observed in this path. Sticky CSS positions were reported active during desktop scroll.
+- Mobile/facade/price extended automation timed out; corresponding responsive and extended interaction criteria remain **NOT_CHECKED**. No claims of a complete mobile or accessibility audit.
+- No new Render services or separate review URLs were created; main and client production remain unchanged.
+- Next: owner reviews this exact URL and requests direct iterations in the current prototype; verify mobile/edge states as needed.
