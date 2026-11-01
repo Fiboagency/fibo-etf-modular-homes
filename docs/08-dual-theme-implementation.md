@@ -38,3 +38,14 @@
 5. Кнопка назад/вперёд браузера меняет тему, не сбрасывая конфигурацию.
 6. Обе версии показывают действующие пересчёты, формы и ограничение количества окон.
 7. Desktop 1440×960 и mobile 390×844: видимые кадры и отсутствие горизонтальной прокрутки, проверить реальную страницу после live deploy.
+
+## Публикация для просмотра Fibo Agency — 2026-11-01
+
+Отдельный Render Static Site `fibo-etf-dual-concept-preview` подключён к рабочей ветке `feature/etf-dual-theme-switcher-20261101`. Auto deploy выключен. Это **демонстрационный сайт для внутреннего просмотра владельцем**, а не согласованная клиентская production-публикация.
+
+- Вариант 1: https://fibo-etf-dual-concept-preview.onrender.com/?variant=1
+- Вариант 2: https://fibo-etf-dual-concept-preview.onrender.com/?variant=2
+- Render service: `srv-dbjdje6tlv9c73cu00e0`, workspace: `tea-dba7n2gm7kps73fq8j30`.
+- Live deploy: `dep-dbjdjvvb9u1s73dnrd90`, code + docs commit `9cc06ab0b61cd62246c1a89ecfea6b13f7511a30`, reported `live`.
+- **Независимая проверка опубликованного URL**: HTTP 200; direct dark URL includes B.webp hero and initially K.webp anthracite facade; initial demo price 108000 EUR. Choosing grey flooring increases demo total to 108450 EUR. Switching to light and back preserves this exact amount and choice. Browser Back changes active theme without clearing configuration. No uncaught JS errors observed. Desktop 1440x960 and mobile 390x844 inspected; mobile scrollWidth 375 for viewport 390, no horizontal overflow observed.
+- Осталось: окончательная клиентская оценка визуальных вариантов, права на изображения, модельные спецификации и реальный прайс, поддержка LV/EN/LT/ET/RU, полный accessibility/performance QA, backend и CRM. `main` и исходный preview Architectural Atelier не изменены.
