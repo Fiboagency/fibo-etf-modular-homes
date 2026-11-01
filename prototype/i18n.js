@@ -20,7 +20,7 @@ if((m=s.match(/^Фасад (.+)$/)))return "Fasāde: "+translateRU(m[1]);
 if((m=s.match(/^Мансардные окна × (\d+)$/)))return "Jumta logi × "+m[1];
 if((m=s.match(/^Мансардные окна: (\d+)$/)))return "Jumta logi: "+m[1];
 if((m=s.match(/^(.+), ночной вид$/)))return translateRU(m[1])+", nakts skats";
-return s;
+return s.replace(/м²/g,"m²");
 }
 window.etfText=function(s){return language==="lv"?translateRU(s):String(s);};
 window.etfLang=function(){return language;};
