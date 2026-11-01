@@ -355,6 +355,53 @@ body[data-theme="nightfall"] .theme-choice:focus-visible,body[data-theme="nightf
 }
 @media(prefers-reduced-motion:reduce){.theme-choice,.visual-light .light-choice{transition:none}}
 
+
+/* ETF preview framing refinement — 2026-11-01.
+   The approved 36px breathing room remains. On normal desktop viewports the
+   image expands into the unused space, while the selected quote rests near
+   the bottom of the visible screen. Nothing is removed from the summary.
+   On shorter windows prefer a naturally proportioned photo and page scrolling
+   over squeezing the house/interior into a thin horizontal strip. */
+@media (min-width:1101px) and (min-height:840px){
+  .showcase{
+    position:sticky;
+    top:36px;
+    align-self:start;
+    display:flex;
+    flex-direction:column;
+    height:calc(100vh - 58px);
+    height:calc(100dvh - 58px);
+    min-height:0;
+  }
+  .showcase .visual-card{
+    flex:1 1 0;
+    min-height:330px;
+  }
+  .showcase .scene{
+    height:100%;
+    min-height:0;
+    aspect-ratio:auto;
+  }
+  .showcase .photo-disclaimer{
+    flex:0 0 auto;
+    margin:10px 0 15px;
+  }
+  .showcase .below-card{
+    flex:0 0 auto;
+    margin:0;
+  }
+}
+@media (min-width:841px) and (max-width:1100px), (min-width:1101px) and (max-height:839px){
+  .showcase .scene{
+    height:auto;
+    aspect-ratio:1.5;
+  }
+}
+@media (min-width:841px) and (max-height:739px){
+  .showcase{position:static;top:auto}
+}
+/* Tablets and phones keep the previously approved single-column flow. */
+
 </style>
 </head>
 <body data-theme="atelier">
