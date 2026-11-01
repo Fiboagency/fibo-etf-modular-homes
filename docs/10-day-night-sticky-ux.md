@@ -115,3 +115,22 @@ Verification:
 
 Current owner-review URL: https://fibo-etf-atelier-owner-preview.onrender.com/
 Status: small UI implementation released to existing owner prototype; user acceptance of this *last icon revision* not yet recorded.
+
+
+## Owner UX review: cropped desktop preview — 2026-11-01
+
+**Input/evidence:** three user-provided screenshots of the existing owner preview (`image(4).png`, `image(5).png`, `image(6).png`) showing daylight facade, marble bathroom and grey-floor interior at scrolled configurator positions. All show a wide, shallow preview image at desktop resolution with unused space beneath the selected-configuration panel. Owner approved the existing themes, controls, top sticky gap and right-hand configurator; requested less cropping and a lower anchored quote/summary.
+
+**Confirmed root cause:** the previous desktop CSS forced `.scene{height:clamp(310px,48vh,535px);aspect-ratio:auto}` with `object-fit:cover`. As left column width increased, this created a landscape strip that cropped meaningful parts of the original photos. This was a geometric framing issue, not an issue with source image quality.
+
+**Change directly in current owner-preview branch:** `prototype/index.html`, commit `ede2b6fbfebed3c8e4b49ae8c19d2e2e06fffb88`.
+- For width >=1101px and viewport height >=840px, left `.showcase` remains sticky with its approved **36px** top offset and now fills available viewport height (`100dvh - 58px`), as a vertical flex stack. The `.visual-card` grows to occupy available space between the top and the bottom summary; image height becomes 100% of that card, with `object-fit:cover` retained but substantially less cropping. The disclaimer and selected configuration/quote are flex-fixed at bottom.
+- For narrower desktop (841–1100px) or short viewports (height <840px), use natural `aspect-ratio:1.5` instead of the prior 48vh strip. For very short desktop windows (<740px), disable sticky left column to avoid hiding the bottom controls.
+- At <=840px width, original mobile single-column layout remains.
+- Preserved: header icon switcher; light/dark themes; RU/LV wording; all facade and interior photos; price calculation, selected summary pills, modal and right-side controls.
+- No new branches or sites; Render service still `fibo-etf-atelier-owner-preview` in workspace `tea-dba7n2gm7kps73fq8j30`.
+- Render deploy `dep-dbjf456tlv9c73d1rje0` confirmed **live** on the exact commit. Same preview URL: https://fibo-etf-atelier-owner-preview.onrender.com/.
+- External Firecrawl HTTP 200 HTML verification confirms normalized CSS rules `@media (min-width: 1101px) and (min-height: 840px)` + `.showcase .visual-card{flex:1 1 0px}`; screenshot generated at 1490×950 but remote image bytes could not be retrieved/viewed. Browser-based rectangle measurements timed out, so after-change pixel QA and regression of all images are **NOT_CHECKED**.
+- Source: inline JavaScript syntax parsed; price and accessibility mappings remain present. No changes to pricing data.
+
+**Next:** owner inspects scrolled desktop view and compares facade, floor and bathroom framing. If necessary, adjust only picture framing breakpoints and crop position without reworking approved content.
