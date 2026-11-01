@@ -41,3 +41,21 @@
 1. Обновить owner-preview Render из ветки после проверки PR.
 2. Проверить на реальном опубликованном URL дневную/ночную версию для всех фасадов и светлый/тёмный стиль.
 3. Собрать замечания владельца о визуальной подаче night-сцен.
+
+## Фактическая публикация и приёмочный smoke test
+
+- PR #5: https://github.com/Fiboagency/fibo-etf-modular-homes/pull/5 — **merged** только в feature/etf-dual-theme-switcher-20261101, НЕ в main.
+- GitHub merge commit: `d770e10efcd2a6f344a9ebe0b813540d04cf7784`.
+- Preview-only Render service: `srv-dbjdje6tlv9c73cu00e0` workspace `tea-dba7n2gm7kps73fq8j30`.
+- Deploy `dep-dbjdsn3bc2fs73chr3kg` has status **live**, source commit `d770e10efcd2a6f344a9ebe0b813540d04cf7784`.
+- URL: https://fibo-etf-dual-concept-preview.onrender.com/?variant=1 and https://fibo-etf-dual-concept-preview.onrender.com/?variant=2
+- Actual published URL browser verification, RU:
+  - HTTP 200.
+  - Daytime initial anthracite K.webp, demonstrational price 108000 €.
+  - Night anthracite `anthracite-night.webp` in both themes plus Nightfall hero.
+  - Night burgundy `burgundy-night.webp` in both themes plus Nightfall hero.
+  - Night natural `B.webp` in both themes plus Nightfall hero.
+  - Price unchanged in each lighting/theme transition (108000 € for default other options).
+  - Desktop viewport 1440x960, scrollWidth 1425 <= 1440; mobile 390x844, scrollWidth 375 <= 390.
+  - No observed JavaScript errors in these interaction paths.
+- Full cross-browser, localization, a11y, performance and client production approvals remain NOT_CHECKED. This is **a Fibo Agency demo only**, not the production website.
