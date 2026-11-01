@@ -261,7 +261,7 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 <div id="scene-exterior" class="scene photo-scene active" role="img" aria-label="Модульный дом в антрацитовом цвете"><img id="photo-exterior" src="assets/images/K.webp" alt="Модульный дом в антрацитовом цвете" decoding="async"></div>
 <div id="scene-floor" class="scene photo-scene" role="img" aria-label="Интерьер с натуральным дубовым полом"><img id="photo-floor" src="assets/images/E.webp" alt="Интерьер с натуральным дубовым полом" decoding="async"></div>
 <div id="scene-bathroom" class="scene photo-scene" role="img" aria-label="Ванная: белый мрамор и чёрная матовая плитка"><img id="photo-bathroom" src="assets/images/C.webp" alt="Ванная: белый мрамор и чёрная матовая плитка" decoding="async"></div>
-<div class="visual-bottom"><div class="visual-light"><div class="day-night" role="group" aria-label="Освещение экстерьера"><button type="button" class="light-choice" data-light="day" aria-pressed="true">День</button><button type="button" class="light-choice" data-light="night" aria-pressed="false" disabled>Ночь <span id="nightHint">(для дерева)</span></button></div></div><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" role="tab" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" role="tab" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" role="tab" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
+<div class="visual-bottom"><div class="visual-light"><div class="day-night" role="group" aria-label="Освещение экстерьера"><button type="button" class="light-choice" data-light="day" aria-pressed="true">День</button><button type="button" class="light-choice" data-light="night" aria-pressed="false" disabled>Ночь <span id="nightHint">(для дерева)</span></button></div></div><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" id="view-tab-exterior" role="tab" aria-controls="scene-exterior" tabindex="0" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" id="view-tab-floor" role="tab" aria-controls="scene-floor" tabindex="-1" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" id="view-tab-bathroom" role="tab" aria-controls="scene-bathroom" tabindex="-1" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
 </div>
 <p class="photo-disclaimer">Изображения демонстрационные и не подтверждают технические характеристики дома.</p>
 <div class="below-card"><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
@@ -333,7 +333,7 @@ function calc(){var parts=[
 ["Ванная: "+palette.bathPreset[state.bathPreset][0],palette.bathPreset[state.bathPreset][2]]
 ];if(state.terrace)parts.push(["Терраса",6200]);if(state.pump)parts.push(["Тепловой насос",3900]);if(state.windows)parts.push(["Мансардные окна × "+state.windows,1100*state.windows]);return {parts:parts,total:parts.reduce(function(n,p){return n+p[1];},0)};}
 function text(id,v){document.getElementById(id).textContent=v;}
-function showScene(view){state.view=view;["exterior","floor","bathroom"].forEach(function(name){document.getElementById("scene-"+name).classList.toggle("active",name===view);document.querySelector('[data-view="'+name+'"]').setAttribute("aria-selected",String(name===view));});
+function showScene(view){state.view=view;["exterior","floor","bathroom"].forEach(function(name){document.getElementById("scene-"+name).classList.toggle("active",name===view);var tab=document.querySelector('[data-view="'+name+'"]');tab.setAttribute("aria-selected",String(name===view));tab.tabIndex=name===view?0:-1;});
 var index={"exterior":"Экстерьер","floor":"Интерьер","bathroom":"Ванная"};text("viewIndex",index[view]);updateSceneLabel();}
 function updateSceneLabel(){var s=state.view==="exterior"?"Фасад: "+palette.facade[state.facade][0]+(state.light==="night"&&state.facade==="natural"?" · ночь":""):state.view==="floor"?"Напольное покрытие: "+palette.floor[state.floor][0]:"Ванная: "+palette.bathPreset[state.bathPreset][0];text("sceneLabel",s);}
 function pills(){
@@ -356,6 +356,14 @@ var result=calc();text("totalPrice",format(result.total));document.getElementByI
 document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.dataset.group;state[group]=btn.dataset.value;if(group==="facade"){if(state.facade!=="natural")state.light="day";showScene("exterior");}if(group==="floor")showScene("floor");if(group==="bathPreset")showScene("bathroom");render();});});
 document.querySelectorAll("[data-light]").forEach(function(btn){btn.addEventListener("click",function(){if(btn.disabled)return;state.light=btn.dataset.light;showScene("exterior");render();});});
 document.querySelectorAll("[data-view]").forEach(function(btn){btn.addEventListener("click",function(){showScene(btn.dataset.view);});});
+document.querySelector(".view-tabs").addEventListener("keydown",function(e){
+var keys=["ArrowLeft","ArrowRight","Home","End"];if(!keys.includes(e.key))return;
+var buttons=Array.from(document.querySelectorAll("[data-view]"));
+var index=buttons.indexOf(document.activeElement);if(index<0)return;
+e.preventDefault();
+var next=e.key==="Home"?0:e.key==="End"?buttons.length-1:(index+(e.key==="ArrowRight"?1:-1)+buttons.length)%buttons.length;
+buttons[next].focus();showScene(buttons[next].dataset.view);
+});
 ["terrace","pump"].forEach(function(k){document.getElementById(k).addEventListener("change",function(e){state[k]=e.target.checked;render();});});
 document.getElementById("lessWindow").addEventListener("click",function(){state.windows=Math.max(0,state.windows-1);render();});
 document.getElementById("moreWindow").addEventListener("click",function(){state.windows=Math.min(3,state.windows+1);render();});
