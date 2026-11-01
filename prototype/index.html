@@ -472,7 +472,6 @@ document.querySelectorAll("[data-theme-choice]").forEach(function(link){
 });
 window.addEventListener("popstate",function(){applyTheme(themeFromUrl(),false);});
 var initialVersion=themeFromUrl();
-if(initialVersion==="2"){state.facade="natural";state.light="night";}
 showScene("exterior");render();applyTheme(initialVersion,false);
 })();
 </script>
