@@ -413,7 +413,7 @@ function calc(){var parts=[
 function text(id,v){document.getElementById(id).textContent=v;}
 function showScene(view){state.view=view;["exterior","floor","bathroom"].forEach(function(name){document.getElementById("scene-"+name).classList.toggle("active",name===view);var tab=document.querySelector('[data-view="'+name+'"]');tab.setAttribute("aria-selected",String(name===view));tab.tabIndex=name===view?0:-1;});
 var index={"exterior":"Экстерьер","floor":"Интерьер","bathroom":"Ванная"};text("viewIndex",index[view]);updateSceneLabel();}
-function updateSceneLabel(){var s=state.view==="exterior"?"Фасад: "+palette.facade[state.facade][0]+(state.light==="night"&&state.facade==="natural"?" · ночь":""):state.view==="floor"?"Напольное покрытие: "+palette.floor[state.floor][0]:"Ванная: "+palette.bathPreset[state.bathPreset][0];text("sceneLabel",s);}
+function updateSceneLabel(){var s=state.view==="exterior"?"Фасад: "+palette.facade[state.facade][0]+(state.light==="night"?" · ночь":""):state.view==="floor"?"Напольное покрытие: "+palette.floor[state.floor][0]:"Ванная: "+palette.bathPreset[state.bathPreset][0];text("sceneLabel",s);}
 function pills(){
 var values=["ETF "+state.model+" м²",palette.facade[state.facade][0],palette.floor[state.floor][0],"Ванная: "+palette.bathPreset[state.bathPreset][0],palette.pack[state.pack][0]];
 if(state.terrace)values.push("Терраса");if(state.pump)values.push("Тепловой насос");
