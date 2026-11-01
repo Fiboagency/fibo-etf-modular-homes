@@ -402,10 +402,56 @@ body[data-theme="nightfall"] .theme-choice:focus-visible,body[data-theme="nightf
 }
 /* Tablets and phones keep the previously approved single-column flow. */
 
+
+/* Cross-brand authorship: Fibo Agency's original wordmark and mark (copied
+   unmodified from the official Fibo Agency website repository).
+   Deliberately secondary to ETF's identity; no floating overlays. */
+.studio-credit{display:inline-flex;align-items:center;justify-content:center;gap:9px;color:#314338;text-decoration:none;white-space:nowrap;transition:background-color .2s ease,border-color .2s ease}
+.studio-credit--top{padding:9px 12px;border:1px solid #b9bbae;background:#e7e6df}
+.studio-credit--top:hover{background:#dbddd3;border-color:#879b88}
+.studio-credit:focus-visible{outline:3px solid #79977a;outline-offset:3px}
+.studio-credit-kicker{font-size:9px;line-height:1.1;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+.studio-credit-kicker em{font-family:var(--type-editorial);font-size:13px;font-style:italic;letter-spacing:0;text-transform:none;font-weight:400}
+.studio-credit-logo{width:104px;height:auto;display:block;flex:none}
+.studio-credit-mark{display:none;width:22px;height:22px;flex:none}
+.foot .footer-project{color:inherit}
+.studio-credit--footer{display:inline-flex;gap:14px;min-height:30px;padding:2px 0}
+.studio-footer-copy{font-size:11px;line-height:1.4;letter-spacing:.025em;font-weight:650;color:#485c4b}
+.studio-footer-copy em{font-family:var(--type-editorial);font-size:14px;font-weight:400;letter-spacing:0;color:#455d4d}
+.studio-footer-logo{display:block;width:133px;height:auto;flex:none}
+.studio-credit--footer:hover .studio-footer-copy{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1190px){
+ .studio-credit-kicker{display:none}
+ .studio-credit--top{padding:8px 9px}
+}
+@media(max-width:760px){
+ .studio-credit--top{padding:5px;min-width:35px;min-height:34px}
+ .studio-credit-logo{display:none}
+ .studio-credit-mark{display:block}
+ .studio-credit--footer{flex-wrap:wrap;justify-content:flex-start;white-space:normal}
+ .studio-footer-copy{max-width:100%}
+}
+@media(max-width:500px){
+ .top-note{gap:6px}
+ .studio-credit--top{min-width:33px;min-height:34px;padding:5px}
+ .studio-credit-mark{width:21px;height:21px}
+ .foot{gap:13px}
+ .studio-credit--footer{gap:9px}
+ .studio-footer-logo{width:115px}
+ .studio-footer-copy{font-size:10px}
+}
+body[data-theme="nightfall"] .studio-credit--top{background:#252d27;border-color:#796d58;color:#e6caa3}
+body[data-theme="nightfall"] .studio-credit--top:hover{background:#374037;border-color:#bd9c70}
+body[data-theme="nightfall"] .studio-credit-logo,body[data-theme="nightfall"] .studio-credit-mark,body[data-theme="nightfall"] .studio-footer-logo{filter:brightness(0) invert(1)}
+body[data-theme="nightfall"] .studio-credit--footer{color:#eee7da}
+body[data-theme="nightfall"] .studio-footer-copy,body[data-theme="nightfall"] .studio-footer-copy em{color:#d6c9ad}
+body[data-theme="nightfall"] .studio-credit:focus-visible{outline-color:#e2bb85}
+@media(prefers-reduced-motion:reduce){.studio-credit{transition:none}}
+
 </style>
 </head>
 <body data-theme="atelier">
-<header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div></div></div><div class="top-note"><span class="dot"></span><span class="demo-tag">Демонстрационный прототип</span><nav class="theme-nav" aria-label="Тема оформления"><a class="theme-choice" href="?variant=1" data-theme-choice="1" aria-current="page" title="День"><svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3.6"></circle><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5"></path></svg><span class="visually-hidden">День</span></a><a class="theme-choice" href="?variant=2" data-theme-choice="2" title="Ночь"><svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.1 15.8A8.6 8.6 0 0 1 8.2 3.9a8.7 8.7 0 1 0 11.9 11.9Z"></path></svg><span class="visually-hidden">Ночь</span></a></nav><label class="lang-selector" for="siteLanguage"><span class="lang-label">Язык</span><select id="siteLanguage" aria-label="Язык интерфейса"><option value="lv">LV</option><option value="ru">RU</option></select></label></div></div></header>
+<header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div></div></div><div class="top-note"><a class="studio-credit studio-credit--top" href="https://fiboagency.com/" target="_blank" rel="noopener noreferrer" aria-label="Сайт Fibo Agency (откроется в новой вкладке)" title="Прототип создан Fibo Agency"><span class="studio-credit-kicker">Прототип <em>by</em></span><img class="studio-credit-logo" src="assets/brand/fibo-wordmark.svg" width="112" height="19" alt="" decoding="async"><img class="studio-credit-mark" src="assets/brand/fibo-symbol.svg" width="23" height="23" alt="" decoding="async"></a><nav class="theme-nav" aria-label="Тема оформления"><a class="theme-choice" href="?variant=1" data-theme-choice="1" aria-current="page" title="День"><svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3.6"></circle><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5"></path></svg><span class="visually-hidden">День</span></a><a class="theme-choice" href="?variant=2" data-theme-choice="2" title="Ночь"><svg class="mode-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.1 15.8A8.6 8.6 0 0 1 8.2 3.9a8.7 8.7 0 1 0 11.9 11.9Z"></path></svg><span class="visually-hidden">Ночь</span></a></nav><label class="lang-selector" for="siteLanguage"><span class="lang-label">Язык</span><select id="siteLanguage" aria-label="Язык интерфейса"><option value="lv">LV</option><option value="ru">RU</option></select></label></div></div></header>
 <main class="shell">
 <div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> ETF / ARCHITECTURAL ATELIER</div><h1>Настройте модульный<br><em>дом под себя.</em></h1></div><div class="headline-aside"><p class="intro">Выберите размер дома, фасад, материалы интерьера и комплектацию. Посмотрите визуализацию и демонстрационный расчёт стоимости.</p></div></div>
 <div class="layout">
@@ -452,7 +498,7 @@ body[data-theme="nightfall"] .theme-choice:focus-visible,body[data-theme="nightf
 <div class="total-box" aria-live="polite"><div class="total-top"><small>ДЕМОНСТРАЦИОННЫЙ РАСЧЁТ</small><strong id="totalPrice">108 000 €</strong></div><p class="total-notice">Цены приведены только для демонстрации и не являются предложением SIA ETF. НДС не согласован.</p><div class="breakdown" id="breakdown"></div><button type="button" class="cta" id="openRequest">Посмотреть демо-заявку <span aria-hidden="true">↗</span></button><button type="button" class="cta-secondary" id="downloadSummary">↓ Скачать конфигурацию (.txt)</button></div>
 </aside>
 </div></main>
-<footer class="shell foot"><span>Концепция для SIA ETF · Fibo Agency</span></footer>
+<footer class="shell foot"><span class="footer-project">Концепция для SIA ETF</span><a class="studio-credit studio-credit--footer" href="https://fiboagency.com/" target="_blank" rel="noopener noreferrer" aria-label="Сайт Fibo Agency (откроется в новой вкладке)" title="Прототип создан Fibo Agency"><span class="studio-footer-copy">Бесплатный демонстрационный прототип <em>by</em></span><img class="studio-footer-logo" src="assets/brand/fibo-wordmark.svg" width="133" height="22" alt="" decoding="async"></a></footer>
 <dialog id="requestDialog" aria-labelledby="requestTitle"><div class="modal-content"><div class="modal-heading"><h2 id="requestTitle">Демо-заявка</h2><button type="button" class="close" id="closeRequest" aria-label="Закрыть">×</button></div><p>Заполните имя и email, чтобы скачать пример заявки с выбранной комплектацией. Данные не отправляются на сервер.</p><div class="summary-pills" id="requestPills"></div><form id="requestForm" novalidate><label class="field"><span>Имя *</span><input id="customerName" placeholder="Ваше имя" autocomplete="off" aria-describedby="requestStatus" required></label><label class="field"><span>Электронная почта *</span><input id="customerEmail" type="email" placeholder="name@example.com" autocomplete="off" aria-describedby="requestStatus" required></label><button type="submit" class="cta">Скачать демо-заявку <span aria-hidden="true">↓</span></button><div id="requestStatus" class="status" role="status"></div></form><p class="smallnote">Файл скачивается на ваше устройство. Данные не отправляются.</p></div></dialog>
 <noscript><p style="padding:30px;background:white">Для демонстрационного конфигуратора необходимо включить JavaScript.</p></noscript>
 <script>
@@ -598,6 +644,6 @@ window.addEventListener("popstate",function(){applyTheme(versionFromUrl(),false)
 showScene("exterior");render();applyTheme(versionFromUrl(),false);
 })();
 </script>
-<script src="i18n.js?v=20261101-approved-v3"></script>
+<script src="i18n.js?v=20261101-author-credit-v4"></script>
 </body>
 </html>
