@@ -248,10 +248,87 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 #visualStage:focus-visible{outline:3px solid #314338;outline-offset:4px}
 .field input[aria-invalid="true"]{border-color:#a33332;box-shadow:0 0 0 1px #a33332}
 @media(max-width:840px){.mobile-view-action{display:block}.config-tools{justify-content:space-between;flex-wrap:wrap}}
+
+/* Preview UX: image pinned alongside options, current estimate pinned inside configuration. */
+@media(min-width:841px){.showcase{position:sticky;top:16px;align-self:start}.scene{height:clamp(360px,55vh,660px);min-height:0;aspect-ratio:auto}.photo-scene img{width:100%;height:100%;object-fit:cover}}
+.config{overflow:visible}
+.sticky-quote{position:sticky;top:10px;z-index:21;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 26px;background:#e8e7df;border-block:1px solid #ccd1c5;box-shadow:0 5px 16px #17251a12}
+.quick-total{min-width:0;display:flex;flex-direction:column;gap:4px}
+.quick-total-label{font-size:9px;letter-spacing:.13em;font-weight:700;color:#425d49}
+.quick-total output{font-family:var(--type-editorial);font-size:clamp(25px,2.2vw,31px);line-height:1.05;white-space:nowrap;color:#202d23}
+.quick-cta{background:#314338;color:#fff;border:1px solid #314338;border-radius:2px;font-size:11px;font-weight:700;padding:12px 14px;line-height:1.35;max-width:185px;text-align:center}
+.quick-cta:hover{background:#233629}
+.quick-cta:focus-visible,.theme-choice:focus-visible{outline:3px solid #829d7f;outline-offset:3px}
+.theme-nav{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid #9da69a;background:#e7e6df}
+.theme-choice{display:inline-flex;align-items:center;justify-content:center;min-height:34px;min-width:62px;padding:7px 10px;font-size:11px;font-weight:700;letter-spacing:.01em;color:#314338;text-decoration:none}
+.theme-choice:hover{background:#d5d9d0}
+.theme-choice[aria-current="page"]{background:#314338;color:#fff}
+body[data-theme="nightfall"]{background:#171b19;color:#f1ece3;--ink:#f1ece3;--muted:#c5c7bc;--border:#414840;--accent:#bd9c70}
+body[data-theme="nightfall"] .topbar{background:#171b19;border-color:#414840}
+body[data-theme="nightfall"] .brandmark,body[data-theme="nightfall"] .brand-title,body[data-theme="nightfall"] .headline h1,body[data-theme="nightfall"] .config h2,body[data-theme="nightfall"] .group h3{color:#f1ece3}
+body[data-theme="nightfall"] .brandmark-dot,body[data-theme="nightfall"] .eyebrow,body[data-theme="nightfall"] .headline h1 em,body[data-theme="nightfall"] .config-overline,body[data-theme="nightfall"] .section-kicker{color:#bd9c70}
+body[data-theme="nightfall"] .brand-identity,body[data-theme="nightfall"] .headline-aside{border-color:#776952}
+body[data-theme="nightfall"] .demo-tag{background:#282d29;color:#dfcaaa;border-color:#746c58}
+body[data-theme="nightfall"] .lang-selector{color:#dbd3c5}
+body[data-theme="nightfall"] .lang-selector select{background:#2e342f;color:#f1ece3;border-color:#8c816e}
+body[data-theme="nightfall"] .dot,body[data-theme="nightfall"] .eyebrow-line{background:#bd9c70}
+body[data-theme="nightfall"] .theme-nav{background:#262d28;border-color:#786b58}
+body[data-theme="nightfall"] .theme-choice{color:#e1c7a1}
+body[data-theme="nightfall"] .theme-choice:hover{background:#3d433a}
+body[data-theme="nightfall"] .theme-choice[aria-current="page"]{background:#bd9c70;color:#171b19}
+body[data-theme="nightfall"] .intro,body[data-theme="nightfall"] .photo-disclaimer,body[data-theme="nightfall"] .below-card p,body[data-theme="nightfall"] .config .help{color:#c9cabf}
+body[data-theme="nightfall"] .visual-card{background:#263029}
+body[data-theme="nightfall"] .visual-card:after{background:linear-gradient(0deg,#09110cd9,transparent)}
+body[data-theme="nightfall"] .view-counter{background:#17251edc;color:#ecd6b0}
+body[data-theme="nightfall"] .view-tabs{background:#202924ed}
+body[data-theme="nightfall"] .view-tab{color:#e0ddce}
+body[data-theme="nightfall"] .view-tab[aria-selected="true"]{background:#bd9c70;color:#171b19}
+body[data-theme="nightfall"] .visual-light .day-night{background:#202a25e8}
+body[data-theme="nightfall"] .light-choice{color:#f1e9dc;border-color:#706a55}
+body[data-theme="nightfall"] .light-choice[aria-pressed="true"]{background:#bd9c70;color:#171b19;border-color:#bd9c70}
+body[data-theme="nightfall"] .below-card,body[data-theme="nightfall"] .total-box{background:#1e2420;border-color:#454b41}
+body[data-theme="nightfall"] .below-card h2,body[data-theme="nightfall"] .summary-heading{color:#f1ece3}
+body[data-theme="nightfall"] .below-card h2 em,body[data-theme="nightfall"] .side-ornament{color:#bd9c70}
+body[data-theme="nightfall"] .summary-heading{border-color:#4b5549}
+body[data-theme="nightfall"] .summary-pill{background:#29312a;color:#e6dbca;border-color:#4c584b}
+body[data-theme="nightfall"] .config,body[data-theme="nightfall"] .config-title{background:#242a27;border-color:#4b5147}
+body[data-theme="nightfall"] .included,body[data-theme="nightfall"] .package-hint,body[data-theme="nightfall"] .bath-help{color:#c9cabe}
+body[data-theme="nightfall"] .config-tools button{color:#e5d3b7;border-color:#806e54}
+body[data-theme="nightfall"] .group{border-color:#4b5149}
+body[data-theme="nightfall"] .stepno{border-color:#ab9475;color:#ead6b9}
+body[data-theme="nightfall"] .model,body[data-theme="nightfall"] .swatch,body[data-theme="nightfall"] .bath-preset,body[data-theme="nightfall"] .option-card,body[data-theme="nightfall"] .mini-select{background:#303932;border-color:#586254;color:#f1ece3}
+body[data-theme="nightfall"] .model[aria-pressed="true"],body[data-theme="nightfall"] .swatch[aria-pressed="true"],body[data-theme="nightfall"] .bath-preset[aria-pressed="true"],body[data-theme="nightfall"] .option-card[aria-pressed="true"],body[data-theme="nightfall"] .mini-select[aria-pressed="true"]{background:#3c4439;border-color:#bd9c70;box-shadow:inset 0 0 0 1px #bd9c70}
+body[data-theme="nightfall"] .model strong,body[data-theme="nightfall"] .swatch-name,body[data-theme="nightfall"] .swatch[aria-pressed="true"] .swatch-name,body[data-theme="nightfall"] .bath-preset strong,body[data-theme="nightfall"] .option-card strong,body[data-theme="nightfall"] .switch-copy strong{color:#f1ece3}
+body[data-theme="nightfall"] .option-card small,body[data-theme="nightfall"] .switch-copy small,body[data-theme="nightfall"] .model small,body[data-theme="nightfall"] .bath-preset small{color:#cdd0c5}
+body[data-theme="nightfall"] .cost,body[data-theme="nightfall"] .option-card .delta,body[data-theme="nightfall"] .bath-preset .delta{color:#e4c89f}
+body[data-theme="nightfall"] .quantity{border-color:#8b846d}
+body[data-theme="nightfall"] .quantity button{background:#3e463e;color:#f1ece3}
+body[data-theme="nightfall"] .quantity output{color:#f1ece3}
+body[data-theme="nightfall"] .switch-track{background:#637063}
+body[data-theme="nightfall"] .switch input:checked+.switch-track{background:#bd9c70}
+body[data-theme="nightfall"] .sticky-quote{background:#1e2420;border-color:#786b55;box-shadow:0 5px 18px #0005}
+body[data-theme="nightfall"] .quick-total-label,body[data-theme="nightfall"] .total-top small{color:#d9b88a}
+body[data-theme="nightfall"] .quick-total output,body[data-theme="nightfall"] .total-top strong{color:#f4efe5}
+body[data-theme="nightfall"] .quick-cta,body[data-theme="nightfall"] .cta{background:#bd9c70;border-color:#bd9c70;color:#171b19}
+body[data-theme="nightfall"] .quick-cta:hover,body[data-theme="nightfall"] .cta:hover{background:#dac19b}
+body[data-theme="nightfall"] .total-notice,body[data-theme="nightfall"] .breakdown .line{color:#cbcec1}
+body[data-theme="nightfall"] .breakdown{border-color:#4d574d}
+body[data-theme="nightfall"] .breakdown .line strong{color:#f1ece3}
+body[data-theme="nightfall"] .cta-secondary{border-color:#bd9c70;color:#e7cda5}
+body[data-theme="nightfall"] .foot{border-color:#4f574e;color:#c9cabf}
+body[data-theme="nightfall"] dialog{background:#242a27;color:#f1ece3;border-color:#88775c}
+body[data-theme="nightfall"] .modal-content p,body[data-theme="nightfall"] .field span{color:#e0ddcf}
+body[data-theme="nightfall"] .field input{background:#303932;border-color:#969582;color:#f1ece3}
+body[data-theme="nightfall"] .close{background:#3e493f;color:#f1ece3}
+body[data-theme="nightfall"] .smallnote{color:#d1bea1}
+@media(max-width:840px){.showcase{position:static}.sticky-quote{top:0}.quick-cta{max-width:175px}}
+@media(max-width:500px){.top-note .demo-tag{display:none}.theme-choice{min-width:48px;padding:8px 5px;font-size:10px}.theme-nav{gap:0;padding:2px}.top-inner{gap:8px}.top-note{gap:7px}.sticky-quote{padding:12px 13px;gap:8px}.quick-total-label{font-size:8px}.quick-total output{font-size:25px}.quick-cta{font-size:10px;padding:9px;max-width:150px}}
+@media(prefers-reduced-motion:reduce){.theme-choice{transition:none}}
+
 </style>
 </head>
-<body>
-<header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div></div></div><div class="top-note"><span class="dot"></span><span class="demo-tag">Демонстрационный прототип</span><label class="lang-selector" for="siteLanguage"><span class="lang-label">Язык</span><select id="siteLanguage" aria-label="Язык интерфейса"><option value="lv">LV</option><option value="ru">RU</option></select></label></div></div></header>
+<body data-theme="atelier">
+<header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div></div></div><div class="top-note"><span class="dot"></span><span class="demo-tag">Демонстрационный прототип</span><nav class="theme-nav" aria-label="Тема оформления"><a class="theme-choice" href="?variant=1" data-theme-choice="1" aria-current="page">День</a><a class="theme-choice" href="?variant=2" data-theme-choice="2">Ночь</a></nav><label class="lang-selector" for="siteLanguage"><span class="lang-label">Язык</span><select id="siteLanguage" aria-label="Язык интерфейса"><option value="lv">LV</option><option value="ru">RU</option></select></label></div></div></header>
 <main class="shell">
 <div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> ETF / ARCHITECTURAL ATELIER</div><h1>Настройте модульный<br><em>дом под себя.</em></h1></div><div class="headline-aside"><p class="intro">Выберите размер дома, фасад, материалы интерьера и комплектацию. Посмотрите визуализацию и демонстрационный расчёт стоимости.</p></div></div>
 <div class="layout">
@@ -261,12 +338,13 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 <div id="scene-exterior" class="scene photo-scene active" role="tabpanel" aria-labelledby="view-tab-exterior"><img id="photo-exterior" src="assets/images/K.webp" alt="Модульный дом в антрацитовом цвете" decoding="async"></div>
 <div id="scene-floor" class="scene photo-scene" role="tabpanel" aria-labelledby="view-tab-floor"><img id="photo-floor" src="assets/images/E.webp" alt="Интерьер с натуральным дубовым полом" decoding="async"></div>
 <div id="scene-bathroom" class="scene photo-scene" role="tabpanel" aria-labelledby="view-tab-bathroom"><img id="photo-bathroom" src="assets/images/C.webp" alt="Ванная: белый мрамор и чёрная матовая плитка" decoding="async"></div>
-<div class="visual-bottom"><div class="visual-light"><div class="day-night" role="group" aria-label="Освещение экстерьера"><button type="button" class="light-choice" data-light="day" aria-pressed="true">День</button><button type="button" class="light-choice" data-light="night" aria-pressed="false" disabled>Ночь <span id="nightHint">(для дерева)</span></button></div></div><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" id="view-tab-exterior" role="tab" aria-controls="scene-exterior" tabindex="0" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" id="view-tab-floor" role="tab" aria-controls="scene-floor" tabindex="-1" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" id="view-tab-bathroom" role="tab" aria-controls="scene-bathroom" tabindex="-1" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
+<div class="visual-bottom"><div class="visual-light"><div class="day-night" role="group" aria-label="Освещение экстерьера"><button type="button" class="light-choice" data-light="day" aria-pressed="true">День</button><button type="button" class="light-choice" data-light="night" aria-pressed="false" disabled>Ночь </button></div></div><div class="view-tabs" role="tablist" aria-label="Ракурс предпросмотра"><button class="view-tab" data-view="exterior" id="view-tab-exterior" role="tab" aria-controls="scene-exterior" tabindex="0" aria-selected="true" type="button">Фасад</button><button class="view-tab" data-view="floor" id="view-tab-floor" role="tab" aria-controls="scene-floor" tabindex="-1" aria-selected="false" type="button">Интерьер</button><button class="view-tab" data-view="bathroom" id="view-tab-bathroom" role="tab" aria-controls="scene-bathroom" tabindex="-1" aria-selected="false" type="button">Ванная</button></div><div class="scene-label" id="sceneLabel">Фасад: антрацит</div></div>
 </div>
 <p class="photo-disclaimer">Изображения демонстрационные и не подтверждают технические характеристики дома.</p>
 <div class="below-card"><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
 <aside class="config" aria-label="Параметры дома">
 <div class="config-title"><div class="config-overline">КОНФИГУРАТОР</div><h2>Параметры дома</h2><p class="help">Выберите материалы и комплектацию. Изменения отразятся на визуализации или в демонстрационном расчёте.</p><div class="config-tools"><button id="viewChanges" type="button" class="mobile-view-action">↑ Посмотреть изменения</button><button id="resetConfig" type="button" class="reset-action">Сбросить настройки</button></div></div>
+<div class="sticky-quote" aria-label="Демонстрационный расчёт"><div class="quick-total"><span class="quick-total-label">ДЕМОНСТРАЦИОННЫЙ РАСЧЁТ</span><output id="quickPrice" aria-live="polite" aria-atomic="true">108 000 €</output></div><button class="quick-cta" type="button" id="quickRequest">Посмотреть демо-заявку ↗</button></div>
 <section class="group"><div class="group-head"><h3><span class="stepno">1</span> Размер дома</h3></div><div class="choices" role="group" aria-label="Размер дома"><button class="model" data-group="model" data-value="60" aria-pressed="false" type="button"><strong>60 м²</strong></button><button class="model" data-group="model" data-value="80" aria-pressed="true" type="button"><strong>80 м²</strong></button><button class="model" data-group="model" data-value="100" aria-pressed="false" type="button"><strong>100 м²</strong></button></div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">2</span> Цвет фасада</h3></div><div class="choices facade-choices" role="group" aria-label="Цвет фасада">
 <button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background-image:url('assets/images/K.webp')"></span><span class="swatch-name">Антрацит</span></button>
@@ -319,7 +397,7 @@ var choices={model:["60","80","100"],facade:["graphite","natural","burgundy"],fl
 Object.keys(choices).forEach(function(k){if(choices[k].includes(savedConfig[k]))state[k]=savedConfig[k];});
 ["terrace","pump"].forEach(function(k){if(typeof savedConfig[k]==="boolean")state[k]=savedConfig[k];});
 if(Number.isInteger(savedConfig.windows)&&savedConfig.windows>=0&&savedConfig.windows<=3)state.windows=savedConfig.windows;
-if(savedConfig.light==="night"&&state.facade==="natural")state.light="night";
+if(savedConfig.light==="night")state.light="night";
 }
 }catch(err){}
 function persist(){try{var s={};["model","facade","floor","bathPreset","pack","terrace","pump","windows","layout","light"].forEach(function(k){s[k]=state[k];});localStorage.setItem("etf-demo-config-v1",JSON.stringify(s));}catch(err){}}
@@ -344,16 +422,17 @@ values.push(state.layout==="standard"?"Стандартная планировк
 return values.map(function(v){return '<span class="summary-pill">'+escapeHtml(v)+"</span>";}).join("");
 }
 function render(){
-var extFile=(state.facade==="natural"&&state.light==="night")?"B":palette.facade[state.facade][1];
-var ext=document.getElementById("photo-exterior");ext.src="assets/images/"+extFile+".webp";ext.alt="Фасад "+palette.facade[state.facade][0]+(extFile==="B"?", ночной вид":"");
+var facadePhotos={graphite:{day:"K.webp",night:"anthracite-night.webp"},natural:{day:"A.webp",night:"B.webp"},burgundy:{day:"J.webp",night:"burgundy-night.webp"}};
+var extFile=facadePhotos[state.facade][state.light];
+var ext=document.getElementById("photo-exterior");ext.src="assets/images/"+extFile;ext.alt="Фасад "+palette.facade[state.facade][0]+(state.light==="night"?", ночной вид":"");
 var floorImg=document.getElementById("photo-floor");floorImg.src="assets/images/"+palette.floor[state.floor][1]+".webp";floorImg.alt="Пол: "+palette.floor[state.floor][0];
 var bathImg=document.getElementById("photo-bathroom");bathImg.src="assets/images/"+palette.bathPreset[state.bathPreset][1]+".webp";bathImg.alt="Ванная: "+palette.bathPreset[state.bathPreset][0];
-document.querySelectorAll("[data-light]").forEach(function(btn){btn.setAttribute("aria-pressed",String(state.light===btn.dataset.light));btn.disabled=(btn.dataset.light==="night"&&state.facade!=="natural");});
+document.querySelectorAll("[data-light]").forEach(function(btn){btn.setAttribute("aria-pressed",String(state.light===btn.dataset.light));btn.disabled=false;});
 document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.setAttribute("aria-pressed",String(state[btn.dataset.group]===btn.dataset.value));});
 document.getElementById("terrace").checked=state.terrace;document.getElementById("pump").checked=state.pump;
 text("windowCount",state.windows);document.getElementById("lessWindow").disabled=state.windows===0;document.getElementById("moreWindow").disabled=state.windows===3;
-var result=calc();text("totalPrice",format(result.total));document.getElementById("breakdown").innerHTML=result.parts.map(function(p){return '<div class="line"><span>'+escapeHtml(p[0])+'</span><strong>'+(p[1]===0?'Без доплаты':format(p[1]))+"</strong></div>";}).join("");document.getElementById("summaryPills").innerHTML=pills();document.getElementById("requestPills").innerHTML=pills();updateSceneLabel();persist();}
-document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.dataset.group;state[group]=btn.dataset.value;if(group==="facade"){if(state.facade!=="natural")state.light="day";showScene("exterior");}if(group==="floor")showScene("floor");if(group==="bathPreset")showScene("bathroom");render();});});
+var result=calc();text("totalPrice",format(result.total));text("quickPrice",format(result.total));document.getElementById("breakdown").innerHTML=result.parts.map(function(p){return '<div class="line"><span>'+escapeHtml(p[0])+'</span><strong>'+(p[1]===0?'Без доплаты':format(p[1]))+"</strong></div>";}).join("");document.getElementById("summaryPills").innerHTML=pills();document.getElementById("requestPills").innerHTML=pills();updateSceneLabel();persist();}
+document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.dataset.group;state[group]=btn.dataset.value;if(group==="facade"){showScene("exterior");}if(group==="floor")showScene("floor");if(group==="bathPreset")showScene("bathroom");render();});});
 document.querySelectorAll("[data-light]").forEach(function(btn){btn.addEventListener("click",function(){if(btn.disabled)return;state.light=btn.dataset.light;showScene("exterior");render();});});
 document.querySelectorAll("[data-view]").forEach(function(btn){btn.addEventListener("click",function(){showScene(btn.dataset.view);});});
 document.querySelector(".view-tabs").addEventListener("keydown",function(e){
@@ -395,7 +474,7 @@ return rows.join("\n");
 }
 function download(name,email){var blob=new Blob([summary(name,email)],{type:"text/plain;charset=utf-8"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download=(name?"etf-demo-request-":"etf-demo-configuration-")+(window.etfLang?window.etfLang():"ru")+".txt";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);}
 document.getElementById("downloadSummary").addEventListener("click",function(){download("","");});
-var dialog=document.getElementById("requestDialog");document.getElementById("openRequest").addEventListener("click",function(){text("requestStatus","");dialog.showModal();});document.getElementById("closeRequest").addEventListener("click",function(){dialog.close();});
+var dialog=document.getElementById("requestDialog");document.getElementById("openRequest").addEventListener("click",function(){text("requestStatus","");dialog.showModal();});document.getElementById("quickRequest").addEventListener("click",function(){text("requestStatus","");dialog.showModal();});document.getElementById("closeRequest").addEventListener("click",function(){dialog.close();});
 document.getElementById("requestForm").addEventListener("submit",function(e){
 e.preventDefault();
 var nameInput=document.getElementById("customerName"),mailInput=document.getElementById("customerEmail");
@@ -418,7 +497,28 @@ document.getElementById("resetConfig").addEventListener("click",function(){
 Object.keys(defaults).forEach(function(k){state[k]=defaults[k];});
 showScene("exterior");render();
 });
-showScene("exterior");render();
+
+function versionFromUrl(){return new URLSearchParams(window.location.search).get("variant")==="2"?"2":"1";}
+function applyTheme(version,updateUrl){
+ document.body.dataset.theme=version==="2"?"nightfall":"atelier";
+ document.querySelectorAll("[data-theme-choice]").forEach(function(link){
+  if(link.dataset.themeChoice===version)link.setAttribute("aria-current","page");
+  else link.removeAttribute("aria-current");
+ });
+ state.light=version==="2"?"night":"day";
+ showScene("exterior");render();
+ if(updateUrl){
+  var url=new URL(window.location.href);
+  if(version==="2")url.searchParams.set("variant","2");
+  else url.searchParams.delete("variant");
+  window.history.pushState({theme:version},"",url.pathname+url.search+url.hash);
+ }
+}
+document.querySelectorAll("[data-theme-choice]").forEach(function(link){
+ link.addEventListener("click",function(event){event.preventDefault();applyTheme(link.dataset.themeChoice,true);});
+});
+window.addEventListener("popstate",function(){applyTheme(versionFromUrl(),false);});
+showScene("exterior");render();applyTheme(versionFromUrl(),false);
 })();
 </script>
 <script src="i18n.js?v=20261101-approved-v3"></script>
