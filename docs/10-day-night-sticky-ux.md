@@ -164,3 +164,16 @@ Owner affirmed the current ETF day/night prototype design and requested modest b
 - Firecrawl responsive QA at 390×844: ETF header x16–182.2px; Fibo mobile mark x192–225px (symbol x198–219px); Day/Night x231–321px; language selector x327–359px; no overlaps or horizontal overflow; footer wordmark visible x226.5–341.5px.
 - Remaining: actual human artistic approval of the co-branding treatment in both themes; full keyboard/screen reader evaluation, exhaustive viewport testing and independent screenshot review are not claimed.
 - Project stage: Owner preview branded; **next task** is owner visual sign-off. Preserve exact style/functional baselines for any further iteration.
+
+
+## Final header attribution adjustment — 2026-11-01
+
+Owner requested the original ETF-only header and no Fibo Agency logo in the top navigation. Implemented in-place on the same published ETF owner-preview without creating a branch or service.
+
+- Restored original header badge: `<span class="dot"></span><span class="demo-tag">Демонстрационный прототип</span>` with existing RU/LV localization.
+- Removed only the Fibo Agency credit/link/logo from the **header**. The sun/moon theme controls and locale dropdown remain unchanged.
+- Retained footer as approved: `Демонстрационный прототип by Fibo Agency` (LV: `Demonstrācijas prototips by Fibo Agency`), original Fibo wordmark and agency link. No wording claiming the prototype is free.
+- Implementation commit: `e57aaf332537a0e5a68cc9f6b28c02858770fbcd` on `feature/etf-architectural-atelier-ui-20261101`.
+- Render in-place deployment: `dep-dbjfffajnfac73fre6bg`; status `live`, matching implementation commit.
+- Live HTML 200 verified on the existing URL: no `studio-credit--top` in header; localized `Demonstrācijas prototips` present; `studio-credit--footer` and `fibo-wordmark.svg` present; no free wording. Cached older responses appeared briefly, so verification used a fresh URL query.
+- No other layout, color, pricing, visualization or functionality was changed.
