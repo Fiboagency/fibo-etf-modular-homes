@@ -240,15 +240,23 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 .reset-action{border:1px solid #b5bdae;background:transparent;border-radius:2px;color:#314338;padding:9px 12px;font-size:11px;font-weight:700}
 .form-error{color:#a33332;font-size:11px;margin:7px 0}
 @media(max-width:500px){.lang-selector .lang-label{display:none}.top-note .demo-tag{font-size:8px;max-width:80px}.lang-selector select{font-size:11px;padding:7px}.visual-light{bottom:54px}.visual-light .light-choice{padding:6px 9px}.headline h1{font-size:clamp(34px,9.2vw,52px)}}
+
+.config-tools{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:15px}
+.reset-action:hover{background:#e9ece5}
+.mobile-view-action{display:none;border:1px solid #314338;border-radius:2px;color:#314338;background:transparent;padding:10px 12px;font-size:12px;font-weight:700}
+#visualStage:focus{outline:none}
+#visualStage:focus-visible{outline:3px solid #314338;outline-offset:4px}
+.field input[aria-invalid="true"]{border-color:#a33332;box-shadow:0 0 0 1px #a33332}
+@media(max-width:840px){.mobile-view-action{display:block}.config-tools{justify-content:space-between;flex-wrap:wrap}}
 </style>
 </head>
 <body>
 <header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div></div></div><div class="top-note"><span class="dot"></span><span class="demo-tag">Демонстрационный прототип</span><label class="lang-selector" for="siteLanguage"><span class="lang-label">Язык</span><select id="siteLanguage" aria-label="Язык интерфейса"><option value="lv">LV</option><option value="ru">RU</option></select></label></div></div></header>
 <main class="shell">
-<div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> ETF / ARCHITECTURAL ATELIER</div><h1>Настройте модульный<br><em>дом под себя.</em></h1></div><div class="headline-aside"><p class="intro">Выберите размер дома, фасад, материалы интерьера и комплектацию. Посмотрите визуализацию и демонстрационный расчёт стоимости.</p><span class="hero-instruction">↓ <span>Выберите материалы и комплектацию</span></span></div></div>
+<div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> ETF / ARCHITECTURAL ATELIER</div><h1>Настройте модульный<br><em>дом под себя.</em></h1></div><div class="headline-aside"><p class="intro">Выберите размер дома, фасад, материалы интерьера и комплектацию. Посмотрите визуализацию и демонстрационный расчёт стоимости.</p></div></div>
 <div class="layout">
 <section class="showcase" aria-label="Предпросмотр конфигурации">
-<div class="visual-card">
+<div class="visual-card" id="visualStage" tabindex="-1">
 <div class="visual-top"><span id="viewIndex" class="view-counter">Экстерьер</span></div>
 <div id="scene-exterior" class="scene photo-scene active" role="img" aria-label="Модульный дом в антрацитовом цвете"><img id="photo-exterior" src="assets/images/K.webp" alt="Модульный дом в антрацитовом цвете" decoding="async"></div>
 <div id="scene-floor" class="scene photo-scene" role="img" aria-label="Интерьер с натуральным дубовым полом"><img id="photo-floor" src="assets/images/E.webp" alt="Интерьер с натуральным дубовым полом" decoding="async"></div>
@@ -258,7 +266,7 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 <p class="photo-disclaimer">Изображения демонстрационные и не подтверждают технические характеристики дома.</p>
 <div class="below-card"><div class="summary-heading">ВЫБРАННАЯ КОНФИГУРАЦИЯ <span>↘</span></div><div id="summaryPills" class="summary-pills" aria-label="Текущая конфигурация"></div></div></section>
 <aside class="config" aria-label="Параметры дома">
-<div class="config-title"><div class="config-overline">КОНФИГУРАТОР</div><h2>Параметры дома</h2><p class="help">Выберите материалы и комплектацию. Изменения отразятся на визуализации или в демонстрационном расчёте.</p></div>
+<div class="config-title"><div class="config-overline">КОНФИГУРАТОР</div><h2>Параметры дома</h2><p class="help">Выберите материалы и комплектацию. Изменения отразятся на визуализации или в демонстрационном расчёте.</p><div class="config-tools"><button id="viewChanges" type="button" class="mobile-view-action">↑ Посмотреть изменения</button><button id="resetConfig" type="button" class="reset-action">Сбросить настройки</button></div></div>
 <section class="group"><div class="group-head"><h3><span class="stepno">1</span> Размер дома</h3></div><div class="choices" role="group" aria-label="Размер дома"><button class="model" data-group="model" data-value="60" aria-pressed="false" type="button"><strong>60 м²</strong></button><button class="model" data-group="model" data-value="80" aria-pressed="true" type="button"><strong>80 м²</strong></button><button class="model" data-group="model" data-value="100" aria-pressed="false" type="button"><strong>100 м²</strong></button></div></section>
 <section class="group"><div class="group-head"><h3><span class="stepno">2</span> Цвет фасада</h3></div><div class="choices facade-choices" role="group" aria-label="Цвет фасада">
 <button type="button" class="swatch" data-group="facade" data-value="graphite" aria-pressed="true"><span class="swatch-color" style="background-image:url('assets/images/K.webp')"></span><span class="swatch-name">Антрацит</span></button>
@@ -284,13 +292,13 @@ dialog{border-radius:3px;border-color:#d0d2c6;background:#faf8f2}
 <div class="switch-row"><div class="switch-copy"><strong>Терраса</strong><small>Деревянная терраса с одной ступенью</small></div><div class="switch-right"><span class="cost">+6 200 €</span><label class="switch"><input id="terrace" type="checkbox" aria-label="Добавить террасу"><span class="switch-track"></span></label></div></div>
 <div class="switch-row"><div class="switch-copy"><strong>Тепловой насос</strong></div><div class="switch-right"><span class="cost">+3 900 €</span><label class="switch"><input id="pump" type="checkbox" checked aria-label="Добавить тепловой насос"><span class="switch-track"></span></label></div></div>
 <div class="switch-row"><div class="switch-copy"><strong>Мансардные окна</strong><small>До трёх штук, 1 100 € / шт.</small></div><div class="switch-right"><div class="quantity"><button id="lessWindow" type="button" aria-label="Убрать одно окно">−</button><output id="windowCount" aria-live="polite">1</output><button id="moreWindow" type="button" aria-label="Добавить одно окно">+</button></div></div></div>
-<div class="divider-mini"></div><p class="subheading">Планировка</p><div class="mini-options" role="group" aria-label="Ориентация планировки"><button type="button" class="mini-select" data-group="layout" data-value="standard" aria-pressed="true">Стандартная</button><button type="button" class="mini-select" data-group="layout" data-value="mirror" aria-pressed="false">Зеркальная</button></div>
+<div class="divider-mini"></div><p class="subheading" role="heading" aria-level="4">Планировка</p><div class="mini-options" role="group" aria-label="Ориентация планировки"><button type="button" class="mini-select" data-group="layout" data-value="standard" aria-pressed="true">Стандартная</button><button type="button" class="mini-select" data-group="layout" data-value="mirror" aria-pressed="false">Зеркальная</button></div>
 </section>
 <div class="total-box" aria-live="polite"><div class="total-top"><small>ДЕМОНСТРАЦИОННЫЙ РАСЧЁТ</small><strong id="totalPrice">108 000 €</strong></div><p class="total-notice">Цены приведены только для демонстрации и не являются предложением SIA ETF. НДС не согласован.</p><div class="breakdown" id="breakdown"></div><button type="button" class="cta" id="openRequest">Посмотреть демо-заявку <span aria-hidden="true">↗</span></button><button type="button" class="cta-secondary" id="downloadSummary">↓ Скачать конфигурацию (.txt)</button></div>
 </aside>
 </div></main>
 <footer class="shell foot"><span>Концепция для SIA ETF · Fibo Agency</span></footer>
-<dialog id="requestDialog" aria-labelledby="requestTitle"><div class="modal-content"><div class="modal-heading"><h2 id="requestTitle">Демо-заявка</h2><button type="button" class="close" id="closeRequest" aria-label="Закрыть">×</button></div><p>Заполните имя и email, чтобы скачать пример заявки с выбранной комплектацией. Данные не отправляются на сервер.</p><div class="summary-pills" id="requestPills"></div><form id="requestForm"><label class="field"><span>Имя *</span><input id="customerName" placeholder="Ваше имя" autocomplete="off" required></label><label class="field"><span>Электронная почта *</span><input id="customerEmail" type="email" placeholder="name@example.com" autocomplete="off" required></label><button type="submit" class="cta">Скачать демо-заявку <span aria-hidden="true">↓</span></button><div id="requestStatus" class="status" role="status"></div></form><p class="smallnote">Файл скачивается на ваше устройство. Данные не отправляются.</p></div></dialog>
+<dialog id="requestDialog" aria-labelledby="requestTitle"><div class="modal-content"><div class="modal-heading"><h2 id="requestTitle">Демо-заявка</h2><button type="button" class="close" id="closeRequest" aria-label="Закрыть">×</button></div><p>Заполните имя и email, чтобы скачать пример заявки с выбранной комплектацией. Данные не отправляются на сервер.</p><div class="summary-pills" id="requestPills"></div><form id="requestForm" novalidate><label class="field"><span>Имя *</span><input id="customerName" placeholder="Ваше имя" autocomplete="off" aria-describedby="requestStatus" required></label><label class="field"><span>Электронная почта *</span><input id="customerEmail" type="email" placeholder="name@example.com" autocomplete="off" aria-describedby="requestStatus" required></label><button type="submit" class="cta">Скачать демо-заявку <span aria-hidden="true">↓</span></button><div id="requestStatus" class="status" role="status"></div></form><p class="smallnote">Файл скачивается на ваше устройство. Данные не отправляются.</p></div></dialog>
 <noscript><p style="padding:30px;background:white">Для демонстрационного конфигуратора необходимо включить JavaScript.</p></noscript>
 <script>
 (function(){
@@ -303,6 +311,19 @@ var palette={
  pack:{basic:["Basic",0],comfort:["Comfort",8900],premium:["Premium",17900]}
 };
 var state={model:"80",facade:"graphite",floor:"oak",bathPreset:"marble",pack:"comfort",terrace:false,pump:true,windows:1,layout:"standard",view:"exterior",light:"day"};
+var defaults=JSON.parse(JSON.stringify(state));
+try{
+var savedConfig=JSON.parse(localStorage.getItem("etf-demo-config-v1")||"null");
+if(savedConfig&&typeof savedConfig==="object"){
+var choices={model:["60","80","100"],facade:["graphite","natural","burgundy"],floor:["oak","grey","cherry","light-oak"],bathPreset:["marble","warm"],pack:["basic","comfort","premium"],layout:["standard","mirror"]};
+Object.keys(choices).forEach(function(k){if(choices[k].includes(savedConfig[k]))state[k]=savedConfig[k];});
+["terrace","pump"].forEach(function(k){if(typeof savedConfig[k]==="boolean")state[k]=savedConfig[k];});
+if(Number.isInteger(savedConfig.windows)&&savedConfig.windows>=0&&savedConfig.windows<=3)state.windows=savedConfig.windows;
+if(savedConfig.light==="night"&&state.facade==="natural")state.light="night";
+}
+}catch(err){}
+function persist(){try{var s={};["model","facade","floor","bathPreset","pack","terrace","pump","windows","layout","light"].forEach(function(k){s[k]=state[k];});localStorage.setItem("etf-demo-config-v1",JSON.stringify(s));}catch(err){}}
+
 var format=function(n){return new Intl.NumberFormat("ru-RU",{maximumFractionDigits:0}).format(n)+" €";};
 var escapeHtml=function(s){return String(s).replace(/[&<>"']/g,function(x){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x];});};
 function calc(){var parts=[
@@ -315,7 +336,13 @@ function text(id,v){document.getElementById(id).textContent=v;}
 function showScene(view){state.view=view;["exterior","floor","bathroom"].forEach(function(name){document.getElementById("scene-"+name).classList.toggle("active",name===view);document.querySelector('[data-view="'+name+'"]').setAttribute("aria-selected",String(name===view));});
 var index={"exterior":"Экстерьер","floor":"Интерьер","bathroom":"Ванная"};text("viewIndex",index[view]);updateSceneLabel();}
 function updateSceneLabel(){var s=state.view==="exterior"?"Фасад: "+palette.facade[state.facade][0]+(state.light==="night"&&state.facade==="natural"?" · ночь":""):state.view==="floor"?"Напольное покрытие: "+palette.floor[state.floor][0]:"Ванная: "+palette.bathPreset[state.bathPreset][0];text("sceneLabel",s);}
-function pills(){return ["ETF "+state.model+" м²",palette.facade[state.facade][0],palette.floor[state.floor][0],"Ванная: "+palette.bathPreset[state.bathPreset][0],palette.pack[state.pack][0],state.windows+" мансардн. окн."].map(function(v){return '<span class="summary-pill">'+escapeHtml(v)+"</span>";}).join("");}
+function pills(){
+var values=["ETF "+state.model+" м²",palette.facade[state.facade][0],palette.floor[state.floor][0],"Ванная: "+palette.bathPreset[state.bathPreset][0],palette.pack[state.pack][0]];
+if(state.terrace)values.push("Терраса");if(state.pump)values.push("Тепловой насос");
+if(state.windows)values.push("Мансардные окна: "+state.windows);
+values.push(state.layout==="standard"?"Стандартная планировка":"Зеркальная планировка");
+return values.map(function(v){return '<span class="summary-pill">'+escapeHtml(v)+"</span>";}).join("");
+}
 function render(){
 var extFile=(state.facade==="natural"&&state.light==="night")?"B":palette.facade[state.facade][1];
 var ext=document.getElementById("photo-exterior");ext.src="assets/images/"+extFile+".webp";ext.alt="Фасад "+palette.facade[state.facade][0]+(extFile==="B"?", ночной вид":"");
@@ -325,7 +352,7 @@ document.querySelectorAll("[data-light]").forEach(function(btn){btn.setAttribute
 document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.setAttribute("aria-pressed",String(state[btn.dataset.group]===btn.dataset.value));});
 document.getElementById("terrace").checked=state.terrace;document.getElementById("pump").checked=state.pump;
 text("windowCount",state.windows);document.getElementById("lessWindow").disabled=state.windows===0;document.getElementById("moreWindow").disabled=state.windows===3;
-var result=calc();text("totalPrice",format(result.total));document.getElementById("breakdown").innerHTML=result.parts.map(function(p){return '<div class="line"><span>'+escapeHtml(p[0])+'</span><strong>'+format(p[1])+"</strong></div>";}).join("");document.getElementById("summaryPills").innerHTML=pills();document.getElementById("requestPills").innerHTML=pills();updateSceneLabel();}
+var result=calc();text("totalPrice",format(result.total));document.getElementById("breakdown").innerHTML=result.parts.map(function(p){return '<div class="line"><span>'+escapeHtml(p[0])+'</span><strong>'+(p[1]===0?'Без доплаты':format(p[1]))+"</strong></div>";}).join("");document.getElementById("summaryPills").innerHTML=pills();document.getElementById("requestPills").innerHTML=pills();updateSceneLabel();persist();}
 document.querySelectorAll("[data-group][data-value]").forEach(function(btn){btn.addEventListener("click",function(){var group=btn.dataset.group;state[group]=btn.dataset.value;if(group==="facade"){if(state.facade!=="natural")state.light="day";showScene("exterior");}if(group==="floor")showScene("floor");if(group==="bathPreset")showScene("bathroom");render();});});
 document.querySelectorAll("[data-light]").forEach(function(btn){btn.addEventListener("click",function(){if(btn.disabled)return;state.light=btn.dataset.light;showScene("exterior");render();});});
 document.querySelectorAll("[data-view]").forEach(function(btn){btn.addEventListener("click",function(){showScene(btn.dataset.view);});});
@@ -333,10 +360,31 @@ document.querySelectorAll("[data-view]").forEach(function(btn){btn.addEventListe
 document.getElementById("lessWindow").addEventListener("click",function(){state.windows=Math.max(0,state.windows-1);render();});
 document.getElementById("moreWindow").addEventListener("click",function(){state.windows=Math.min(3,state.windows+1);render();});
 function summary(name,email){var data=calc();return ["ETF HOMES / DEMO CONFIGURATION","Независимый демонстрационный прототип Fibo Agency","Дата: 01.11.2026","Это не коммерческое предложение. Все цены вымышлены.","","Модель: "+state.model+" м²","Фасад: "+palette.facade[state.facade][0],"Напольное покрытие: "+palette.floor[state.floor][0],"Отделка ванной: "+palette.bathPreset[state.bathPreset][0],"Комплектация: "+palette.pack[state.pack][0],"Терраса: "+(state.terrace?"да":"нет"),"Тепловой насос: "+(state.pump?"да":"нет"),"Мансардные окна: "+state.windows,"Планировка: "+(state.layout==="standard"?"стандартная":"зеркальная"),name?"Имя: "+name:"",email?"Email: "+email:"","","Расчёт:",...data.parts.map(function(p){return p[0]+": "+format(p[1]);}),"ИТОГО (демонстрация): "+format(data.total),"","Заявка не отправлена. Для реальной отправки требуется backend, согласованные цены и правила обработки данных."].filter(function(x){return x!==null;}).join("\n");}
-function download(name,email){var blob=new Blob([summary(name,email)],{type:"text/plain;charset=utf-8"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="etf-demo-configuration.txt";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);}
+function download(name,email){var blob=new Blob([summary(name,email)],{type:"text/plain;charset=utf-8"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download=(name?"etf-demo-request":"etf-demo-configuration")+".txt";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);}
 document.getElementById("downloadSummary").addEventListener("click",function(){download("","");});
 var dialog=document.getElementById("requestDialog");document.getElementById("openRequest").addEventListener("click",function(){text("requestStatus","");dialog.showModal();});document.getElementById("closeRequest").addEventListener("click",function(){dialog.close();});
-document.getElementById("requestForm").addEventListener("submit",function(e){e.preventDefault();download(document.getElementById("customerName").value.trim(),document.getElementById("customerEmail").value.trim());text("requestStatus","Демо-заявка скачана. Данные не отправлены.");});
+document.getElementById("requestForm").addEventListener("submit",function(e){
+e.preventDefault();
+var nameInput=document.getElementById("customerName"),mailInput=document.getElementById("customerEmail");
+var name=nameInput.value.trim(),mail=mailInput.value.trim(),error="",target=null;
+nameInput.removeAttribute("aria-invalid");mailInput.removeAttribute("aria-invalid");
+if(!name){error="Введите имя.";target=nameInput;}
+else if(!mail){error="Введите адрес электронной почты.";target=mailInput;}
+else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){error="Проверьте формат электронной почты.";target=mailInput;}
+var status=document.getElementById("requestStatus");
+if(target){target.setAttribute("aria-invalid","true");status.setAttribute("role","alert");text("requestStatus",error);target.focus();return;}
+status.setAttribute("role","status");download(name,mail);
+text("requestStatus","Демо-заявка скачана. Данные не отправлены.");
+});
+document.getElementById("viewChanges").addEventListener("click",function(){
+var visual=document.getElementById("visualStage");
+visual.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+visual.focus({preventScroll:true});
+});
+document.getElementById("resetConfig").addEventListener("click",function(){
+Object.keys(defaults).forEach(function(k){state[k]=defaults[k];});
+showScene("exterior");render();
+});
 showScene("exterior");render();
 })();
 </script>
