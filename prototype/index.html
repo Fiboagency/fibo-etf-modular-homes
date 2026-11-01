@@ -346,6 +346,12 @@ body[data-theme="nightfall"] .status{color:#E9CAA0}
  body[data-theme="nightfall"] .below-card h2{font-size:32px}
  body[data-theme="nightfall"] .total-top strong{font-size:34px}
 }
+/* Explicit source image ensures the night hero is fetched and measurable */
+.nightfall-cover{display:none}
+body[data-theme="nightfall"] .headline-aside{background:#1b201b}
+body[data-theme="nightfall"] .nightfall-cover{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% center;z-index:0}
+body[data-theme="nightfall"] .headline-aside:after{z-index:1;background:linear-gradient(180deg,#131a1640 0%,transparent 25%,#0c1511c4 100%),linear-gradient(90deg,#17201966,transparent 42%)}
+body[data-theme="nightfall"] .hero-index,body[data-theme="nightfall"] .intro,body[data-theme="nightfall"] .hero-instruction{position:relative;z-index:2}
 @media(prefers-reduced-motion:reduce){.theme-choice{transition:none}}
 
 </style>
@@ -353,7 +359,7 @@ body[data-theme="nightfall"] .status{color:#E9CAA0}
 <body>
 <header class="topbar"><div class="shell top-inner"><div class="brand" aria-label="ETF Modular Homes — концепция бренда"><div class="brandmark">ETF<span class="brandmark-dot">.</span></div><div class="brand-identity"><div class="brand-title">MODULAR HOMES</div><div class="brand-sub">Architecture to live in</div></div></div><div class="top-note"><span class="dot"></span><span class="top-status">FIBO AGENCY / Внутренний просмотр</span><nav class="theme-nav" aria-label="Варианты дизайна" role="navigation"><a href="?variant=1" class="theme-choice" data-theme-choice="1" aria-current="page">Вариант 1</a><a href="?variant=2" class="theme-choice" data-theme-choice="2">Вариант 2</a></nav></div></div></header>
 <main class="shell">
-<div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> <span class="theme-copy-a">ETF / ARCHITECTURAL ATELIER</span><span class="theme-copy-b">ETF / NIGHTFALL RESIDENCE</span><span class="eyebrow-separator">—</span> КОНЦЕПЦИЯ</div><h1 class="headline-a">Дом, в котором<br><em>хочется жить.</em></h1><h1 class="headline-b">ТВОЯ<br><em>частная</em><br>ВСЕЛЕННАЯ.</h1></div><div class="headline-aside"><span class="hero-index"><span class="theme-copy-a">КОЛЛЕКЦИЯ / 01 — ВАШЕ ПРОСТРАНСТВО</span><span class="theme-copy-b">THE ARCHITECTURE OF LIGHT · 02</span></span><p class="intro"><span class="theme-copy-a">Продуманные пропорции. Натуральные материалы. Спокойная архитектура. Настройте будущий дом — от фасада до деталей интерьера.</span><span class="theme-copy-b">Пространство без компромиссов. Выбирайте материалы, детали и атмосферу вашей частной резиденции.</span></p><span class="hero-instruction"><span class="theme-copy-a">↓ Выберите материалы и комплектацию</span><span class="theme-copy-b">NIGHTFALL / PRIVATE RESIDENCES ↗</span></span></div></div>
+<div class="headline"><div class="headline-primary"><div class="eyebrow"><span class="eyebrow-line"></span> <span class="theme-copy-a">ETF / ARCHITECTURAL ATELIER</span><span class="theme-copy-b">ETF / NIGHTFALL RESIDENCE</span><span class="eyebrow-separator">—</span> КОНЦЕПЦИЯ</div><h1 class="headline-a">Дом, в котором<br><em>хочется жить.</em></h1><h1 class="headline-b">ТВОЯ<br><em>частная</em><br>ВСЕЛЕННАЯ.</h1></div><div class="headline-aside"><img class="nightfall-cover" src="assets/images/B.webp" alt="" aria-hidden="true" decoding="async"><span class="hero-index"><span class="theme-copy-a">КОЛЛЕКЦИЯ / 01 — ВАШЕ ПРОСТРАНСТВО</span><span class="theme-copy-b">THE ARCHITECTURE OF LIGHT · 02</span></span><p class="intro"><span class="theme-copy-a">Продуманные пропорции. Натуральные материалы. Спокойная архитектура. Настройте будущий дом — от фасада до деталей интерьера.</span><span class="theme-copy-b">Пространство без компромиссов. Выбирайте материалы, детали и атмосферу вашей частной резиденции.</span></p><span class="hero-instruction"><span class="theme-copy-a">↓ Выберите материалы и комплектацию</span><span class="theme-copy-b">NIGHTFALL / PRIVATE RESIDENCES ↗</span></span></div></div>
 <div class="layout">
 <section class="showcase" aria-label="Предпросмотр конфигурации">
 <div class="visual-card">
