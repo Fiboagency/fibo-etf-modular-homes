@@ -82,6 +82,7 @@ function changeSiteTheme(next, sourceButton) {
     }
   } else {
     root.classList.add("theme-fallback");
+    void root.offsetHeight; // establish the old palette before applying the new one
     change();
     window.setTimeout(() => root.classList.remove("theme-fallback"), 620);
   }
