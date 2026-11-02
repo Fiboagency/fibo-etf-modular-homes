@@ -1,0 +1,58 @@
+
+/* ROVELLC — site-wide theme switch, independent from the image day/night selector. */
+.theme-switch{display:inline-flex;gap:3px;padding:3px;border:1px solid #bcc9bb;background:#f1f2ed;flex:none}
+.theme-switch button{display:grid;place-items:center;width:36px;height:36px;min-height:36px;padding:0;border:0;background:transparent;color:#395441}
+.theme-switch button svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme-switch button[aria-pressed="true"]{background:#314c3d;color:#fff}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#171e1a;--paper:#242e27;--ink:#f4f0e6;--muted:#c6d2c5;--line:#48594e;--accent:#a8c4ad}
+html[data-theme="dark"] .header{background:#1e2821}
+html[data-theme="dark"] .identity img,html[data-theme="dark"] .footer img{filter:brightness(0) invert(1)}
+html[data-theme="dark"] .identity small{color:#d2d8cc}
+html[data-theme="dark"] .demo-label{border-color:#718274;color:#e2e9dc}
+html[data-theme="dark"] .language{border-color:#687b6b;background:#29372d;color:#f6f3e8}
+html[data-theme="dark"] .theme-switch{background:#2d3b31;border-color:#617467}
+html[data-theme="dark"] .theme-switch button{color:#e7f0e6}
+html[data-theme="dark"] .theme-switch button[aria-pressed="true"]{background:#e1dfd1;color:#25382b}
+html[data-theme="dark"] .lead h1 em{color:#c4b79b}
+html[data-theme="dark"] .lead p{border-color:#657568}
+html[data-theme="dark"] .photo-disclaimer{color:#bac8bb}
+html[data-theme="dark"] .stat span{color:#cad5ca}
+html[data-theme="dark"] .source{background:#2c3930;color:#e1e8df}
+html[data-theme="dark"] .config-heading p{color:#d0dacd}
+html[data-theme="dark"] .number{border-color:#94ac99;color:#d6e7d7}
+html[data-theme="dark"] .model{border-color:#718c76;background:#304136}
+html[data-theme="dark"] .model small{color:#d4dfd0}
+html[data-theme="dark"] .model-mark{background:#c0d4bf;color:#25362a}
+html[data-theme="dark"] .explainer{color:#c4d3c5}
+html[data-theme="dark"] .option{background:#29362d;border-color:#637566;color:#f4f1e7}
+html[data-theme="dark"] .option[aria-pressed="true"]{background:#38513d;border-color:#bed0be;box-shadow:inset 0 0 0 1px #bed0be}
+html[data-theme="dark"] .option small{color:#c6d4c6}
+html[data-theme="dark"] .check{border-color:#a9bea9}
+html[data-theme="dark"] .option[aria-pressed="true"] .check{background:#e0e9df;color:#22382a}
+html[data-theme="dark"] .features div{border-color:#506454}
+html[data-theme="dark"] .features span{color:#c6d2c7}
+html[data-theme="dark"] .summary{background:#2e3a31}
+html[data-theme="dark"] .sumline{border-color:#56695a}
+html[data-theme="dark"] .note{color:#c5d2c5}
+html[data-theme="dark"] .outline{color:#e6f2e7;border-color:#98b49c}
+html[data-theme="dark"] .fixed-price{background:#0e1c15;color:#f4f2e9}
+html[data-theme="dark"] .price-hint{color:#d1dfd1}
+html[data-theme="dark"] .footer{color:#c2d0c1}
+html[data-theme="dark"] .plan-preview{background:#26322a;border-color:#627466}
+html[data-theme="dark"] .plan-preview summary{color:#ecf3e9}
+html[data-theme="dark"] .plan-content p{color:#c5d4c7}
+html[data-theme="dark"] dialog{background:#253229;border-color:#748875;color:#f4f1e8}
+html[data-theme="dark"] .close{background:transparent;border-color:#9fb29f;color:#f4f1e8}
+html[data-theme="dark"] .dialog-desc{color:#d2dfd2}
+html[data-theme="dark"] .field input{background:#1e2a21;border-color:#859b87;color:#fff}
+html[data-theme="dark"] .modal-cta{background:#c1d3bd;color:#1c3424}
+html[data-theme="dark"] #formStatus{color:#cbe5cd}
+@media(max-width:550px){
+  .nav{gap:5px}.nav-end{gap:7px}
+  .language-label{position:absolute;width:1px;height:1px;margin:-1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
+  .theme-switch{gap:2px;padding:2px}.theme-switch button{width:31px;height:33px;min-height:33px}.theme-switch button svg{width:17px;height:17px}
+  .language{min-width:47px;padding:8px 6px}
+  .identity img{width:47px;height:47px}.identity{gap:5px}.identity strong{font-size:10px}
+  .identity small{font-size:7px;letter-spacing:.06em}
+}
+@media(max-width:360px){.identity small{display:none}.identity strong{font-size:9px}.identity img{width:42px;height:42px}}
