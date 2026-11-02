@@ -1,5 +1,6 @@
 
 /* ROVELLC — site-wide theme switch, independent from the image day/night selector. */
+.scene-label{color:#20392b}
 .theme-switch{display:inline-flex;gap:3px;padding:3px;border:1px solid #bcc9bb;background:#f1f2ed;flex:none}
 .theme-switch button{display:grid;place-items:center;width:36px;height:36px;min-height:36px;padding:0;border:0;background:transparent;color:#395441}
 .theme-switch button svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
