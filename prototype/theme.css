@@ -57,3 +57,48 @@ html[data-theme="dark"] #formStatus{color:#cbe5cd}
   .identity small{font-size:7px;letter-spacing:.06em}
 }
 @media(max-width:360px){.identity small{display:none}.identity strong{font-size:9px}.identity img{width:42px;height:42px}}
+
+
+/* Transition of the entire website, not merely the two icon buttons.
+   Progressive enhancement: circular reveal in browsers supporting View Transitions;
+   gentle multi-surface crossfade in older browsers. Photo state remains unchanged. */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-reveal::view-transition-old(root),
+  html.theme-reveal::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+  html.theme-reveal::view-transition-old(root) { z-index: 1; }
+  html.theme-reveal::view-transition-new(root) {
+    z-index: 2;
+    animation: rovellc-theme-reveal 680ms cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes rovellc-theme-reveal {
+    from { clip-path: circle(0px at var(--theme-x, 50%) var(--theme-y, 50%)); }
+    to { clip-path: circle(150vmax at var(--theme-x, 50%) var(--theme-y, 50%)); }
+  }
+  html.theme-fallback body,
+  html.theme-fallback .header,
+  html.theme-fallback .language,
+  html.theme-fallback .theme-switch,
+  html.theme-fallback .theme-switch button,
+  html.theme-fallback .lead,
+  html.theme-fallback .lead h1 em,
+  html.theme-fallback .config,
+  html.theme-fallback .config-heading,
+  html.theme-fallback .model,
+  html.theme-fallback .option,
+  html.theme-fallback .summary,
+  html.theme-fallback .source,
+  html.theme-fallback .stats,
+  html.theme-fallback .stat,
+  html.theme-fallback .fixed-price,
+  html.theme-fallback .plan-preview,
+  html.theme-fallback dialog {
+    transition: background-color 580ms ease, color 580ms ease, border-color 580ms ease;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-reveal::view-transition-old(root),
+  html.theme-reveal::view-transition-new(root) { animation-duration: .01ms !important; }
+}
