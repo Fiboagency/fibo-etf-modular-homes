@@ -21,15 +21,18 @@
 ## Real use limitations
 - Client and owner may use the new logo/photos for presentation according to their instruction. **Public production-use permission is not independently documented**; do not assume broader licensing beyond the owner's claim.
 - The photos show the same S-series facade; choosing interior equipment updates *the price and line item*, not pixels of the exterior because no variant images were supplied. Do not pretend those variants are rendered.
-- p. 20–21 layout is described in text; exact floor-plan drawing is not recreated at this stage.
+- p. 20–21 layout is supplemented with a **custom schematic SVG** (`prototype/assets/s312-layout-schematic.svg`), not an engineering/factory drawing; it is available in an expandable section.
 - Only one landing/configurator prototype; the planned 18-model catalogue, admin panel, CRM and production forms remain out of scope.
 
 ## QA evidence
 - Source on feature branch: `prototype/index.html`. Created without external application dependencies.
 - Read-back of GitHub content: 24,232 characters, UTF-8, LV/RU keys present, no missing translation keys in static check, three option controls, fixed-bottom price CSS, `noindex,follow`, and two referenced source images.
 - Actual supplied day/evening image bytes displayed and inspected in the research browser; both loaded at natural size 1376×768.
-- Browser screenshot QA of **new branch output was NOT COMPLETED** because the browser session failed during fresh HTML retrieval. This is NOT a visual QA pass.
-- Remaining: independently render desktop 1440×900 and mobile 390×844 from this exact branch/commit; test option +1,800/+2,600/+950, total with all extras 94,850 €, persistence, RU/LV and local TXT, keyboard/focus and mobile bottom panel at middle/end of scroll; check no horizontal scroll; check logo crops.
+- **Actual browser visual review completed** through a public GitHub-branch HTML preview (`https://htmlpreview.github.io/?https://github.com/Fiboagency/fibo-etf-modular-homes/blob/feature/rovellc-s312-owner-preview-20261103/prototype/index.html`). Viewed desktop **1440×900** and mobile **390×844** (also checked narrow **320×720**). This is not a Render deployment or independent cross-browser QA.
+- Desktop preview: ROVELLC SVG logo and day/evening PNGs loaded, photo view focal area visible, panel and fixed price aligned.
+- Mobile preview: no horizontal overflow (`documentElement.scrollWidth` 375 with viewport 390; 305 with viewport 320), price band `position: fixed`, remains visible after scrolling down the settings. Image and switches visible at top.
+- Functional browser checks: 89,500 € initially; electric curtains selected -> **91,300 €**; all 3 options selected -> **94,850 €**; switching to evening toggles the image; LV→RU changes copy while retaining price; expanded floor-plan image loaded correctly after scrolling; configuration, RU locale, and evening mode survived reload; modal opened/closed. A local download was attempted but the remote browser interpreter failed, so actual saved TXT content is **NOT_CHECKED**.
+- Remaining before customer presentation: check actual TXT downloads/contents (browser download check not completed), deep keyboard/focus/tab-order and contrast measurements, real iOS Safari and Android Chrome device rendering, and independent PR-head acceptance screenshots; verify the deployed Render service matches the reviewed commit after owner approval. No performance or WCAG claim.
 
 ## Release
 - This code is isolated to `feature/rovellc-s312-owner-preview-20261103`. No merge to original branch, no changes to `main`, existing Render preview or customer website.
