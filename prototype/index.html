@@ -267,12 +267,13 @@ Object.assign(t.lv,{
  txtLocal:'Fails izveidots lokāli; dati nav nosūtīti uz serveri.'
 });
 
+// Each fresh page load starts in Latvian. RU is available only by explicit selection or ?lang=ru.
 const storage='s312_uxui_review_20261103';const valid=['day','night'];const state={theme:'day',scene:'day',lang:'lv',selected:{}};
-try{const obj=JSON.parse(localStorage.getItem(storage)||'null');if(obj){if(valid.includes(obj.theme))state.theme=obj.theme;if(valid.includes(obj.scene))state.scene=obj.scene;if(['ru','lv'].includes(obj.lang))state.lang=obj.lang;if(obj.selected&&typeof obj.selected==='object')for(const d of definitions)state.selected[d.id]=obj.selected[d.id]===true}}catch(e){}
+try{const obj=JSON.parse(localStorage.getItem(storage)||'null');if(obj){if(valid.includes(obj.theme))state.theme=obj.theme;if(valid.includes(obj.scene))state.scene=obj.scene;if(obj.selected&&typeof obj.selected==='object')for(const d of definitions)state.selected[d.id]=obj.selected[d.id]===true}}catch(e){}
 if(new URLSearchParams(location.search).get('theme')&&valid.includes(new URLSearchParams(location.search).get('theme')))state.theme=new URLSearchParams(location.search).get('theme');
 if(new URLSearchParams(location.search).get('lang')&&['lv','ru'].includes(new URLSearchParams(location.search).get('lang')))state.lang=new URLSearchParams(location.search).get('lang');
 const $=id=>document.getElementById(id);const money=n=>new Intl.NumberFormat(state.lang==='lv'?'lv-LV':'ru-RU',{maximumFractionDigits:0}).format(n).replace(/\u00a0/g,' ')+' €';const count=()=>definitions.filter(d=>state.selected[d.id]&&!d.demo).length;const total=()=>89500+definitions.reduce((a,d)=>a+(d.demo&&state.selected[d.id]?d.cost:0),0);
-function persist(){try{localStorage.setItem(storage,JSON.stringify(state))}catch(e){}}
+function persist(){try{const {lang,...saved}=state;localStorage.setItem(storage,JSON.stringify(saved))}catch(e){}}
 function render(){const tt=t[state.lang];document.documentElement.lang=state.lang;document.documentElement.dataset.theme=state.theme;$('language').value=state.lang;document.querySelectorAll('[data-i18n]').forEach(el=>{if(tt[el.dataset.i18n])el.textContent=tt[el.dataset.i18n]});document.querySelectorAll('[data-html]').forEach(el=>{if(tt[el.dataset.html])el.innerHTML=tt[el.dataset.html]});
 const ariaMap=[['.theme-toggle','themeGroupAria'],['#themeDay','themeDayAria'],['#themeNight','themeNightAria'],['.stage-controls','sceneGroupAria'],['#sceneDay','sceneDayAria'],['#sceneNight','sceneNightAria'],['#miniSceneDay','sceneDayAria'],['#miniSceneNight','sceneNightAria'],['.mobile-preview-scenes','sceneGroupAria'],['#mobilePreview','mobilePreviewAria'],['#mobileJump','mobileJumpAria'],['#language','languageAria'],['#productFacts','factsAria'],['.plan-inner img','planImageAlt'],['#priceDetails','priceDetailsAria'],['#closePriceDetails','closePriceAria'],['.pricebar','priceBarAria']];
 ariaMap.forEach(([selector,key])=>{const el=document.querySelector(selector);if(el)el.setAttribute(key==='planImageAlt'?'alt':'aria-label',tt[key])});
