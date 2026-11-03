@@ -1,0 +1,574 @@
+{
+  "schema_version": "1.0-research-draft",
+  "task_id": "ETF-ROVELLC-RESEARCH-20261103",
+  "data_as_of": "2026-11-03",
+  "product_id": "rovellc-s312",
+  "brand": "ROVELLC",
+  "manufacturer_model_code": "S312",
+  "series": "S",
+  "approval_status": "DRAFT_NEEDS_SUPPLIER_AND_OWNER",
+  "not_for_production_seed": true,
+  "no_private_data_included": true,
+  "source_register": [
+    {
+      "id": "CAT-19",
+      "reference": "ROVELLC Group Catalogue 2026 LV, p.19 — S312 lifestyle/scenarios",
+      "kind": "user_supplied_pdf",
+      "observed_on": null,
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "CAT-20",
+      "reference": "ROVELLC Group Catalogue 2026 LV, p.20 — plan/icons and 3-5 persons",
+      "kind": "user_supplied_pdf",
+      "observed_on": null,
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "CAT-21",
+      "reference": "ROVELLC Group Catalogue 2026 LV, p.21 — dimensions, covered area, weight, equipment legend",
+      "kind": "user_supplied_pdf",
+      "observed_on": null,
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "CAT-22",
+      "reference": "ROVELLC Group Catalogue 2026 LV, p.22 — exterior and interior photo montage",
+      "kind": "user_supplied_pdf",
+      "observed_on": null,
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "CAT-16-17",
+      "reference": "ROVELLC Group Catalogue 2026 LV, pp.16-17 — general materials/equipment, not S312-specific",
+      "kind": "user_supplied_pdf",
+      "observed_on": null,
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "NEW-S312",
+      "reference": "https://rovellctech.com/product/space-capsule-house-s312-for-tourist-spot/",
+      "kind": "public_manufacturer_page",
+      "observed_on": "2026-11-03",
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "OLD-S312",
+      "reference": "https://roverbuilding.com/detail/6.html",
+      "kind": "public_manufacturer_page",
+      "observed_on": "2026-11-03",
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "NEW-SERIES",
+      "reference": "https://rovellctech.com/s-series-capsule-houses/",
+      "kind": "public_manufacturer_page",
+      "observed_on": "2026-11-03",
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "NEW-CATALOG",
+      "reference": "https://rovellctech.com/capsule-house-products/",
+      "kind": "public_manufacturer_page",
+      "observed_on": "2026-11-03",
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    },
+    {
+      "id": "OLD-FAQ",
+      "reference": "https://roverbuilding.com/faq.html",
+      "kind": "public_manufacturer_page",
+      "observed_on": "2026-11-03",
+      "republication_rights": "NOT_GRANTED_BY_THIS_RECORD"
+    }
+  ],
+  "measurements": {
+    "length_m": {
+      "value": 11.5,
+      "status": "OBSERVED",
+      "source_ids": [
+        "CAT-21",
+        "NEW-S312",
+        "OLD-S312"
+      ]
+    },
+    "width_m": {
+      "value": 3.3,
+      "status": "OBSERVED",
+      "source_ids": [
+        "CAT-21",
+        "NEW-S312",
+        "OLD-S312"
+      ]
+    },
+    "height_m": {
+      "value": null,
+      "status": "CONFLICT",
+      "candidates": [
+        {
+          "value": 3.35,
+          "source_ids": [
+            "CAT-21",
+            "NEW-S312"
+          ]
+        },
+        {
+          "value": 3.15,
+          "source_ids": [
+            "OLD-S312"
+          ]
+        }
+      ],
+      "requires_supplier_approval": true
+    },
+    "covered_area_m2": {
+      "value": 38,
+      "area_type": "covered_area_not_usable_floor_area",
+      "status": "OBSERVED",
+      "source_ids": [
+        "CAT-21",
+        "NEW-S312"
+      ]
+    },
+    "gross_weight_t": {
+      "value": 10.5,
+      "weight_definition": "G.W. on new site; CAT says approximate weight; transport/empty/loaded classification not validated",
+      "status": "OBSERVED_NEEDS_DEFINITION",
+      "source_ids": [
+        "CAT-21",
+        "NEW-S312"
+      ]
+    },
+    "electric_power_kw": {
+      "value": 12,
+      "installation_details": {
+        "phase": null,
+        "voltage_v": null,
+        "frequency_hz": null,
+        "connection_standard": null
+      },
+      "status": "OBSERVED_NEEDS_ENGINEERING_REVIEW",
+      "source_ids": [
+        "NEW-S312"
+      ]
+    },
+    "occupancy_people": {
+      "value": null,
+      "status": "CONFLICT",
+      "candidates": [
+        {
+          "min": 3,
+          "max": 5,
+          "source_ids": [
+            "CAT-20"
+          ]
+        },
+        {
+          "min": 2,
+          "max": 3,
+          "source_ids": [
+            "OLD-S312"
+          ]
+        }
+      ],
+      "requires_supplier_approval": true
+    }
+  },
+  "layout": {
+    "bedrooms": 1,
+    "living_rooms": 1,
+    "bathrooms": 1,
+    "balconies": 1,
+    "status": "OBSERVED_PRODUCT_CATALOG",
+    "source_ids": [
+      "CAT-20",
+      "CAT-21",
+      "NEW-S312"
+    ],
+    "engineering_plan_available": false,
+    "plans": [
+      "CAT-20 top-down render/diagram",
+      "CAT-21 nominal floor plan"
+    ],
+    "caution": "Images and derived SVG in prototype are not signed factory engineering drawings"
+  },
+  "marketing_positioning": {
+    "manufacturer_segment_description": "Hospitality and tourism accommodation for resorts, glamping and tourist spots",
+    "observed_source_ids": [
+      "CAT-19",
+      "NEW-S312",
+      "NEW-SERIES"
+    ],
+    "inferred_primary_buyers": [
+      "glamping operators",
+      "resort operators",
+      "tourism site owners"
+    ],
+    "not_approved_public_claims": [
+      "Latvia winter compliant",
+      "no building permits",
+      "guaranteed business returns",
+      "factory 20-year warranty applies to ETF contract"
+    ]
+  },
+  "new_page_basic_configuration": {
+    "structure": [
+      "High-strength seismic- and wind-resistant steel frame",
+      "Fluorocarbon painted aviation aluminum shell",
+      "Double-layer strengthened Low-E glazing",
+      "Triple-layer insulation including polyurethane foam",
+      "Thermal-break aluminum windows with insect screens and stainless-steel entrance door",
+      "Double-layer carbon crystal board wall and ceiling",
+      "Cement fiber board substrate, insulation and multilayer wood flooring"
+    ],
+    "bathroom": [
+      "Aluminum-frame glass swing door, wet/dry separation and partition",
+      "Waterproof coating; ceramic tile wall and floor",
+      "Marble countertop; toilet, washbasin, faucet, shower",
+      "Illuminated anti-fog mirror; 3-in-1 lighting/heating/ventilation bathroom master"
+    ],
+    "balcony": [
+      "door",
+      "guard rail",
+      "floor"
+    ],
+    "plumbing_electrical": [
+      "wiring",
+      "distribution box",
+      "circuit breakers",
+      "network integration box",
+      "switch panels",
+      "water pipes",
+      "low-temperature water-supply protection"
+    ],
+    "lighting": [
+      "downlights",
+      "ambient light strip"
+    ],
+    "interior": [
+      "smoke detector",
+      "curtain unspecified type",
+      "storage table"
+    ],
+    "exterior": [
+      "smart door lock",
+      "outdoor light box",
+      "equipment room",
+      "lifting accessories"
+    ],
+    "status": "SOURCE_LIST_NOT_SIGNED_BOM",
+    "source_ids": [
+      "NEW-S312"
+    ],
+    "approved_for_local_sales": false
+  },
+  "options": [
+    {
+      "id": "opt_air_conditioner",
+      "label_ru": "Кондиционер",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": true,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_water_heater",
+      "label_ru": "Водонагреватель",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": true,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_floor_heating",
+      "label_ru": "Электрический подогрев пола",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": false,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_projector_screen",
+      "label_ru": "Проектор и экран",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": true,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_electric_curtains",
+      "label_ru": "Моторизованные шторы",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": true,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_voice_control",
+      "label_ru": "Голосовое управление домом",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": true,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_smart_toilet",
+      "label_ru": "Унитаз с интеллектуальными функциями",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": false,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_electrical_international",
+      "label_ru": "Проводка и автоматы по международному стандарту",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": false,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_furniture_package",
+      "label_ru": "Кровать с матрасом, sofa-bed и чайный столик",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": false,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_kitchen",
+      "label_ru": "Кухонный модуль",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": false,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    },
+    {
+      "id": "opt_entrance_stairs",
+      "label_ru": "Входная лестница",
+      "listing_status": "OPTIONAL_ON_NEW_MANUFACTURER_PAGE",
+      "availability_for_etf": "PENDING_CLIENT",
+      "price_delta_eur": null,
+      "compatible_with_s312": "PENDING_CLIENT",
+      "legacy_standard_conflict": false,
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "approval_status": "NOT_APPROVED"
+    }
+  ],
+  "demonstration_prototype": {
+    "existing_demo_price_not_imported": true,
+    "day_night_photography_is_visual_state_only": true,
+    "global_light_dark_theme_is_ui_state_only": true,
+    "existing_example_option_id_not_verified": [
+      "extra_led_lighting"
+    ],
+    "existing_demo_quote_is_local_txt_not_server_submission": true
+  },
+  "approved_price": {
+    "base_eur": null,
+    "vat_included": null,
+    "vat_rate": null,
+    "shipping_eur": null,
+    "assembly_eur": null,
+    "site_preparation_eur": null,
+    "installation_scope": null,
+    "option_deltas_approved": false,
+    "status": "NOT_CHECKED_DO_NOT_QUOTE"
+  },
+  "engineering_unknowns": [
+    "heat transmission/U-values",
+    "snow/wind load ratings and calculation report",
+    "building fire classifications",
+    "plumbing and waste water interface",
+    "exact voltage/phase for stated 12kW",
+    "foundation/feet/anchoring engineering",
+    "transport dimensions and lifting plan",
+    "actual usable indoor area and interior clear height",
+    "European product declarations and Latvia site-specific permit requirements",
+    "local installer/importer/warranty provider"
+  ],
+  "active_conflicts": [
+    {
+      "id": "S312-C01",
+      "description": "Height disagreement",
+      "source_ids": [
+        "CAT-21",
+        "NEW-S312",
+        "OLD-S312"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C02",
+      "description": "Guest capacity disagreement",
+      "source_ids": [
+        "CAT-20",
+        "OLD-S312"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C03",
+      "description": "Standard versus paid options: curtain, AC, heater, projector, voice",
+      "source_ids": [
+        "NEW-S312",
+        "OLD-S312",
+        "CAT-16-17"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C04",
+      "description": "Wall and ceiling material disagreement",
+      "source_ids": [
+        "NEW-S312",
+        "OLD-S312"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C05",
+      "description": "Insulation layers and thickness unconfirmed",
+      "source_ids": [
+        "NEW-S312",
+        "OLD-S312"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C06",
+      "description": "12kW power without phase/voltage/connection spec",
+      "source_ids": [
+        "NEW-S312"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C07",
+      "description": "Furniture, platform, entrance stairs and kitchen included status",
+      "source_ids": [
+        "NEW-S312",
+        "CAT-20",
+        "CAT-22"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C08",
+      "description": "No approved RAL/finish and option pricing/compatibility",
+      "source_ids": [
+        "NEW-S312",
+        "OLD-S312"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C09",
+      "description": "No validated LV climate, building and utility compliance dossier",
+      "source_ids": [
+        "NEW-S312",
+        "OLD-FAQ"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C10",
+      "description": "Unknown importer/seller/installer/warranty roles in LV",
+      "source_ids": [
+        "OLD-FAQ"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C11",
+      "description": "Manufacturer seven series vs supplied catalog six",
+      "source_ids": [
+        "NEW-CATALOG"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    },
+    {
+      "id": "S312-C12",
+      "description": "No documented license scope for images/brand",
+      "source_ids": [
+        "CAT-19",
+        "CAT-22"
+      ],
+      "resolution_status": "OPEN",
+      "production_blocking": true
+    }
+  ],
+  "required_client_and_supplier_approvals": [
+    "signed version/date of S312 factory specification",
+    "approved area/height/weight/occupancy field definitions",
+    "model-specific BOM including what is and is not in base price",
+    "per-option compatible SKU matrix and authorized price increments",
+    "local VAT and full delivery/installation price boundary",
+    "real exterior/interior color finish availability and image rights",
+    "Latvia engineering/certification/permit review and warranty provider",
+    "seller versus manufacturer branding/contractual role"
+  ],
+  "source_criticality": "Data represents competing publicly available manufacturer versions plus customer-supplied catalog; unknown and conflicting details deliberately not resolved by inference."
+}
