@@ -1,58 +1,38 @@
-# ETF Homes — конфигуратор (интерактивный прототип)
+# ROVELLC S312 — Fibo Agency owner-preview (static DEMO)
 
-**Статус:** independent Fibo Agency concept demo, **не production**. `prototype/index.html` запускается как самостоятельный статический HTML без сборки, зависимостей, backend и передачи данных.
+**Status:** Owner-approved content/UX scope (20/20 editorial decisions), implemented in an **isolated review branch**; NOT merged or deployed. Do not treat this as real ETF production or a quotation.
 
-## Цель
-Показать заказчику SIA ETF возможные элементы выбора в интерфейсе, опираясь на функциональные паттерны [MyCabin](https://www.mycabin.lv/konfigurators?model=living-100&market=LV), **без копирования чужого дизайна, изображений или исходного кода**.
+**Preview baseline:** https://fibo-etf-atelier-owner-preview.onrender.com/  
+**Review branch:** `feature/s312-approved-content-ux-20decisions-20261103`  
+**Render publish directory:** `prototype/` (auto-deploy OFF).  
+**Primary implementation:** `index.html`; existing AA/BB photos, layout SVG, brand marks and Onest fonts are reused.
 
-## Уже реализовано
-- Размер дома: 60 / 80 / 100 м² (демо-модели, **не реальные модели SIA ETF**).
-- Цвет фасада: антрацит, песочный, бургунди, оливковый. Схематическая визуализация одного дома меняет цвет фасада.
-- Напольное покрытие: дуб, серый, вишня. На отдельном ракурсе меняется цвет пола.
-- Ванная: выбор цвета стен и пола **независимо**, обе поверхности обновляются в одном ракурсе.
-- 3 взаимоисключающие комплектации (Basic / Comfort / Premium).
-- Переключатели террасы и теплового насоса.
-- Счётчик мансардных окон 0–3 с запретом превышения лимита.
-- Стандартная/зеркальная планировка.
-- Автоматический пересчёт иллюстративной стоимости с разбивкой.
-- Предпросмотр формы запроса и скачивание .txt-конфигурации исключительно локально.
+## Current scope
 
-## Принципиальные ограничения
-**Никакой серверной заявки, email, базы данных, CRM, админ-панели, платежей, языковых переводов, фотозамен материалов или настоящей 3D-сцены нет.** Пользователь может заполнить поля формы, но они не отправляются: нажатие скачивает локальный файл. Никакие данные браузера не сохраняются на сервере.
+- Exactly one house: ROVELLC S312. No 18-model catalogue, finish selector, guessed sizes or variants.
+- Architecture-first presentation (*The Destination / Quiet Architecture*) for private customers **and** hospitality/glamping operators.
+- LV by default and RU as alternate locale; both also used for generated TXT.
+- Manufacturer/catalogue-based facts: **38 m² covered area** (not certified living area), **11.5 × 3.3 m** nominal dimensions, bedroom/living/bathroom/balcony. Known disagreements on height, occupancy, BOM and local compliance remain in the disclosure.
+- Five collapsible equipment groups, one open at a time. Selected options persist across navigation and locale/theme changes.
+- Fixed DEMO price: `89 500 €` base, `+2 600 €` heated floor, `+1 800 €` electric curtains, `+950 €` additional LED. Other listed options selectable as **Price on request** and excluded from the numeric subtotal.
+- Single **Download configuration** action; a locally generated UTF-8 TXT includes model/facts, chosen options, demo sum and the caution. **No contact form, email, backend, CRM, or data submission.**
+- Independent site DAY/NIGHT theme and S312 photo DAY/NIGHT; animated transition, reduced-motion fallback.
+- Mobile compact pinned preview when the configurator is in view, suppressed on short viewports; fixed price bar with expandable cost breakdown.
+- `noindex,follow`; SEO and marketing production release are separate stages.
 
-Всё визуальное оформление создано специально для этой демонстрации в виде SVG-иллюстраций. Фотореалистичные рендеры SIA ETF необходимо получить/создать отдельно. **Все модели, комбинации и цены вымышлены для демонстрации механики; нельзя показывать их как условия продажи SIA ETF.**
+## Source and open questions
 
-## Запуск
-Откройте `index.html` в Chrome/Firefox/Edge или разместите папку `prototype/` на хостинге для статических сайтов.
+Review manufacturer discrepancies and unresolved statements in:
+- `../docs/18-s312-technical-dossier-and-conflicts-20261103.md`
+- `../data/s312-source-data-20261103.json`
+- `../docs/25-s312-day-night-preview-deployed-20261103.md`
 
-## Проверка готовности (ручные acceptance tests)
-1. Выбрать песочный фасад → дом меняет цвет, переключается на ракурс «Фасад».
-2. Выбрать «Вишня» → пол меняется, открывается «Интерьер».
-3. Выбрать «Белый мрамор» на стенах и «Чёрная матовая» на полу → ванная показывает обе поверхности отдельно.
-4. Сменить размер дома и пакет → цена и строки разбивки меняются.
-5. Изменить террасу/насос → цена меняется строго на величину демо-опции.
-6. Кнопка + для мансардных окон не позволяет выбрать больше 3; кнопка − не позволяет меньше 0.
-7. «Скачать комплектацию» → загружается текстовый файл с текущими выбранными значениями.
-8. «Посмотреть заявку» → модальная форма; после отправки создаётся файл, но отправки на сервер нет.
-9. На мобильной ширине выбор и ракурсы доступны без горизонтальной прокрутки.
+No actual production prices, VAT basis, delivery, installation, engineering guarantee, local regulatory eligibility or image commercial licensing are asserted by the prototype.
 
-## Фото-вариант и арт-дирекция (ветка feature/etf-photo-brand-exploration-20261101)
+The earlier art-review page `design-review.html` was removed from the public publish directory with owner approval. Its history remains in Git and art-direction documents, e.g. `../docs/06-premium-brand-art-direction-ru.md`.
 
-Изображения A, B, C, D, E, F, G, H, J, K загружены владельцем в `assets/images/`, просмотрены и сопоставлены с конфигурацией.
+## Review / QA
 
-- Экстерьер: A = дерево / день, B = дерево / ночь, J = бургунди / день, K = антрацит / день.
-- Пол: E = дуб, F = вишня, G = серый, H = светлый дуб.
-- Ванная: C = белый мрамор + чёрная матовая плитка; D = тёплый камень + древесный пол. Поскольку нет полного набора независимых рендеров, показаны **готовые сочетания**, не произвольное перемешивание двух поверхностей.
-- Изображения подключены к выбору опций; функциональная арифметика остаётся демонстрационной.
-- Для выбора направления бренда подготовлен [design-review.html](design-review.html) и [документ арт-дирекции](../docs/06-premium-brand-art-direction-ru.md).
-- Подготовлены два **неутверждённых** ключевых кадра A/B. В текущей ветке **нет полной реализации какой-либо из этих бренд-систем**.
-- Изображения разрешены для внутреннего просмотра прототипа владельцем; права на конечную коммерческую публикацию пока не документированы. Не публиковать в production без отдельного подтверждения.
+Open `index.html` with a local static server from the `prototype/` folder, or use a browser sandbox to render the GitHub branch HTML against existing preview assets (not equivalent to a deploy). Compare widths 320 / 390 / 768 / 1024 / 1440 and LV/RU × theme DAY/NIGHT × house photo DAY/NIGHT. Check config persistence, one-open accordion, price math, unknown-price exclusions, TXT contents, fixed preview clearance, keyboard focus, reduced motion, contrast, zoom and touch devices.
 
-Проверка в изолированном браузере 2026-11-01: переключения natural → A, natural/night → B, cherry floor → F, warm bathroom → D; ошибок JS не наблюдалось. Проверены настольный 1280×960 и мобильный 390×844 верх экрана (реальные изображения загрузились). Полный клавиатурный, контрастный и многоязычный аудит ещё не проведён. Текущий Render статик-сервис использует старую ветку; **этот фото-вариант не опубликован**.
-
-## Architectural Atelier — owner-selected direction A (2026-11-01)
-
-The prototype UI now uses a restrained architecture-editorial brand system (warm limestone, deep forest green, serif headings, precise photo-led selection). All original uploaded files A/B/C/D/E/F/G/H/J/K are bound to matching image choices. All hypothetical house types and prices remain illustrative. The form is local-only with no server submission.
-
-See `../docs/07-architectural-atelier-implementation.md` for source evidence, exact colors, current test coverage and open launch gates. No client production or main-branch release is implied by the Fibo Agency owner selecting the concept.
-
+**Release gate:** draft PR and documented checks for owner review. Do not merge or trigger Render deploy without separate explicit owner permission.
