@@ -43,7 +43,7 @@ Do not infer or reconstruct these from memory. If recovered, review privacy befo
 
 The owner selected **Architectural Atelier (Direction A)** for an interactive prototype. The implementation is in the isolated `feature/etf-architectural-atelier-ui-20261101` branch; it is not a client-approved production brand, contract, product/pricing model or release.
 
-- Design proof and history: `prototype/design-review.html`, `docs/06-premium-brand-art-direction-ru.md`
+- Design proof and history: `docs/06-premium-brand-art-direction-ru.md` and earlier Git commits (the obsolete public `prototype/design-review.html` has been removed in the approved S312 content-UX branch).
 - Implemented design handoff and test matrix: `docs/07-architectural-atelier-implementation.md`
 - Functional static HTML and user-provided photos: `prototype/index.html` + `prototype/assets/images`
 - Important: dynamic options/values are invented demonstrations, server request delivery and back office are **not implemented**.
