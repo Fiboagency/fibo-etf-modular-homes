@@ -1,0 +1,374 @@
+/* ROVELLC S312 — owner-approved A / Soft-Tech Product Gallery.
+ * Isolated visual layer. The existing Onest faces, application state,
+ * Day/Night site transition and independent AA/BB scene switching stay intact.
+ * Do not migrate standalone concept-demo data/price calculations here.
+ */
+
+/* 01. Brand surfaces / semantic tokens */
+:root {
+  --bg:#f7f7f5;
+  --surface:#ffffff;
+  --elev:#ffffff;
+  --ink:#222930;
+  --muted:#69717a;
+  --soft:#f3f5f7;
+  --border:#e3e7eb;
+  --accent:#2869e8;
+  --action:#2869e8;
+  --actionText:#ffffff;
+  --price:#ffffff;
+  --gold:#b58b60;
+  --focus:#2869e8;
+  --shadow:0 22px 65px #24314612;
+}
+html[data-theme="night"] {
+  --bg:#141a24;
+  --surface:#202a36;
+  --elev:#243140;
+  --ink:#f2f5f8;
+  --muted:#bfccd7;
+  --soft:#293543;
+  --border:#405062;
+  --accent:#91b7ff;
+  --action:#91b7ff;
+  --actionText:#0b1522;
+  --price:#121d2b;
+  --gold:#d7b48e;
+  --focus:#b5cfff;
+  --shadow:0 28px 70px #0005;
+}
+body {
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--fontText);
+  font-size:16px;
+  line-height:1.56;
+  padding-bottom:116px;
+}
+button, input, select {font-family:inherit}
+button:focus-visible, summary:focus-visible, select:focus-visible,
+input:focus-visible, a:focus-visible {outline:3px solid var(--focus);outline-offset:3px}
+
+/* 02. Calm product navigation */
+.header{background:var(--bg);border-bottom:0}
+.header-wrap{min-height:88px}
+.brand{gap:9px}
+.brand img{width:52px;height:52px}
+.brand-copy strong{font-size:14px;letter-spacing:.08em}
+.brand-copy span{letter-spacing:.045em}
+.prototype-label{
+  border:0;background:var(--soft);border-radius:99px;
+  padding:9px 14px;letter-spacing:.065em;font-size:10px
+}
+.theme-toggle{
+  border:1px solid var(--border);border-radius:99px;
+  background:var(--surface);padding:4px;gap:2px
+}
+.theme-toggle button{border-radius:99px}
+.theme-toggle button[aria-pressed="true"]{background:var(--action);color:var(--actionText)}
+.language{
+  border:1px solid var(--border);
+  background:var(--surface);color:var(--ink);
+  height:44px;border-radius:99px;padding:0 15px
+}
+
+/* 03. Product hero / spacious editorial rhythm */
+.hero-heading{
+  grid-template-columns:minmax(0,1.22fr) minmax(240px,.55fr);
+  gap:36px;align-items:end;
+  padding-top:55px;padding-bottom:37px
+}
+.hero-heading h1 {
+  font-size:clamp(50px,5.4vw,80px);
+  font-weight:500;line-height:1.055;letter-spacing:-.062em;
+  margin:17px 0 0;max-width:850px
+}
+.hero-heading h1 em,
+.project-path h2 em,.story h2 em {
+  font-style:normal;font-weight:500;color:var(--ink)
+}
+.hero-heading p{
+  border:0;padding:0;margin:0 0 4px;
+  font-size:16px;line-height:1.58;
+  color:var(--muted);max-width:365px
+}
+.section-mark {
+  font-size:11px;letter-spacing:.085em;color:var(--muted)
+}
+.section-mark::before{display:none}
+
+/* 04. Show the house first, like a designed product */
+.main-layout{
+  grid-template-columns:minmax(0,1.55fr) minmax(370px,.91fr);
+  gap:26px
+}
+.stage{
+  border:0;border-radius:25px;
+  overflow:hidden;aspect-ratio:1.58;background:#152536
+}
+.stage img{object-fit:cover;object-position:center}
+.stage::after{inset:0;background:linear-gradient(transparent 65%,#05101b80)}
+.stage-label{
+  left:23px;top:23px;
+  font-size:10px;letter-spacing:.15em
+}
+.stage-number{right:23px;top:23px;font-size:10px}
+.stage-controls{
+  left:22px;bottom:22px;padding:5px;
+  border-radius:99px;background:#fcfcfbe8;
+  backdrop-filter:blur(18px);gap:2px
+}
+.scene-toggle{
+  min-height:43px;padding:9px 16px;
+  font-size:12px;font-weight:650;
+  border-radius:99px;color:#1c303c
+}
+.scene-toggle[aria-pressed="true"]{background:#1b2d37;color:#ffffff}
+.photo-note{
+  font-size:11px;line-height:1.58;
+  padding:12px 5px 18px
+}
+
+/* 05. Key data as light product cards */
+.facts{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;background:transparent;
+  border:0;margin-top:2px
+}
+.fact,.fact:last-child {
+  border:0;background:var(--surface);
+  border-radius:15px;padding:21px 19px;
+  min-width:0
+}
+.fact .caps{color:var(--muted);letter-spacing:.07em}
+.fact strong {
+  font-family:var(--fontNumeric);
+  font-size:clamp(24px,2.3vw,32px);
+  font-weight:500;line-height:1.18;
+  letter-spacing:-.05em;margin:9px 0 9px
+}
+.fact small{font-size:12px;line-height:1.58}
+.plan-details,.evidence-details{
+  border:1px solid var(--border);
+  background:var(--surface);border-radius:15px;
+  overflow:hidden
+}
+.plan-details{margin-top:13px}
+.evidence-details{margin-top:10px}
+.plan-details summary,.evidence-details summary{font-size:14px}
+.fact-source,.facts-warning{font-size:12px;line-height:1.55}
+.facts-warning{border-radius:10px}
+
+/* 06. Configurator as an approachable product selection panel */
+.config-studio {
+  border:0;border-radius:24px;
+  background:var(--surface);overflow:hidden;
+  box-shadow:0 12px 55px #0000000a
+}
+.studio-intro{
+  padding:34px 32px 21px;
+  border-bottom:0
+}
+.studio-intro .eyebrow{color:var(--accent);letter-spacing:.075em}
+.studio-intro h2{
+  font-size:43px;font-weight:500;
+  letter-spacing:-.052em;margin:12px 0 12px
+}
+.studio-intro p{font-size:14px;line-height:1.59}
+.demo-warning{
+  border:0;border-radius:12px;
+  background:var(--soft);color:var(--muted);
+  padding:12px 14px;font-size:12px;line-height:1.55
+}
+.selection-summary {
+  border:0;border-radius:12px;
+  background:var(--soft);margin-top:15px;padding:12px 13px
+}
+.selection-summary span{font-size:10px;letter-spacing:.07em}
+.selection-summary strong{font-size:12px;font-weight:600}
+.accordion {
+  margin:0 17px;border-bottom:1px solid var(--border)
+}
+.accordion>summary {
+  padding:19px 13px;gap:11px
+}
+.accordion>summary .step {
+  border:0;border-radius:99px;
+  background:var(--soft);color:var(--muted);
+  width:29px;height:29px
+}
+.accordion>summary strong{font-size:14px;font-weight:600}
+.accordion>summary::after{font-size:23px}
+.acc-inner{padding:0 12px 21px}
+.model-card {
+  border:1px solid var(--border);
+  background:var(--soft);border-radius:12px
+}
+.model-card strong{font-weight:500}
+.tiny-tag,.source-pill{border-radius:8px}
+.option-row {
+  border:1px solid var(--border);
+  border-radius:12px;background:var(--elev);
+  min-height:80px;padding:13px 14px;
+  gap:10px
+}
+.option-row[aria-pressed="true"]{
+  border-color:var(--accent);
+  background:var(--soft);
+  box-shadow:inset 0 0 0 1px var(--accent)
+}
+.opt-name{font-size:14px;font-weight:600}
+.opt-sub{font-size:12px;line-height:1.4}
+.opt-price{font-size:13px}
+.opt-meta{min-width:92px}
+.mini-check{border-radius:99px}
+.option-row[aria-pressed="true"] .mini-check {
+  background:var(--accent);color:var(--actionText);
+  border-color:var(--accent)
+}
+.conflict{border-radius:9px}
+.config-summary {
+  margin:14px;background:var(--soft);
+  border-radius:16px;padding:24px
+}
+.config-summary h3{font-weight:500}
+.summary-foot,.acc-note{font-size:12px}
+
+/* 07. Long-form editorial elements / image rail */
+.visual-rail-media {
+  border:0;border-radius:23px;overflow:hidden
+}
+.visual-rail-copy h3,
+.project-path h2,
+.story h2,
+.project-step h3 {font-weight:500}
+.project-step p,.story p{font-size:14px;line-height:1.65}
+.story .story-note{border-radius:15px}
+.outline-btn,.primary{border-radius:99px}
+.dialog-body{padding:30px}
+dialog{border-radius:20px;overflow:auto}
+.field input{border-radius:9px}
+.close-btn{border-radius:99px}
+
+/* 08. Fixed demo pricing — always visible, never imply a real offer */
+.pricebar {
+  background:var(--price);color:var(--ink);
+  border-top:1px solid var(--border);
+  box-shadow:0 -10px 35px #151e2b12;
+  padding:13px max(18px,env(safe-area-inset-left))
+    calc(13px + env(safe-area-inset-bottom))
+    max(18px,env(safe-area-inset-right))
+}
+.price-caption{
+  color:var(--muted);letter-spacing:.035em;
+  font-size:10px;line-height:1.35
+}
+.price-number{font-size:30px;font-weight:600}
+.price-sub{color:var(--muted);font-size:11px}
+.price-actions button {
+  color:var(--ink);background:transparent;
+  border:1px solid var(--border);
+  border-radius:99px;font-size:13px;font-weight:600;
+  min-height:44px
+}
+.price-actions .price-action-primary {
+  color:var(--actionText);background:var(--action);
+  border-color:var(--action);border-radius:99px;
+  padding-inline:23px
+}
+#priceDetails{
+  border-radius:16px;
+  bottom:calc(105px + env(safe-area-inset-bottom))
+}
+.mobile-jump{
+  border-radius:99px;
+  background:var(--surface);color:var(--ink)
+}
+.mobile-jump img{border-radius:99px}
+
+/* 09. Dark mode is a designed skin, not an extra concept.
+ * Preserve existing theme switch semantics and View Transition JS.
+ */
+html[data-theme="night"] .header{background:var(--bg)}
+html[data-theme="night"] .scene-toggle[aria-pressed="true"] {
+  background:#1b2d37;color:#fff
+}
+
+/* 10. Mobile, reflow and motion */
+@media(max-width:900px) {
+  .main-layout{display:block}
+  .hero-heading{grid-template-columns:1fr;gap:18px}
+}
+@media(max-width:600px) {
+  body{padding-bottom:124px}
+  .wrap{padding-inline:15px}
+  .header-wrap{min-height:70px;gap:7px}
+  .brand{gap:5px}
+  .brand img{width:43px;height:43px}
+  .brand-copy strong{font-size:11px;letter-spacing:.025em}
+  .brand-copy span{display:none}
+  .head-right{gap:6px}
+  .theme-toggle{padding:2px}
+  .theme-toggle button{min-width:36px;min-height:36px;width:36px;height:36px}
+  .language{height:41px;padding:0 9px;font-size:12px}
+  .hero-heading{padding-top:27px;padding-bottom:25px}
+  .hero-heading h1 {
+    font-size:clamp(35px,9.4vw,46px);
+    line-height:1.07;margin-top:12px;letter-spacing:-.055em
+  }
+  .hero-heading p{font-size:14px;line-height:1.52}
+  .section-mark{font-size:10px;letter-spacing:.05em}
+  .stage{aspect-ratio:1.5;border-radius:14px}
+  .stage img{object-fit:cover}
+  .stage-label{top:12px;left:13px;font-size:9px}
+  .stage-number{top:12px;right:13px;font-size:9px}
+  .stage-controls{bottom:10px;left:10px;padding:3px}
+  .scene-toggle{min-height:38px;padding:8px 10px;font-size:11px}
+  .photo-note{font-size:11px;padding:12px 3px 17px}
+  .facts {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;margin-top:0
+  }
+  .fact,.fact:last-child{padding:15px;border-radius:12px}
+  .fact:last-child{grid-column:span 2}
+  .fact strong{font-size:25px;line-height:1.18}
+  .fact small{font-size:11px}
+  .config-studio{border-radius:16px;margin-top:25px}
+  .studio-intro{padding:24px 19px 17px}
+  .studio-intro h2{font-size:34px}
+  .studio-intro p{font-size:13px}
+  .demo-warning{font-size:11px}
+  .accordion{margin:0 10px}
+  .accordion>summary{padding:18px 10px}
+  .acc-inner{padding:0 10px 18px}
+  .option-row{padding:12px 10px}
+  .opt-name{font-size:13px}
+  .opt-sub{font-size:11px}
+  .config-summary{margin:12px}
+  .pricebar{
+    padding:9px max(12px,env(safe-area-inset-left))
+      calc(9px + env(safe-area-inset-bottom))
+      max(12px,env(safe-area-inset-right))
+  }
+  .price-caption{font-size:9px;letter-spacing:0;line-height:1.25}
+  .price-number{font-size:23px}
+  .price-actions .price-action-primary{
+    min-width:112px;max-width:142px;
+    font-size:12px;padding:9px 10px
+  }
+  #priceDetails{bottom:calc(83px + env(safe-area-inset-bottom));right:10px}
+  .story p{font-size:14px}
+}
+@media(max-width:350px) {
+  .brand img{width:37px;height:37px}
+  .brand-copy strong{font-size:9px}
+  .theme-toggle button{min-width:33px;min-height:36px;width:33px;height:36px}
+  .language{padding:0 6px}
+  .opt-meta{min-width:84px}
+  .price-caption{font-size:8px}
+  .price-number{font-size:21px}
+  .price-actions .price-action-primary{min-width:105px;max-width:112px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .stage img{transition:none}
+}
