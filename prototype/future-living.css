@@ -372,3 +372,114 @@ html[data-theme="night"] .scene-toggle[aria-pressed="true"] {
 @media(prefers-reduced-motion:reduce) {
   .stage img{transition:none}
 }
+
+/* 11. S312 Material Gallery — architectural samples, not ecommerce tiles.
+ * Selection remains a native button with aria-checked managed by existing JS.
+ * Use the product-gallery blue sparingly: only the selected sample and focus.
+ */
+.finish-options {
+  gap:30px;
+  margin:20px 0 30px;
+}
+.finish-block {
+  padding-bottom:26px;
+}
+.finish-title {
+  font-size:14px;
+  line-height:1.4;
+  margin-bottom:7px;
+}
+.finish-note {
+  font-size:11px;
+  line-height:1.55;
+  margin-bottom:15px;
+}
+.finish-swatches {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.finish-swatch {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  padding:0;
+  border:0;
+  border-radius:12px;
+  background:transparent;
+  color:var(--ink);
+  text-align:left;
+  box-shadow:none;
+  cursor:pointer;
+}
+.finish-swatch[aria-checked="true"] {
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+.finish-swatch img {
+  display:block;
+  width:100%;
+  aspect-ratio:1.16;
+  height:auto;
+  object-fit:cover;
+  border-radius:11px;
+  background:var(--soft);
+  outline:2px solid transparent;
+  outline-offset:-2px;
+  transition:outline-color .18s ease,filter .18s ease;
+}
+.finish-swatch[aria-checked="true"] img {
+  outline-color:var(--action);
+}
+.finish-swatch[aria-checked="true"]::after {
+  content:"✓";
+  position:absolute;
+  top:8px;
+  right:8px;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  border:2px solid var(--surface);
+  border-radius:50%;
+  background:var(--action);
+  color:var(--actionText);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:12px;
+  font-weight:700;
+  line-height:1;
+  pointer-events:none;
+}
+.finish-swatch span {
+  display:block;
+  padding:9px 2px 2px;
+  font-size:12px;
+  font-weight:500;
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+.finish-swatch[aria-checked="true"] span {
+  font-weight:700;
+}
+.finish-swatch:focus-visible {
+  outline:3px solid var(--focus);
+  outline-offset:4px;
+  border-radius:12px;
+}
+@media(hover:hover) and (pointer:fine) {
+  .finish-swatch:not([aria-checked="true"]):hover img {
+    filter:brightness(.97);
+  }
+}
+@media(max-width:600px) {
+  .finish-options {gap:27px;margin:17px 0 26px}
+  .finish-title {font-size:14px}
+  .finish-swatches {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .finish-swatch img {aspect-ratio:1.2}
+  .finish-swatch span {font-size:12px;padding-top:8px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .finish-swatch img {transition:none}
+}
