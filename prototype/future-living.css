@@ -611,3 +611,174 @@ html[data-theme="night"] .scene-toggle[aria-pressed="true"] {
 @media(prefers-reduced-motion:reduce) {
  .mobile-preview {transition:none}
 }
+
+/* S312 mobile image preview v2 — photography is the focal point.
+ * Contextual hero remains visible only while choosing materials; price remains independent.
+ * DAY/NIGHT uses local vector line icons rather than platform emoji glyphs.
+ */
+@media(max-width:600px) {
+  .mobile-preview {
+    display:block;
+    padding:6px;
+    min-height:0;
+    left:10px;
+    right:10px;
+    top:calc(8px + env(safe-area-inset-top));
+    border-radius:17px;
+    overflow:hidden;
+    background:var(--surface);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+  }
+  .mobile-preview-house {
+    position:relative;
+    display:block;
+    width:100%;
+    height:auto;
+    min-height:0;
+    padding:0;
+    border:0;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:left;
+    background:#1c2b32;
+    color:#fff;
+  }
+  .mobile-preview .mobile-preview-house img {
+    display:block;
+    width:100%;
+    height:clamp(136px,24dvh,210px);
+    object-fit:cover;
+    object-position:center center;
+    border-radius:12px;
+    background:#1c2b32;
+    transition:height .22s ease;
+  }
+  .mobile-preview.expanded .mobile-preview-house img {
+    height:clamp(184px,35dvh,292px);
+  }
+  .mobile-preview-house::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    border-radius:12px;
+    pointer-events:none;
+    background:linear-gradient(to bottom,rgba(7,17,23,.52),transparent 35%,transparent 64%,rgba(7,17,23,.25));
+  }
+  .mobile-preview .mobile-preview-label {
+    position:absolute;
+    z-index:2;
+    top:13px;
+    left:14px;
+    display:flex;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:5px;
+    width:auto;
+    max-width:calc(100% - 42px);
+    padding:0;
+    margin:0;
+    color:#fff;
+    font-size:10px;
+    font-weight:500;
+    line-height:1.2;
+    letter-spacing:.09em;
+    text-shadow:0 1px 8px rgba(0,0,0,.35);
+  }
+  .mobile-preview .mobile-preview-label strong {
+    display:inline;
+    font-size:10px;
+    font-weight:700;
+  }
+  .mobile-preview .mobile-preview-label small {
+    display:block;
+    flex-basis:100%;
+    color:#fff;
+    font-size:10px;
+    font-weight:450;
+    letter-spacing:0;
+    opacity:.84;
+    margin:3px 0 0;
+  }
+  .mobile-preview-scenes {
+    position:absolute;
+    z-index:3;
+    right:17px;
+    bottom:17px;
+    display:flex;
+    align-items:center;
+    gap:2px;
+    padding:3px;
+    border-radius:999px;
+    background:rgba(249,250,250,.94);
+    box-shadow:0 5px 18px rgba(0,0,0,.16);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+  .mobile-preview-scenes[hidden] {display:none!important}
+  .mobile-preview-scenes button {
+    display:grid;
+    place-items:center;
+    min-width:42px;
+    min-height:42px;
+    width:42px;
+    height:42px;
+    padding:0;
+    border:0;
+    border-radius:999px;
+    background:transparent;
+    color:#273841;
+    font-size:inherit;
+    line-height:1;
+  }
+  .mobile-preview-scenes button svg {
+    display:block;
+    width:19px;
+    height:19px;
+    overflow:visible;
+  }
+  .mobile-preview-scenes button[aria-pressed="true"] {
+    background:#1b2d37;
+    color:#fff;
+  }
+  .mobile-preview-scenes button:focus-visible,
+  .mobile-preview-house:focus-visible,
+  .mobile-preview-goto:focus-visible {
+    outline:3px solid var(--focus);
+    outline-offset:2px;
+  }
+  .mobile-preview-large[hidden] {display:none!important}
+  .mobile-preview-large {
+    position:absolute;
+    z-index:3;
+    left:17px;
+    bottom:19px;
+    display:block;
+    padding:0;
+    border:0;
+  }
+  .mobile-preview-goto {
+    min-height:42px;
+    padding:8px 12px;
+    border:1px solid rgba(255,255,255,.58);
+    border-radius:999px;
+    color:#fff;
+    background:rgba(11,25,32,.65);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    font-size:11px;
+    font-weight:600;
+  }
+}
+@media(max-width:350px) and (max-width:600px) {
+  .mobile-preview {left:6px;right:6px;padding:5px}
+  .mobile-preview .mobile-preview-house img {height:clamp(132px,24dvh,180px)}
+  .mobile-preview.expanded .mobile-preview-house img {height:clamp(178px,35dvh,240px)}
+  .mobile-preview-scenes {right:12px;bottom:12px}
+  .mobile-preview-scenes button {min-width:40px;min-height:40px;width:40px;height:40px}
+  .mobile-preview-large {left:12px;bottom:14px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .mobile-preview .mobile-preview-house img {transition:none}
+}
