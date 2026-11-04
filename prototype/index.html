@@ -246,13 +246,12 @@ body{padding-bottom:0}
 <footer class="wrap footer"><span data-i18n="footer">ROVELLC S312 · SIA ETF vizuāla koncepta demonstrācija</span><a class="agency" href="https://fiboagency.com/" target="_blank" rel="noopener noreferrer"><span>Prototype by</span><img src="./assets/brand/fibo-wordmark.svg" alt="Fibo Agency"></a></footer>
 <div class="mobile-preview" id="mobilePreview" role="region" aria-label="S312 mājas priekšskatījums">
 <button id="mobilePreviewExpand" class="mobile-preview-house" type="button" aria-controls="mobilePreviewLarge" aria-expanded="false" aria-label="Palielināt izvēlētā materiāla attēlu">
-<img id="jumpThumb" src="./assets/images/AA.webp" alt=""><span>ROVELLC <strong>S312</strong><small id="mobilePreviewHint">Palielināt attēlu</small></span></button>
+<img id="jumpThumb" src="./assets/images/AA.webp" alt=""><span class="mobile-preview-label">ROVELLC <strong>S312</strong><small id="mobilePreviewHint">Palielināt attēlu</small></span></button>
 <div class="mobile-preview-scenes" role="group" aria-label="S312 attēla apgaismojums">
-<button id="miniSceneDay" type="button" aria-pressed="true" aria-label="Dienas kadrs" title="Diena">☀</button>
-<button id="miniSceneNight" type="button" aria-pressed="false" aria-label="Nakts kadrs" title="Nakts">☾</button>
+<button id="miniSceneDay" type="button" aria-pressed="true" aria-label="Dienas kadrs" title="Diena"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41m0-14.14-1.41 1.41M6.34 17.66l-1.41 1.41"></path></svg></button>
+<button id="miniSceneNight" type="button" aria-pressed="false" aria-label="Nakts kadrs" title="Nakts"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.5A8.8 8.8 0 0 1 9.5 3.5 9 9 0 1 0 20.5 14.5Z"></path></svg></button>
 </div>
 <div class="mobile-preview-large" id="mobilePreviewLarge" hidden>
-<img id="mobileLargeImage" src="./assets/images/AA.webp" alt="S312" decoding="async">
 <button id="mobileJump" class="mobile-preview-goto" type="button" data-i18n="mobileJumpText">Apskatīt lielo attēlu</button>
 </div></div>
 <div id="liveNotice" class="sr-only" aria-live="polite" role="status"></div>
@@ -397,7 +396,6 @@ function updateVisual(){
  $('imgDay').classList.toggle('active',!exterior||state.scene==='day');
  $('imgNight').classList.toggle('active',exterior&&state.scene==='night');
  $('jumpThumb').src=assetBase+file;
- $('mobileLargeImage').src=assetBase+file;
  document.querySelector('.stage-controls').hidden=!exterior;
  document.querySelector('.mobile-preview-scenes').hidden=!exterior;
  document.querySelector('.stage-number').textContent=String(finishKeys.indexOf(key)+1).padStart(2,'0')+' / 04';
@@ -405,7 +403,6 @@ function updateVisual(){
  $('imgDay').alt=label+(exterior?(state.lang==='ru'?' — день':' — diena'):'');
  $('imgNight').alt=exterior?label+(state.lang==='ru'?' — ночь':' — nakts'):'';
  $('house').setAttribute('aria-label',label);
- $('mobileLargeImage').alt=label;
 }
 function detectActiveFinish(){
  // Scroll-driven photos only apply while the material gallery occupies
