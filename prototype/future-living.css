@@ -483,3 +483,50 @@ html[data-theme="night"] .scene-toggle[aria-pressed="true"] {
 @media(prefers-reduced-motion:reduce) {
   .finish-swatch img {transition:none}
 }
+
+/* S312 Material Gallery: materials remain visible while scrolling photo contexts.
+ * First group is a semantic section, not an interactive accordion.
+ */
+.accordion-fixed > .fixed-accordion-heading {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin:0;
+  padding:19px 13px;
+  font:inherit;
+  cursor:default;
+}
+.accordion-fixed > .fixed-accordion-heading .step {
+  display:grid;
+  place-items:center;
+  width:29px;
+  height:29px;
+  flex-shrink:0;
+  border:0;
+  border-radius:99px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:10px;
+}
+.accordion-fixed > .fixed-accordion-heading strong {
+  flex:1;
+  font-size:14px;
+  font-weight:600;
+}
+.accordion-fixed > .fixed-accordion-heading .selection-count {
+  border:1px solid var(--accent);
+  color:var(--accent);
+  min-width:23px;
+  height:23px;
+  display:inline-grid;
+  place-items:center;
+  padding:0 4px;
+  font-size:11px;
+  font-weight:700;
+}
+.accordion-fixed > .fixed-accordion-heading .selection-count[hidden] {
+  display:none;
+}
+@media(max-width:600px) {
+  .accordion-fixed > .fixed-accordion-heading {padding:18px 10px}
+}
