@@ -149,7 +149,6 @@ body{font-family:var(--fontText);font-size:16px;line-height:1.58;font-synthesis:
  .price-actions #download{min-width:118px;max-width:123px;font-size:11px;padding:8px 6px}
  .price-caption{font-size:9px}
 }
-@media(max-height:629px) and (max-width:600px){.mobile-preview{display:none!important}}
 @media(prefers-reduced-motion:reduce){.mobile-preview{transition:none}}
 
 /* S312 materials: additive to all existing configuration options. */
@@ -231,7 +230,7 @@ body{padding-bottom:0}
 <div id="priceDetails" role="region" aria-label="DEMO cenas sastāvs" hidden><button class="text-btn" id="closePriceDetails" type="button" aria-label="Aizvērt izmaksu sastāvu">×</button><strong data-i18n="priceDetailsTitle">DEMO cenas sastāvs</strong><div id="priceDetailLines"></div><p data-i18n="priceDetailNote">Izvēlētās opcijas ar nezināmu cenu nav iekļautas summā.</p></div>
 </div>
 <aside class="config-studio" id="config"><div class="studio-intro"><div class="eyebrow" data-i18n="studioEyebrow">S312 / KONFIGURĀCIJAS STUDIJA</div><h2 data-i18n="studioTitle">Jūsu S312</h2><p data-i18n="studioDesc">Izvēlieties aprīkojumu pa tematiskām grupām. Demonstrācijas summa atjaunojas uzreiz; nezināmai cenai — individuāls aprēķins.</p><div class="selection-summary" role="status" aria-live="polite"><span data-i18n="selectionLabel">IZVĒLĒTAIS APRĪKOJUMS</span><strong id="selectedCount">Izvēlētas opcijas: 0</strong></div></div>
-<section class="accordion accordion-fixed" id="materialsAccordion"><h3 class="fixed-accordion-heading"><span class="step">01</span><strong data-i18n="group2">Konstrukcija un interjers</strong></h3><div class="acc-inner"><span class="source-pill" data-i18n="sourceClaim">RAŽOTĀJA KATALOGĀ MINĒTIE MATERIĀLI</span><ul class="included-list"><li data-i18n="included1">Tērauda konstrukcija, alumīnija korpuss, Low-E stiklojums</li><li data-i18n="included2">Ražotāja norādīta sienu, grīdas un vannas aprīkojuma specifikācija</li><li data-i18n="included3">Standarta komplektācijas saturs un apdares kodi jāapstiprina</li></ul><div id="finishOptions" class="finish-options"></div><div id="interiorOptions"></div></div></section>
+<section class="accordion accordion-fixed" id="materialsAccordion"><h3 class="fixed-accordion-heading"><span class="step">01</span><strong data-i18n="group2">Konstrukcija un interjers</strong></h3><div class="acc-inner"><p class="material-pricing-note" data-i18n="materialPricingNote">Materiālu attēli ir demonstrācijas. Nestandarta variantu cenas precizējamas.</p><div id="finishOptions" class="finish-options"></div><div id="interiorOptions"></div><details class="material-specs"><summary data-i18n="materialSpecsTitle">Ražotāja materiāli un specifikācija</summary><div class="material-specs-body"><span class="source-pill" data-i18n="sourceClaim">RAŽOTĀJA KATALOGĀ MINĒTIE MATERIĀLI</span><ul class="included-list"><li data-i18n="included1">Tērauda konstrukcija, alumīnija korpuss, Low-E stiklojums</li><li data-i18n="included2">Ražotāja norādīta sienu, grīdas un vannas aprīkojuma specifikācija</li><li data-i18n="included3">Standarta komplektācijas saturs un apdares kodi jāapstiprina</li></ul></div></details></div></section>
 <details class="accordion"><summary><span class="step">02</span><strong data-i18n="group3">Klimats un komforts</strong></summary><div class="acc-inner" id="climateOptions"></div></details>
 <details class="accordion"><summary><span class="step">03</span><strong data-i18n="group4">Vadība un multimediji</strong></summary><div class="acc-inner" id="controlOptions"></div></details>
 <details class="accordion"><summary><span class="step">04</span><strong data-i18n="group5">Mēbeles un aprīkojums</strong></summary><div class="acc-inner" id="furnitureOptions"></div></details>
@@ -246,11 +245,15 @@ body{padding-bottom:0}
 </main>
 <footer class="wrap footer"><span data-i18n="footer">ROVELLC S312 · SIA ETF vizuāla koncepta demonstrācija</span><a class="agency" href="https://fiboagency.com/" target="_blank" rel="noopener noreferrer"><span>Prototype by</span><img src="./assets/brand/fibo-wordmark.svg" alt="Fibo Agency"></a></footer>
 <div class="mobile-preview" id="mobilePreview" role="region" aria-label="S312 mājas priekšskatījums">
-<button id="mobileJump" class="mobile-preview-house" type="button" aria-label="Apskatīt S312 attēlu pilnā izmērā">
-<img id="jumpThumb" src="./assets/images/AA.webp" alt=""><span>ROVELLC <strong>S312</strong></span></button>
+<button id="mobilePreviewExpand" class="mobile-preview-house" type="button" aria-controls="mobilePreviewLarge" aria-expanded="false" aria-label="Palielināt izvēlētā materiāla attēlu">
+<img id="jumpThumb" src="./assets/images/AA.webp" alt=""><span>ROVELLC <strong>S312</strong><small id="mobilePreviewHint">Palielināt attēlu</small></span></button>
 <div class="mobile-preview-scenes" role="group" aria-label="S312 attēla apgaismojums">
 <button id="miniSceneDay" type="button" aria-pressed="true" aria-label="Dienas kadrs" title="Diena">☀</button>
 <button id="miniSceneNight" type="button" aria-pressed="false" aria-label="Nakts kadrs" title="Nakts">☾</button>
+</div>
+<div class="mobile-preview-large" id="mobilePreviewLarge" hidden>
+<img id="mobileLargeImage" src="./assets/images/AA.webp" alt="S312" decoding="async">
+<button id="mobileJump" class="mobile-preview-goto" type="button" data-i18n="mobileJumpText">Apskatīt lielo attēlu</button>
 </div></div>
 <div id="liveNotice" class="sr-only" aria-live="polite" role="status"></div>
 <style>.sr-only{position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;white-space:nowrap;overflow:hidden}</style>
@@ -297,7 +300,7 @@ Object.assign(t.ru,{
  closePriceAria:'Закрыть состав стоимости',
  themeGroupAria:'Тема оформления сайта',themeDayAria:'Светлая тема сайта',themeNightAria:'Тёмная тема сайта',
  sceneGroupAria:'Освещение изображения дома',sceneDayAria:'Дневное изображение S312',sceneNightAria:'Ночное изображение S312',
- houseImageAria:'Изображение модульного дома S312',visualRailAria:'Дневной и ночной виды S312',mobilePreviewAria:'Закреплённое превью дома S312',mobileJumpAria:'Посмотреть большое изображение S312',
+ houseImageAria:'Изображение модульного дома S312',visualRailAria:'Дневной и ночной виды S312',mobilePreviewAria:'Закреплённое превью дома S312',mobileJumpAria:'Посмотреть большое изображение S312',mobileJumpText:'Посмотреть большое фото',mobilePreviewExpand:'Увеличить изображение выбранного материала',mobilePreviewCollapse:'Свернуть изображение',previewExpandHint:'Увеличить фото',previewCollapseHint:'Свернуть фото',materialPricingNote:'Изображения отделки демонстрационные. Доплаты за нестандартные материалы уточняются.',materialSpecsTitle:'Материалы и технические сведения производителя',
  languageAria:'Язык интерфейса',factsAria:'Характеристики S312',planImageAlt:'Упрощённая схема планировки S312',
  evidenceSummary:'Источники и технические ограничения S312',priceBarAria:'Демонстрационная стоимость S312',
  txtTitle:'ROVELLC S312 — ДЕМОНСТРАЦИОННАЯ КОМПЛЕКТАЦИЯ',txtModel:'Модель',
@@ -326,7 +329,7 @@ Object.assign(t.lv,{
  closePriceAria:'Aizvērt izmaksu sastāvu',
  themeGroupAria:'Vietnes noformējuma režīms',themeDayAria:'Vietnes dienas režīms',themeNightAria:'Vietnes nakts režīms',
  sceneGroupAria:'Mājas attēla apgaismojums',sceneDayAria:'S312 dienas attēls',sceneNightAria:'S312 nakts attēls',
- houseImageAria:'S312 moduļu mājas attēls',visualRailAria:'S312 dienas un nakts skati',mobilePreviewAria:'Piestiprināts S312 mājas priekšskatījums',mobileJumpAria:'Skatīt lielo S312 attēlu',
+ houseImageAria:'S312 moduļu mājas attēls',visualRailAria:'S312 dienas un nakts skati',mobilePreviewAria:'Piestiprināts S312 mājas priekšskatījums',mobileJumpAria:'Skatīt lielo S312 attēlu',mobileJumpText:'Skatīt lielo attēlu',mobilePreviewExpand:'Palielināt izvēlētā materiāla attēlu',mobilePreviewCollapse:'Samazināt attēlu',previewExpandHint:'Palielināt attēlu',previewCollapseHint:'Samazināt attēlu',materialPricingNote:'Apdares attēli ir demonstrācijas. Nestandarta materiālu piemaksas jāprecizē.',materialSpecsTitle:'Ražotāja materiāli un tehniskā informācija',
  languageAria:'Saskarnes valoda',factsAria:'S312 raksturlielumi',planImageAlt:'Vienkāršota S312 telpu shēma',
  priceBarAria:'S312 demonstrācijas summa',
  txtTitle:'ROVELLC S312 — DEMONSTRĀCIJAS KOMPLEKTĀCIJA',txtModel:'Modelis',
@@ -372,7 +375,6 @@ function renderFinishOptions(){
  for(const key of finishKeys){
   const info=finishes[key],part=document.createElement('section');part.className='finish-block';part.dataset.finishSection=key;
   const title=document.createElement('h4');title.className='finish-title';title.id='finish-title-'+key;title.textContent=state.lang==='ru'?info.ru:info.lv;
-  const note=document.createElement('p');note.className='finish-note';note.textContent=state.lang==='ru'?'Визуализация материала · стоимость уточняется для нестандартных вариантов.':'Materiāla vizualizācija · nestandarta variantu cena jāprecizē.';
   const swatches=document.createElement('div');swatches.className='finish-swatches';swatches.setAttribute('role','radiogroup');swatches.setAttribute('aria-labelledby',title.id);
   info.items.forEach((item,index)=>{
    const b=document.createElement('button');b.className='finish-swatch';b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked',String(state.finish[key]===item.id));b.dataset.finishChoice=key+'-'+item.id;
@@ -383,7 +385,7 @@ function renderFinishOptions(){
    b.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();const dir=(e.key==='ArrowLeft'||e.key==='ArrowUp')?-1:1;choose(info.items[(index+dir+info.items.length)%info.items.length].id)});
    swatches.append(b);
   });
-  part.append(title,note,swatches);nodes.push(part);
+  part.append(title,swatches);nodes.push(part);
  }
  $('finishOptions').replaceChildren(...nodes);
 }
@@ -395,6 +397,7 @@ function updateVisual(){
  $('imgDay').classList.toggle('active',!exterior||state.scene==='day');
  $('imgNight').classList.toggle('active',exterior&&state.scene==='night');
  $('jumpThumb').src=assetBase+file;
+ $('mobileLargeImage').src=assetBase+file;
  document.querySelector('.stage-controls').hidden=!exterior;
  document.querySelector('.mobile-preview-scenes').hidden=!exterior;
  document.querySelector('.stage-number').textContent=String(finishKeys.indexOf(key)+1).padStart(2,'0')+' / 04';
@@ -402,12 +405,18 @@ function updateVisual(){
  $('imgDay').alt=label+(exterior?(state.lang==='ru'?' — день':' — diena'):'');
  $('imgNight').alt=exterior?label+(state.lang==='ru'?' — ночь':' — nakts'):'';
  $('house').setAttribute('aria-label',label);
+ $('mobileLargeImage').alt=label;
 }
 function detectActiveFinish(){
+ // Scroll-driven photos only apply while the material gallery occupies
+ // the reading line. Outside this zone preserve the user's last material.
  const y=Math.min(window.innerHeight*.4,300);
+ const bounds=$('finishOptions').getBoundingClientRect();
+ if(bounds.top>y||bounds.bottom<y)return;
  let active=state.visual;
  for(const section of document.querySelectorAll('[data-finish-section]')){
-  const r=section.getBoundingClientRect();if(r.height>0&&r.top<=y&&r.bottom>=y){active=section.dataset.finishSection;break}
+  const r=section.getBoundingClientRect();
+  if(r.height>0&&r.top<=y&&r.bottom>=y){active=section.dataset.finishSection;break}
  }
  if(active!==state.visual){state.visual=active;updateVisual()}
 }
@@ -426,7 +435,7 @@ document.querySelector('#house').setAttribute('aria-label',tt.houseImageAria);
 document.querySelector('.visual-rail')?.setAttribute('aria-label',tt.visualRailAria);
 document.querySelector('meta[name=theme-color]').content=state.theme==='day'?'#F7F7F5':'#141A24';
 for(const [group,container] of [['interior','interiorOptions'],['climate','climateOptions'],['control','controlOptions'],['furniture','furnitureOptions'],['engineering','engineeringOptions']]){$(container).replaceChildren(...definitions.filter(d=>d.group===group).map(d=>{const b=document.createElement('button');b.className='option-row';b.type='button';b.dataset.option=d.id;b.setAttribute('aria-pressed',String(!!state.selected[d.id]));b.setAttribute('aria-label',(state.lang==='ru'?d.ru:d.lv)+', '+(d.demo?money(d.cost)+' DEMO':tt.unknownPrice));const title=document.createElement('span');const name=document.createElement('strong');name.className='opt-name';name.textContent=state.lang==='ru'?d.ru:d.lv;title.append(name);const meta=document.createElement('span');meta.className='opt-meta';const price=document.createElement('span');price.className='opt-price'+(d.demo?'':' unknown');price.textContent=d.demo?'+'+money(d.cost):tt.unknownPrice;const check=document.createElement('span');check.className='mini-check';check.textContent=state.selected[d.id]?'✓':'';meta.append(price,check);b.append(title,meta);b.addEventListener('click',()=>{state.selected[d.id]=!state.selected[d.id];render();document.querySelector('[data-option="'+d.id+'"]')?.focus({preventScroll:true});$('liveNotice').textContent=(state.lang==='ru'?'Выбор обновлён. Демо-цена ':'Izvēle mainīta. DEMO summa ')+money(total())});return b}))}
-renderFinishOptions();updateVisual();const selected=definitions.filter(d=>state.selected[d.id]);$('leftSelectionsText').textContent=finishKeys.map(k=>(state.lang==='ru'?finishes[k].ru:finishes[k].lv)+': '+(state.lang==='ru'?finishItem(k).ru:finishItem(k).lv)).join(' · ')+(selected.length?' · '+(state.lang==='ru'?'Опций оборудования: ':'Aprīkojuma opcijas: ')+selected.length:'');$('selectedCount').textContent=tt.selectedCountUnit+': '+selected.length;$('companionImage').src=assetBase+(state.scene==='day'?'BB.webp':'AA.webp');$('companionImage').alt=state.lang==='ru'?(state.scene==='day'?'S312 — вечерний ракурс':'S312 — дневной ракурс'):(state.scene==='day'?'S312 — vakara skats':'S312 — dienas skats');document.querySelectorAll('.accordion').forEach((node,index)=>{const group=['interior','climate','control','furniture','engineering'][index];const selectedInGroup=selected.filter(d=>d.group===group).length;const heading=node.querySelector('summary, .fixed-accordion-heading');let badge=heading.querySelector('.selection-count');if(!badge){badge=document.createElement('span');badge.className='selection-count';badge.setAttribute('aria-hidden','true');heading.appendChild(badge)}badge.hidden=selectedInGroup===0;badge.textContent=selectedInGroup?String(selectedInGroup):''});const lines=selected.filter(d=>d.demo).map(d=>{const x=document.createElement('div');x.className='sumline';const a=document.createElement('span');a.textContent=state.lang==='ru'?d.ru:d.lv;const b=document.createElement('strong');b.textContent='+'+money(d.cost);x.append(a,b);return x});$('selectedLines').replaceChildren(...lines);$('priceDetailLines').replaceChildren(...[(()=>{const x=document.createElement('div');x.className='sumline';x.innerHTML='<span>S312 DEMO</span><strong>89 500 €</strong>';return x})(),...lines.map(x=>x.cloneNode(true)),...selected.filter(d=>!d.demo).map(d=>{const x=document.createElement('div');x.className='sumline';const name=document.createElement('span');name.textContent=state.lang==='ru'?d.ru:d.lv;const status=document.createElement('strong');status.textContent=tt.unknownPrice;x.append(name,status);return x}),...unpricedFinishes().map(label=>{const x=document.createElement('div');x.className='sumline';const name=document.createElement('span');name.textContent=label;const price=document.createElement('strong');price.textContent=tt.unknownPrice;x.append(name,price);return x})]);$('priceAmount').textContent=money(total());$('plusQuote').hidden=count()===0;$('unknownSummary').hidden=count()===0;$('unknownSummary').textContent=tt.selectedUnknown+' ('+count()+'): '+[...selected.filter(d=>!d.demo).map(d=>state.lang==='ru'?d.ru:d.lv),...unpricedFinishes()].join(', ');persist();}
+renderFinishOptions();updateVisual();$('mobilePreviewHint').textContent=mobilePreviewExpanded?tt.previewCollapseHint:tt.previewExpandHint;$('mobilePreviewExpand').setAttribute('aria-label',mobilePreviewExpanded?tt.mobilePreviewCollapse:tt.mobilePreviewExpand);const selected=definitions.filter(d=>state.selected[d.id]);$('leftSelectionsText').textContent=finishKeys.map(k=>(state.lang==='ru'?finishes[k].ru:finishes[k].lv)+': '+(state.lang==='ru'?finishItem(k).ru:finishItem(k).lv)).join(' · ')+(selected.length?' · '+(state.lang==='ru'?'Опций оборудования: ':'Aprīkojuma opcijas: ')+selected.length:'');$('selectedCount').textContent=tt.selectedCountUnit+': '+selected.length;$('companionImage').src=assetBase+(state.scene==='day'?'BB.webp':'AA.webp');$('companionImage').alt=state.lang==='ru'?(state.scene==='day'?'S312 — вечерний ракурс':'S312 — дневной ракурс'):(state.scene==='day'?'S312 — vakara skats':'S312 — dienas skats');document.querySelectorAll('.accordion').forEach((node,index)=>{const group=['interior','climate','control','furniture','engineering'][index];const selectedInGroup=selected.filter(d=>d.group===group).length;const heading=node.querySelector('summary, .fixed-accordion-heading');let badge=heading.querySelector('.selection-count');if(!badge){badge=document.createElement('span');badge.className='selection-count';badge.setAttribute('aria-hidden','true');heading.appendChild(badge)}badge.hidden=selectedInGroup===0;badge.textContent=selectedInGroup?String(selectedInGroup):''});const lines=selected.filter(d=>d.demo).map(d=>{const x=document.createElement('div');x.className='sumline';const a=document.createElement('span');a.textContent=state.lang==='ru'?d.ru:d.lv;const b=document.createElement('strong');b.textContent='+'+money(d.cost);x.append(a,b);return x});$('selectedLines').replaceChildren(...lines);$('priceDetailLines').replaceChildren(...[(()=>{const x=document.createElement('div');x.className='sumline';x.innerHTML='<span>S312 DEMO</span><strong>89 500 €</strong>';return x})(),...lines.map(x=>x.cloneNode(true)),...selected.filter(d=>!d.demo).map(d=>{const x=document.createElement('div');x.className='sumline';const name=document.createElement('span');name.textContent=state.lang==='ru'?d.ru:d.lv;const status=document.createElement('strong');status.textContent=tt.unknownPrice;x.append(name,status);return x}),...unpricedFinishes().map(label=>{const x=document.createElement('div');x.className='sumline';const name=document.createElement('span');name.textContent=label;const price=document.createElement('strong');price.textContent=tt.unknownPrice;x.append(name,price);return x})]);$('priceAmount').textContent=money(total());$('plusQuote').hidden=count()===0;$('unknownSummary').hidden=count()===0;$('unknownSummary').textContent=tt.selectedUnknown+' ('+count()+'): '+[...selected.filter(d=>!d.demo).map(d=>state.lang==='ru'?d.ru:d.lv),...unpricedFinishes()].join(', ');persist();}
 function siteTheme(next,source){if(state.theme===next)return;const change=()=>{state.theme=next;render()};if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){change();return}const root=document.documentElement;if(typeof document.startViewTransition==='function'){const r=source.getBoundingClientRect();root.style.setProperty('--theme-x',r.left+r.width/2+'px');root.style.setProperty('--theme-y',r.top+r.height/2+'px');root.classList.add('theme-reveal');try{const trans=document.startViewTransition(change);trans.finished.catch(()=>{}).finally(()=>{root.classList.remove('theme-reveal');root.style.removeProperty('--theme-x');root.style.removeProperty('--theme-y')})}catch(e){root.classList.remove('theme-reveal');change()}}else{root.classList.add('theme-fallback');void root.offsetHeight;change();setTimeout(()=>root.classList.remove('theme-fallback'),580)}}
 $('themeDay').addEventListener('click',()=>siteTheme('day',$('themeDay')));$('themeNight').addEventListener('click',()=>siteTheme('night',$('themeNight')));$('sceneDay').addEventListener('click',()=>{state.scene='day';render()});$('sceneNight').addEventListener('click',()=>{state.scene='night';render()});
 $('miniSceneDay').addEventListener('click',()=>{state.scene='day';render()});
@@ -434,9 +443,36 @@ $('miniSceneNight').addEventListener('click',()=>{state.scene='night';render()})
 document.querySelectorAll('details.accordion').forEach(node=>node.addEventListener('toggle',()=>{
  if(node.open)document.querySelectorAll('details.accordion').forEach(other=>{if(other!==node)other.open=false});
 }));
-$('language').addEventListener('change',ev=>{state.lang=ev.target.value;render()});function goHouse(){document.getElementById('house').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'})}['showHouse','mobileJump'].forEach(id=>$(id).addEventListener('click',goHouse));
-let stageVisible=true;let studioVisible=false;const refreshJump=()=>{const vh=window.visualViewport?.height||window.innerHeight;const visible=window.innerWidth<=600&&vh>=630&&!stageVisible&&studioVisible;$('mobilePreview').classList.toggle('visible',visible)};new IntersectionObserver(e=>{stageVisible=e[0].isIntersecting;refreshJump()},{threshold:.12}).observe($('house'));new IntersectionObserver(e=>{studioVisible=e[0].isIntersecting;refreshJump()},{threshold:0}).observe($('config'));window.addEventListener('resize',refreshJump);window.visualViewport?.addEventListener('resize',refreshJump);
-let finishScrollBusy=false;window.addEventListener('scroll',()=>{if(finishScrollBusy)return;finishScrollBusy=true;requestAnimationFrame(()=>{finishScrollBusy=false;detectActiveFinish()})},{passive:true});
+$('language').addEventListener('change',ev=>{state.lang=ev.target.value;render()});
+function goHouse(){document.getElementById('house').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'})}
+['showHouse','mobileJump'].forEach(id=>$(id).addEventListener('click',goHouse));
+let mobilePreviewExpanded=false;
+function setMobilePreviewExpanded(value){
+ mobilePreviewExpanded=Boolean(value);
+ $('mobilePreview').classList.toggle('expanded',mobilePreviewExpanded);
+ $('mobilePreviewLarge').hidden=!mobilePreviewExpanded;
+ $('mobilePreviewExpand').setAttribute('aria-expanded',String(mobilePreviewExpanded));
+ const tr=t[state.lang];
+ $('mobilePreviewExpand').setAttribute('aria-label',mobilePreviewExpanded?tr.mobilePreviewCollapse:tr.mobilePreviewExpand);
+ $('mobilePreviewHint').textContent=mobilePreviewExpanded?tr.previewCollapseHint:tr.previewExpandHint;
+}
+$('mobilePreviewExpand').addEventListener('click',()=>setMobilePreviewExpanded(!mobilePreviewExpanded));
+let stageVisible=true;let studioVisible=false;
+const refreshJump=()=>{
+ const vh=window.visualViewport?.height||window.innerHeight;
+ const gallery=$('finishOptions').getBoundingClientRect();
+ const priceHeight=document.querySelector('.pricebar').getBoundingClientRect().height||94;
+ const materialInView=gallery.top<vh-priceHeight-16&&gallery.bottom>Math.min(vh*.4,240);
+ const visible=window.innerWidth<=600&&!stageVisible&&studioVisible&&materialInView;
+ $('mobilePreview').classList.toggle('visible',visible);
+ if(!visible&&mobilePreviewExpanded)setMobilePreviewExpanded(false);
+};
+new IntersectionObserver(e=>{stageVisible=e[0].isIntersecting;refreshJump()},{threshold:.12}).observe($('house'));
+new IntersectionObserver(e=>{studioVisible=e[0].isIntersecting;refreshJump()},{threshold:0}).observe($('config'));
+window.addEventListener('resize',refreshJump);
+window.visualViewport?.addEventListener('resize',refreshJump);
+let finishScrollBusy=false;
+window.addEventListener('scroll',()=>{if(finishScrollBusy)return;finishScrollBusy=true;requestAnimationFrame(()=>{finishScrollBusy=false;detectActiveFinish();refreshJump()})},{passive:true});
 function setPriceDetails(open){
  const localBar=document.querySelector('.stage-column .pricebar');if(open&&localBar)$('priceDetails').style.setProperty('--s312-pricebar-height',localBar.getBoundingClientRect().height+'px');
  $('priceDetails').hidden=!open;
