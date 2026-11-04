@@ -755,10 +755,16 @@ html[data-theme="night"] .scene-toggle[aria-pressed="true"] {
     left:17px;
     bottom:19px;
     display:block;
+    width:max-content;
+    max-width:calc(100% - 122px);
     padding:0;
     border:0;
   }
   .mobile-preview-goto {
+    position:relative;
+    inset:auto;
+    width:auto;
+    max-width:100%;
     min-height:42px;
     padding:8px 12px;
     border:1px solid rgba(255,255,255,.58);
