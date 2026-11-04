@@ -462,7 +462,7 @@ const refreshJump=()=>{
  const vh=window.visualViewport?.height||window.innerHeight;
  const gallery=$('finishOptions').getBoundingClientRect();
  const priceHeight=document.querySelector('.pricebar').getBoundingClientRect().height||94;
- const materialInView=gallery.top<vh-priceHeight-16&&gallery.bottom>Math.min(vh*.4,240);
+ const materialInView=gallery.top<vh-priceHeight-16&&gallery.bottom>Math.min(vh*.4,300);
  const visible=window.innerWidth<=600&&!stageVisible&&studioVisible&&materialInView;
  $('mobilePreview').classList.toggle('visible',visible);
  if(!visible&&mobilePreviewExpanded)setMobilePreviewExpanded(false);
