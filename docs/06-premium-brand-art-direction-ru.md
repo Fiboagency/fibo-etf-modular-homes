@@ -1,7 +1,7 @@
 # ETF Modular Homes — арт-дирекция v0.1 / концепт для владельца
 
 **Дата:** 2026-11-01  
-**Статус:** `CONCEPT_REVIEW / NOT CLIENT APPROVED / NO RELEASE AUTHORIZATION`  
+**Статус направления A:** `SELECTED_BY_FIBO_OWNER_FOR_PROTOTYPE` (2026-11-01, в этой переписке). **Не является** утверждением заказчиком SIA ETF, разрешением на production или подтверждением прав на изображения. **Направление B:** сохранено как невыбранная альтернатива.  
 **Источник:** фактические изображения из `prototype/assets/images`, действующий прототип `prototype/index.html`, функциональный референс MyCabin (логика, не дизайн).  
 **Визуальные концепты:** [`prototype/design-review.html`](../prototype/design-review.html).
 
@@ -83,3 +83,7 @@
 5. Уточнить матрицу реальных сочетаний ванной и наличие рендеров для всех модификаций.
 6. Провести независимую functional QA: переключения, цены, keyboard/focus, localizations, image loading/performance.
 7. Release отдельно утверждается владельцем; ни demo deploy, ни merge в main в текущей концептуальной фазе не требуются.
+
+## Решение владельца и реализация (2026-11-01)
+
+Владелец Fibo Agency прямо утвердил **A — Architectural Atelier** и поручил дальнейшую разработку фирменного стиля и внедрение изображений в прототип. В отдельной ветке `feature/etf-architectural-atelier-ui-20261101` выполнена интеграция выбранной палитры, редакционной сетки и стиля карточек; изображения A/B/J/K, E/F/G/H и C/D подключены к интерактивным вариантам. Фирменный знак и коммерческая публикация остаются неутверждёнными. Подробности и проверки — [07-architectural-atelier-implementation.md](07-architectural-atelier-implementation.md).
