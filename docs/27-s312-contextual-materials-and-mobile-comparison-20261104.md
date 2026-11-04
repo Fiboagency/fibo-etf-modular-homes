@@ -1,6 +1,6 @@
 # S312 — contextual materials / mobile comparison (2026-11-04)
 
-Status: implementation in a dedicated feature branch; **NOT merged or deployed**. Owner review / interactive QA required.
+Status: **merged** via PR #33 on 2026-11-04 09:48 UTC; manually **deployed** to existing Render static preview `fibo-etf-atelier-owner-preview` on 2026-11-04 09:59:52 UTC. Render deploy `dep-dblg43c9v7es739udtl0` is `live`, commit `ffda27df1e44debce0084e3a04fe4a3a3547c2b3`. Publication URL: https://fibo-etf-atelier-owner-preview.onrender.com/. **Not a production release.** Interactive cross-device QA and owner review remain open.
 
 ## Decision: preserve approved ROVELLC mobile design
 
@@ -41,11 +41,20 @@ Static checks completed:
 - Mobile CSS dimensions, theme animation, day/night controls and price bar source preserved: PASS.
 - Download summary includes material selections in source code: PASS.
 
-Not yet checked in a live browser on the feature branch:
+Post-deployment checks still outstanding (published preview):
 - Desktop sticky image with expanded accordions and different viewport heights.
 - Actual scroll-to-image synchronization, lazy loads and transitions for every finish.
 - Mobile 320 / 375 / 390 px, 667 / 844 px height, keyboard/focus interaction, fixed-price-bar overlap.
 - Language switches LV/RU, persisted selections, TXT export contents.
 - Reduced motion and image load fallback.
 
-**Do not merge or deploy until interactive QA passes.**
+## Publication verification
+
+- Render connected to `feature/etf-architectural-atelier-ui-20261101`, repo `Fiboagency/fibo-etf-modular-homes`, static publish path `prototype`, autoDeploy `no`.
+- Manually triggered deploy of merged PR #33. Exact commit confirmed by Render API, terminal status `live`.
+- Public URL returned HTTP 200; Firecrawl fetched actual published HTML, confirming `#finishOptions`, `const finishes`, all four finish definitions, 11 material samples, original option IDs, bottom price bar and day/night controls.
+- Initial live browser inspection confirmed that a floor-selection context updates the left house-image accessible description to the floor material.
+- Render error-log query was temporarily unavailable (503 from log backend); no absence-of-errors claim is made.
+
+**Next tasks:** interactive mobile and desktop QA across small viewports, verify scroll synchronization, all scene and swatch selections, visible image loads, persistence in LV/RU, correct TXT export and surcharge labeling; fix defects through separate PR if found. Keep the current published prototype link and do not enable automatic deploy without owner approval.
+
