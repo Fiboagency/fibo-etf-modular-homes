@@ -193,7 +193,7 @@ body{padding-bottom:0}
  .stage-column .price-overview{min-width:0}
  .stage-column .price-number{font-size:clamp(26px,2.6vw,36px)}
  .stage-column .price-actions{flex-wrap:wrap;justify-content:flex-start}
- .stage-column #priceDetails{position:absolute;top:calc(100% + 8px);bottom:auto;left:0;right:0;width:auto;max-height:55vh;overflow:auto;z-index:9}
+ .stage-column #priceDetails{position:absolute;top:auto;bottom:calc(var(--s312-pricebar-height, 120px) + 8px);left:0;right:0;width:auto;max-height:min(55vh,450px);overflow:auto;z-index:9}
  .visual-rail{flex:none;min-height:0}
  .visual-rail-inner{position:static}
 }
@@ -438,6 +438,7 @@ $('language').addEventListener('change',ev=>{state.lang=ev.target.value;render()
 let stageVisible=true;let studioVisible=false;const refreshJump=()=>{const vh=window.visualViewport?.height||window.innerHeight;const visible=window.innerWidth<=600&&vh>=630&&!stageVisible&&studioVisible;$('mobilePreview').classList.toggle('visible',visible)};new IntersectionObserver(e=>{stageVisible=e[0].isIntersecting;refreshJump()},{threshold:.12}).observe($('house'));new IntersectionObserver(e=>{studioVisible=e[0].isIntersecting;refreshJump()},{threshold:0}).observe($('config'));window.addEventListener('resize',refreshJump);window.visualViewport?.addEventListener('resize',refreshJump);
 let finishScrollBusy=false;window.addEventListener('scroll',()=>{if(finishScrollBusy)return;finishScrollBusy=true;requestAnimationFrame(()=>{finishScrollBusy=false;detectActiveFinish()})},{passive:true});
 function setPriceDetails(open){
+ const localBar=document.querySelector('.stage-column .pricebar');if(open&&localBar)$('priceDetails').style.setProperty('--s312-pricebar-height',localBar.getBoundingClientRect().height+'px');
  $('priceDetails').hidden=!open;
  $('togglePrice').setAttribute('aria-expanded',String(open));
  $('priceOverview').setAttribute('aria-expanded',String(open));
