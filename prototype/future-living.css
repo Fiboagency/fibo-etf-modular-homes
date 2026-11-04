@@ -530,3 +530,84 @@ html[data-theme="night"] .scene-toggle[aria-pressed="true"] {
 @media(max-width:600px) {
   .accordion-fixed > .fixed-accordion-heading {padding:18px 10px}
 }
+
+/* S312 mobile material preview and legibility pass, owner review only.
+ * Keep pricing and image state source of truth in existing JS.
+ */
+.material-pricing-note {
+  margin:8px 0 16px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+.material-specs {
+  margin:15px 0 3px;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.material-specs summary {
+  padding:14px 0;
+  font-size:13px;
+  font-weight:600;
+  color:var(--muted);
+  cursor:pointer;
+}
+.material-specs-body {padding:0 4px 15px}
+.material-specs .included-list {font-size:12px;line-height:1.6}
+.finish-swatch span {font-size:13px;line-height:1.45}
+@media(max-width:600px) {
+ .finish-swatch span {font-size:13px;line-height:1.45}
+ .finish-title {font-size:15px}
+ .price-caption {font-size:10px;line-height:1.25}
+ .mobile-preview {
+   flex-wrap:wrap;
+   gap:8px;
+   min-height:78px;
+   border-radius:14px;
+   padding:7px 9px;
+ }
+ .mobile-preview-house {flex:1;min-width:0;gap:8px;min-height:60px;font-size:11px}
+ .mobile-preview-house img {width:clamp(92px,28vw,112px);height:64px;object-fit:cover;border-radius:9px;background:var(--soft)}
+ .mobile-preview-house span {min-width:0;max-width:none}
+ .mobile-preview-house small {display:block;font-size:10px;font-weight:500;color:var(--muted);line-height:1.3;margin-top:3px}
+ .mobile-preview-large[hidden] {display:none!important}
+ .mobile-preview-large {
+   display:block;
+   position:relative;
+   flex-basis:100%;
+   border-top:1px solid var(--border);
+   padding-top:9px;
+   min-width:0;
+ }
+ .mobile-preview-large img {
+   display:block;
+   width:100%;
+   height:min(23dvh,174px);
+   min-height:94px;
+   object-fit:contain;
+   background:var(--soft);
+   border-radius:11px;
+ }
+ .mobile-preview-goto {
+   position:absolute;
+   right:9px;
+   bottom:9px;
+   min-height:38px;
+   padding:7px 12px;
+   border:1px solid var(--border);
+   border-radius:99px;
+   color:var(--ink);
+   background:var(--surface);
+   font-size:12px;
+ }
+}
+@media(max-width:350px) {
+ .mobile-preview{min-height:72px}
+ .mobile-preview-house img{width:92px;height:58px}
+ .mobile-preview-house span {font-size:10px}
+ .mobile-preview-scenes button{min-width:40px;min-height:44px}
+ .price-caption{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce) {
+ .mobile-preview {transition:none}
+}
