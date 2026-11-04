@@ -44,3 +44,20 @@ The owner requests a simpler, MyCabin-like **order/configuration page** — not 
 ## Pending
 
 Live rendered cross-device QA on the review branch, including focus/keyboard checks. Deploy only once PR is approved/merged by the owner, using existing Render service `fibo-etf-atelier-owner-preview` (autoDeploy is off).
+
+
+## Isolated rendered browser inspection
+
+A browser session fetched the new branch's raw HTML and rendered it temporarily against the existing preview origin **without changing the public site**. Verified at desktop 1440×900:
+
+- Main configurator starts 28px below the 88px header; the large visible hero is absent.
+- `.stage-column` is the sole sticky preview container (`position: sticky; top: 26px`); `#house` is relative rather than sticky.
+- One image stage plus selected material summary and existing demo price controls is present in left column.
+- `.post-config-details` now contains the original S312 specs, plan and visual gallery after the configurator.
+- After scrolling into the configurator, no second pinned visual/duplicated image rail was observed.
+
+At mobile 390×844:
+- Existing mini-preview remains fixed at the top; original demo price bar remains fixed at the bottom.
+- The configurator remains one column and informational content is below it.
+
+These are observed DOM/computed-style layout checks, not a complete mobile interaction or all-swatch screenshot QA. A further attempt to inspect all combinations timed out; mark as **NOT CHECKED**, rather than as PASS. Await owner's visual review before merging and publishing.
