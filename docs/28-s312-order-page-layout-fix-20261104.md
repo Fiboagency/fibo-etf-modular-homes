@@ -1,6 +1,6 @@
 # ROVELLC S312 — order-first configurator layout (2026-11-04)
 
-**Status:** code complete in isolated feature branch; **not merged or deployed**. Owner review and rendered QA required.
+**Status:** PR #35 merged (2026-11-04), deployed to the existing owner-preview Render service. Render deploy `dep-dblggjd9el5s73cvv5l0` is **live**, commit `19d002a85f2d008a23ecb36cd21e913d83f23f83`, URL: https://fibo-etf-atelier-owner-preview.onrender.com/. Customer-facing production has not been changed. Owner visual review and additional interactive QA remain open.
 
 ## User request and observed defect
 
@@ -43,7 +43,7 @@ The owner requests a simpler, MyCabin-like **order/configuration page** — not 
 
 ## Pending
 
-Live rendered cross-device QA on the review branch, including focus/keyboard checks. Deploy only once PR is approved/merged by the owner, using existing Render service `fibo-etf-atelier-owner-preview` (autoDeploy is off).
+Owner review of the **published preview**; run cross-device scrolling, focus/keyboard, DAY/NIGHT, full material combinations, persistence and TXT export checks. Render autoDeploy remains off. Fix any defects in a separate PR before another deploy.
 
 
 ## Isolated rendered browser inspection
@@ -60,4 +60,13 @@ At mobile 390×844:
 - Existing mini-preview remains fixed at the top; original demo price bar remains fixed at the bottom.
 - The configurator remains one column and informational content is below it.
 
-These are observed DOM/computed-style layout checks, not a complete mobile interaction or all-swatch screenshot QA. A further attempt to inspect all combinations timed out; mark as **NOT CHECKED**, rather than as PASS. Await owner's visual review before merging and publishing.
+These are observed DOM/computed-style layout checks, not a complete mobile interaction or all-swatch screenshot QA. A further attempt to inspect all combinations timed out; mark as **NOT CHECKED**, rather than as PASS. Merged and published on owner's explicit approval. Full interactive regression is still unverified; owner review and follow-up QA remain open.
+
+## Publication verification
+
+- GitHub PR #35: merged into `feature/etf-architectural-atelier-ui-20261101`, commit `19d002a85f2d008a23ecb36cd21e913d83f23f83`.
+- Render service ID: `srv-dbj7148473hc73bb1k7g`, branch matches, manual deploy ID `dep-dblggjd9el5s73cvv5l0`, terminal status `live` at 2026-11-04 10:26:34 UTC.
+- Public URL returned HTTP 200. Published HTML includes screen-reader-only H1, no visible hero-heading, left-selection, the original price control, the moved post-config details, DAY/NIGHT and material options.
+- Checked GitHub merged branch: correct CSS cascade order, original 12 equipment option IDs retained and single price Amount/Details element.
+- Render error log query returned no errors at check time. A browser interaction attempt timed out; do not claim a full real-device regression was completed.
+- Next: verify owner view on desktop and phone, collect any new changes and fix in separate PR. Leave autoDeploy disabled.
