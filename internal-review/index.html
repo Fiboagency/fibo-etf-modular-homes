@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Contract Review — Fibo Agency</title>
+<style>
+:root{--bg:#f5f5f1;--paper:#fff;--ink:#192722;--muted:#67746d;--line:#dde3de;--forest:#253f34;--green:#447457;--green-bg:#eaf3ec;--red:#a64c3e;--red-bg:#fcefea;--amber:#9a7131;--amber-bg:#fcf6e9;--radius:13px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",system-ui,-apple-system,Arial,sans-serif;line-height:1.62}
+button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}
+.skip{position:absolute;left:-9999px}.skip:focus{left:8px;top:8px;z-index:10;background:#fff;padding:12px}
+.topbar{background:#1c3027;color:#fff;padding:17px clamp(16px,4vw,52px);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.logo{font-size:16px;letter-spacing:.24em;font-weight:750}.logo span{opacity:.52;font-weight:400}.topmeta{font-size:11px;letter-spacing:.13em;text-transform:uppercase;opacity:.76}
+.hero{max-width:1440px;padding:54px 34px 25px;margin:auto}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#687d6e;font-weight:750}
+h1{font-size:clamp(31px,4vw,58px);line-height:1.1;letter-spacing:-.045em;font-weight:630;margin:12px 0 16px}
+.subtitle{color:var(--muted);font-size:16px;max-width:780px;margin:0}
+.notice{background:#fff;padding:14px 18px;border-left:3px solid #a38c60;border-radius:2px 10px 10px 2px;margin-top:25px;max-width:1020px;font-size:13px;color:#5a665e}
+.layout{display:grid;grid-template-columns:285px minmax(0,1fr);gap:26px;max-width:1440px;margin:auto;padding:15px 34px 90px;align-items:start}
+aside{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:20px}
+.sideheading{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#738178;font-weight:750;margin:10px 0}
+.sectionnav{display:grid;gap:3px;margin:10px 0 22px}.sectionnav a{padding:8px 10px;text-decoration:none;color:#4d5f55;border-radius:7px;font-size:12px;display:flex;justify-content:space-between;gap:12px}
+.sectionnav a:hover{background:#f1f4ef;color:#243f31}.sectionnav em{font-style:normal;color:#8f9b93}
+.sidefoot{font-size:11px;color:#879188;border-top:1px solid var(--line);padding-top:15px}
+.content{min-width:0}
+.toolbar{background:#fff;border:1px solid var(--line);padding:19px 22px;border-radius:var(--radius);margin-bottom:23px}
+.counts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.count{padding:5px 10px;border-right:1px solid var(--line)}.count:last-child{border:0}.count strong{display:block;font-size:27px;line-height:1.2;font-weight:640;letter-spacing:-.025em}.count small{font-size:11px;color:#829087;white-space:nowrap}
+.count.bad strong{color:var(--red)}.count.good strong{color:var(--green)}
+.progress{height:5px;background:#edf0ea;border-radius:10px;overflow:hidden;margin:18px 10px 0}.progress > span{display:block;height:100%;width:0;background:#60836a;transition:width .2s}
+.tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;align-items:center}
+.btn,.filebtn{border:1px solid #c8d4cb;color:#254032;background:#fff;border-radius:9px;padding:9px 13px;line-height:1.3;font-weight:630;font-size:12px;text-decoration:none;display:inline-flex;gap:8px;align-items:center;justify-content:center}
+.btn:hover,.filebtn:hover{background:#f0f4ef}.btn.primary{background:#234434;color:white;border-color:#234434}.btn.primary:hover{background:#345844}
+input[type="file"]{display:none}.filebtn:focus-within{outline:2px solid #6d956d}
+.filters{display:flex;gap:7px;flex-wrap:wrap;align-items:center;padding:0 0 12px}
+.filter{font-size:12px;border:1px solid var(--line);background:#fff;color:#5e6e64;border-radius:30px;padding:7px 12px}
+.filter[aria-pressed="true"]{background:#2b4939;border-color:#2b4939;color:white}
+.search{min-width:210px;flex:1;border:1px solid var(--line);border-radius:9px;padding:9px 13px;background:#fff;outline:none;color:var(--ink)}
+.search:focus{border-color:#729a7b}
+.sec{scroll-margin-top:24px;margin:25px 0 35px}.sectop{border-bottom:1px solid #d4dbd4;margin-bottom:13px;padding:6px 4px 14px;display:flex;align-items:end;justify-content:space-between;gap:15px}
+.sectop h2{margin:0;font-size:clamp(18px,2.3vw,25px);font-weight:630;letter-spacing:-.025em}.sectop span{font-size:12px;color:var(--muted);white-space:nowrap}
+.clause{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:18px 20px;margin-bottom:10px;box-shadow:0 1px 0 #e5e9e3}
+.clause[data-state="no"]{border-left:4px solid var(--red);padding-left:17px}.clause[data-state="ok"]{border-left:4px solid #69a17d;padding-left:17px}
+.clause-head{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.clause-title{font-size:12px;font-weight:750;color:#3c5649;letter-spacing:.025em}
+.pagenum{font-size:11px;color:#87948a;white-space:nowrap}
+.clause-text{font-size:14px;color:#2d3832;white-space:pre-wrap;margin:11px 0 17px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 11px}.tag{display:inline-block;font-size:10px;border-radius:5px;padding:3px 7px;background:#f5f0e3;color:#816742}
+.checks{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.choice{display:inline-flex;align-items:center;gap:8px;border:1px solid #dce2db;border-radius:8px;padding:9px 12px;cursor:pointer;font-size:12px;font-weight:650;user-select:none;min-height:39px}
+.choice input{accent-color:#426e50;width:16px;height:16px;margin:0}
+.choice.reject input{accent-color:#a64c3e}.choice:has(input:checked){background:var(--green-bg);border-color:#b7d4be;color:#376247}
+.choice.reject:has(input:checked){background:var(--red-bg);border-color:#e5b9b0;color:#904435}
+.notes{margin-top:15px;padding:14px;background:#fcfaf6;border:1px solid #eee5da;border-radius:8px}
+.notes label{display:block;font-size:11px;font-weight:750;color:#806b55;margin-bottom:7px}
+.notes textarea{display:block;resize:vertical;width:100%;border:1px solid #d9d9d1;background:#fff;border-radius:7px;min-height:72px;padding:10px 12px;font-size:13px;line-height:1.5;color:var(--ink)}
+.notes textarea:focus{outline:2px solid #c8d8c9}
+.empty{padding:36px 24px;border:1px dashed #cbd7cc;background:#fff;border-radius:12px;color:#637668;text-align:center}
+.empty h3{margin:0 0 8px;color:#243e31}.empty p{max-width:500px;margin:0 auto 20px;font-size:13px}
+.bottomnote{font-size:12px;color:#7a897e;padding:16px 0}
+.toast{position:fixed;bottom:24px;right:25px;background:#254534;color:#fff;font-size:12px;padding:11px 16px;border-radius:9px;box-shadow:0 6px 24px #0002;display:none;z-index:5}
+.sep{width:1px;background:#d8ded7;align-self:stretch;margin:2px 3px}
+kbd{padding:3px 5px;background:#f1f2ef;border:1px solid #dde1dd;border-radius:4px;font-size:11px}
+@media(max-width:980px){.layout{grid-template-columns:1fr;padding:12px 20px 60px}.hero{padding:32px 20px 15px}aside{position:static;max-height:none}.sectionnav{grid-template-columns:repeat(2,minmax(0,1fr))}.sectionnav a{font-size:11px}.topbar{padding:15px 20px}}
+@media(max-width:560px){.topmeta{display:none}.layout{padding:10px 12px 60px;gap:15px}.hero{padding:30px 16px 12px}.toolbar{padding:13px 10px}.counts{gap:3px}.count{padding:4px}.count strong{font-size:22px}.count small{font-size:9px}.tools{gap:5px}.btn,.filebtn{font-size:11px;padding:9px}.sectionnav{grid-template-columns:1fr}.filters{padding:0 2px 12px}.search{min-width:100%}.clause{padding:15px}.sectop h2{font-size:19px}.sectop span{font-size:10px}.choice{flex:1;justify-content:center}.toast{left:12px;right:12px;bottom:12px}}
+@media print{body{background:#fff;font-size:12px}.topbar,aside,.tools,.filters,.checks,.filebtn,.toast{display:none!important}.hero{padding:10px 15px}.layout{display:block;padding:0 15px}.toolbar{border:0;padding:0}.clause{break-inside:avoid;box-shadow:none}.notes{display:block!important}.sectop{break-after:avoid}.count{font-size:10px}h1{font-size:28px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<header class="topbar"><div class="logo">FIBO <span>/</span> CONTRACT REVIEW</div><div class="topmeta">Private review tool · Local-first · RU</div></header>
+<div class="hero">
+  <div class="eyebrow">Документ / Проверка условий</div>
+  <h1 id="pageTitle">Согласование договора</h1>
+  <p id="pageSubtitle" class="subtitle">Отмечайте каждый тезис, фиксируйте возражения и выгружайте перечень правок. Сначала загрузите файл договора в формате JSON.</p>
+  <p class="notice" id="privacyNote">Интерфейс не отправляет документы на сервер. Текст и отметки хранятся только в этом браузере; для надёжного хранения обязательно скачайте JSON-результат. Не используйте общедоступные компьютеры.</p>
+</div>
+<div class="layout">
+ <aside aria-label="Навигация по договору">
+   <div class="sideheading">Оглавление и прогресс</div>
+   <nav id="sectionNav" class="sectionnav"></nav>
+   <div class="sidefoot">Каждый пункт имеет три состояния: не проверено, согласовано, требует доработки. Взаимоисключающие галочки не считаются юридическим подписанием.</div>
+ </aside>
+ <main id="main" class="content">
+  <div class="toolbar">
+   <div class="counts">
+    <div class="count"><strong id="statTotal">0</strong><small>Всего тезисов</small></div>
+    <div class="count good"><strong id="statOk">0</strong><small>Согласовано</small></div>
+    <div class="count bad"><strong id="statNo">0</strong><small>Доработать</small></div>
+    <div class="count"><strong id="statPending">0</strong><small>Не проверено</small></div>
+   </div>
+   <div class="progress"><span id="progressFill"></span></div>
+   <div class="tools">
+    <label class="filebtn" for="docFile">↑ Загрузить договор JSON<input id="docFile" type="file" accept="application/json,.json"></label>
+    <label class="filebtn" for="stateFile">↺ Восстановить проверку<input id="stateFile" type="file" accept="application/json,.json"></label>
+    <span class="sep" aria-hidden="true"></span>
+    <button id="saveJson" class="btn primary" disabled>↓ Сохранить проверку</button>
+    <button id="saveIssues" class="btn" disabled>↓ Список замечаний</button>
+    <button id="printBtn" class="btn" disabled>Печать / PDF</button>
+   </div>
+  </div>
+  <div class="filters" id="filters" aria-label="Фильтр пунктов">
+   <button class="filter" data-filter="all" aria-pressed="true">Все</button>
+   <button class="filter" data-filter="no" aria-pressed="false">Требует доработки</button>
+   <button class="filter" data-filter="ok" aria-pressed="false">Согласовано</button>
+   <button class="filter" data-filter="pending" aria-pressed="false">Не проверено</button>
+   <button class="filter" data-filter="flagged" aria-pressed="false">Открытые вопросы</button>
+   <input id="search" class="search" type="search" placeholder="Поиск по номеру и тексту пункта…" aria-label="Поиск по пунктам">
+  </div>
+  <div id="documentSections"></div>
+  <p class="bottomnote">Экспорт сохраняет версию исходного документа, статусы и комментарии. При загрузке новой редакции проверяйте соответствие пунктов, прежде чем переносить решения.</p>
+ </main>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<!-- В публичном исходном коде НЕТ текста договора. В офлайн-копию данные вставляются локально. -->
+<script id="contract-data" type="application/json"></script>
+<script>
+(function(){
+"use strict";
+var data=null, decisions={}, filter="all", search="", storageOk=true, lastSave="";
+var byId=function(id){return document.getElementById(id)};
+var states={ok:"Согласовано",no:"Требует доработки",pending:"Не проверено"};
+function toast(t){var el=byId("toast");el.textContent=t;el.style.display="block";window.clearTimeout(toast.t);toast.t=window.setTimeout(function(){el.style.display="none"},2500)}
+function storageKey(){return data?"fibo-contract-review::"+String(data.docId):""}
+function norm(item){var value=decisions[item.id];return value && ["ok","no"].includes(value.state)?value.state:"pending"}
+function counts(){var ok=0,no=0; if(!data)return{all:0,ok:0,no:0,pending:0};data.items.forEach(function(it){var s=norm(it);if(s==="ok")ok++;if(s==="no")no++});return{all:data.items.length,ok:ok,no:no,pending:data.items.length-ok-no}}
+function saveLocal(){if(!data)return;lastSave=new Date().toISOString();try{localStorage.setItem(storageKey(),JSON.stringify({schemaVersion:1,docId:data.docId,updatedAt:lastSave,decisions:decisions}))}catch(e){storageOk=false;byId("privacyNote").textContent="Локальное автосохранение недоступно в этом браузере. Регулярно скачивайте JSON-результат: отметки иначе могут потеряться."}}
+function setDecision(item,state){var old=decisions[item.id]||{};decisions[item.id]={state:state,note:String(old.note||"")};saveLocal();render()}
+function a(tag,klass,txt){var e=document.createElement(tag);if(klass)e.className=klass;if(txt!==undefined)e.textContent=txt;return e}
+function updateStats(){var c=counts();byId("statTotal").textContent=c.all;byId("statOk").textContent=c.ok;byId("statNo").textContent=c.no;byId("statPending").textContent=c.pending;byId("progressFill").style.width=c.all?((c.ok+c.no)/c.all*100).toFixed(2)+"%":"0%";["saveJson","saveIssues","printBtn"].forEach(function(id){byId(id).disabled=!data})}
+function renderNav(){
+ var nav=byId("sectionNav");nav.replaceChildren();if(!data)return;
+ data.sections.forEach(function(sec){var own=data.items.filter(function(it){return it.section===sec.id});var n=own.filter(function(it){return norm(it)==="no"}).length;var link=a("a",null);link.href="#section-"+sec.id;var name=a("span",null,sec.title);var total=a("em",null,n?n+" !":String(own.length));link.append(name,total);nav.append(link)});
+}
+function matchItem(it){var s=norm(it);if(filter==="flagged" && !(it.tags&&it.tags.length))return false;if(filter!=="all"&&filter!=="flagged"&&s!==filter)return false;if(search){var hay=(it.id+" "+it.label+" "+it.text+" "+(decisions[it.id]?.note||"")).toLocaleLowerCase("ru");if(!hay.includes(search))return false}return true}
+function render(){
+ updateStats();renderNav();
+ var root=byId("documentSections");root.replaceChildren();
+ if(!data){var box=a("section","empty");box.append(a("h3",null,"Откройте договор для проверки"),a("p",null,"Загрузите JSON с тезисами договора. Публичная веб-страница не содержит коммерческих условий и личных данных."));root.append(box);return}
+ var visible=0;
+ data.sections.forEach(function(sec){
+  var rows=data.items.filter(function(it){return it.section===sec.id && matchItem(it)});if(!rows.length)return;visible+=rows.length;
+  var section=a("section","sec");section.id="section-"+sec.id;
+  var head=a("div","sectop");head.append(a("h2",null,sec.title),a("span",null,rows.length+" "+(rows.length===1?"пункт":"пунктов")));section.append(head);
+  rows.forEach(function(it){
+   var st=norm(it), box=a("article","clause");box.dataset.state=st;box.id="clause-"+it.id;
+   var chead=a("div","clause-head");chead.append(a("div","clause-title",it.label),a("span","pagenum",it.page?"PDF · стр. "+it.page:""));box.append(chead);
+   var p=a("p","clause-text",it.text);box.append(p);
+   if(it.tags&&it.tags.length){var badges=a("div","tags");it.tags.forEach(function(tag){badges.append(a("span","tag",tag))});box.append(badges)}
+   var choices=a("div","checks");
+   [["ok","Согласен","approve"],["no","Не согласен · доработать","reject"]].forEach(function(pair){
+    var lab=a("label","choice "+pair[2]),check=a("input");check.type="checkbox";check.checked=st===pair[0];check.setAttribute("aria-label",pair[1]+": "+it.label);
+    check.addEventListener("change",function(){setDecision(it,check.checked?pair[0]:"pending")});
+    lab.append(check,a("span",null,pair[1]));choices.append(lab)
+   });
+   box.append(choices);
+   var answer=decisions[it.id]||{};
+   if(st==="no" || String(answer.note||"").trim()){
+    var notes=a("div","notes"),label=a("label",null,"Что именно нужно изменить или уточнить?"),textarea=a("textarea");
+    label.htmlFor="note-"+it.id;textarea.id="note-"+it.id;textarea.placeholder="Предложение новой формулировки, вопрос или аргумент…";textarea.value=String(answer.note||"");
+    textarea.addEventListener("input",function(){var prev=decisions[it.id]||{state:"pending"};decisions[it.id]={state:prev.state||"pending",note:textarea.value};saveLocal()});
+    notes.append(label,textarea);box.append(notes)
+   }
+   section.append(box);
+  });
+  root.append(section);
+ });
+ if(!visible){var box=a("div","empty");box.append(a("h3",null,"Пунктов по фильтру нет"),a("p",null,"Измените поиск или переключите фильтр, чтобы увидеть другие тезисы."));root.append(box)}
+}
+function loadDocument(doc){
+ if(!doc||!Array.isArray(doc.sections)||!Array.isArray(doc.items)||!doc.docId)throw Error("Некорректный формат договора: нужны docId, sections и items.");
+ if(new Set(doc.items.map(function(x){return x.id})).size!==doc.items.length)throw Error("Повторяются идентификаторы пунктов.");
+ if(doc.items.some(function(it){return !it.id||!it.section||!it.text}))throw Error("Некоторые пункты не содержат ID, раздела или текста.");
+ data=doc;decisions={};filter="all";search="";byId("search").value="";
+ byId("pageTitle").textContent=doc.title||"Согласование договора";byId("pageSubtitle").textContent=doc.subtitle||"Внутренняя проверка документа";if(doc.notice)byId("privacyNote").textContent=doc.notice+" Отметки сохраняются в браузере и не отправляются на сервер.";
+ try{var local=JSON.parse(localStorage.getItem(storageKey())||"null");if(local&&local.docId===data.docId&&local.decisions)decisions=local.decisions}catch(e){storageOk=false}
+ document.querySelectorAll("[data-filter]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.filter==="all"?"true":"false")});
+ render();toast("Договор загружен: "+doc.items.length+" пунктов");
+}
+function validateReview(r){var rev=r.review||r;if(!rev||!rev.decisions||typeof rev.decisions!=="object")throw Error("Файл не содержит решений.");if(!data){if(r.document)loadDocument(r.document);else throw Error("Сначала загрузите исходный документ.")}if(rev.docId!==data.docId)throw Error("Результат относится к другой редакции договора.");decisions={};data.items.forEach(function(it){var item=rev.decisions[it.id];if(item && ["ok","no","pending"].includes(item.state))decisions[it.id]={state:item.state,note:String(item.note||"")}});saveLocal();render();toast("Проверка восстановлена")}
+function fileInput(id,callback){byId(id).addEventListener("change",async function(e){var f=e.target.files&&e.target.files[0];if(!f)return;try{var obj=JSON.parse(await f.text());callback(obj)}catch(err){window.alert("Не удалось загрузить файл: "+err.message)}e.target.value=""})}
+function download(filename,content,mime){var blob=new Blob([content],{type:mime}),url=URL.createObjectURL(blob),link=document.createElement("a");link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();window.setTimeout(function(){URL.revokeObjectURL(url)},500)}
+function safeName(){return String(data.docId||"contract").replace(/[^a-z0-9-_]/gi,"_")}
+function exportReview(){var output={schemaVersion:1,document:{docId:data.docId,title:data.title,subtitle:data.subtitle,source:data.source},review:{docId:data.docId,updatedAt:new Date().toISOString(),summary:counts(),decisions:{}}};data.items.forEach(function(it){var v=decisions[it.id]||{};output.review.decisions[it.id]={state:norm(it),note:String(v.note||""),label:it.label,sourcePage:it.page||null,sourceText:it.text}});download(safeName()+"_REVIEW.json",JSON.stringify(output,null,2),"application/json;charset=utf-8");toast("Файл проверки сохранён")}
+function exportIssues(){var bad=data.items.filter(function(it){return norm(it)==="no"}),pending=data.items.filter(function(it){return norm(it)==="pending"});var lines=["# Замечания к договору","",data.title+" / "+data.subtitle,"Источник: "+String(data.source||""),"Дата выгрузки: "+new Date().toLocaleString("ru-RU"),"","**Доработать:** "+bad.length+" / **Не проверено:** "+pending.length+" / **Всего:** "+data.items.length,"","---",""];bad.forEach(function(it){lines.push("## "+it.label+" (PDF, стр. "+it.page+")","",it.text,"","**Замечание:** "+(decisions[it.id]?.note||"Причина пока не указана."),"")});if(!bad.length)lines.push("Нет отмеченных разногласий.","");lines.push("---","","Непроверенные пункты: "+(pending.length?pending.map(function(it){return it.id}).join(", "):"нет"),"","Этот отчёт — рабочие замечания, не изменение подписанного договора.");download(safeName()+"_ISSUES.md",lines.join("\n"),"text/markdown;charset=utf-8");toast("Список замечаний сохранён")}
+document.querySelectorAll("[data-filter]").forEach(function(btn){btn.addEventListener("click",function(){filter=btn.dataset.filter;document.querySelectorAll("[data-filter]").forEach(function(b){b.setAttribute("aria-pressed",String(b===btn))});render()})});
+byId("search").addEventListener("input",function(e){search=e.target.value.toLocaleLowerCase("ru").trim();render()});
+byId("saveJson").addEventListener("click",exportReview);byId("saveIssues").addEventListener("click",exportIssues);byId("printBtn").addEventListener("click",function(){window.print()});
+fileInput("docFile",loadDocument);fileInput("stateFile",validateReview);
+var embedded=byId("contract-data").textContent.trim();if(embedded){try{loadDocument(JSON.parse(embedded))}catch(e){console.error(e);render()}}else render();
+})();
+</script>
+</body>
+</html>
