@@ -6,7 +6,8 @@
 - Documents aligned to date 2026-11-13.
 - The customer's signatory details have been updated based on the customer's message.
 - One combined **13-page PDF** has been prepared for both parties to sign.
-- **Not signed. Not sent to customer.**
+- **Agency-side qualified e-signature applied on 2026-11-13; signed package sent to customer for countersignature.**
+- Customer's countersignature and return of the fully signed document are pending. The corresponding initial payment request has been sent separately as an attachment in the same communication.
 - Customer commercial information and personal/contact details are intentionally excluded from this public repository.
 
 ## Controlled file manifest
@@ -25,13 +26,13 @@ These names identify files held **outside this public repository**, in restricte
 
 1. Keep the actual unsigned documents only in private, access-controlled storage. **Do not commit the PDF/DOCX files or a link exposing them to this public repository.**
 2. Verify the signatory's authority before final signature (no role/authority is asserted here).
-3. Upload the agreed combined PDF to eParaksts and sign it with a qualified electronic signature.
-4. Send the signed PDF to the client for countersignature only upon explicit approval of the agency owner.
-5. Receive the countersigned document, verify both signatures and archive the signed original privately.
-6. Issue the initial invoice and proceed with project intake according to the signed agreement.
+3. **Completed:** Agency signed the combined PDF via eParaksts.
+4. **Completed:** Signed PDF and initial invoice were dispatched to the customer, following agency-owner authorization.
+5. **Pending:** Receive countersigned document, verify both signatures and archive the signed original privately.
+6. **Pending:** Confirm payment received and start the contracted work; draft the initial product-information inventory.
 
 ## Project stage
 
-Legal documentation prepared for signature; signature and client dispatch pending. Product data discovery and detailed implementation planning follow the contracted start milestone.
+Agency-side signature and customer dispatch completed. Awaiting the customer's countersignature and contract-start payment. Product data discovery and detailed implementation planning follow the contracted start milestone.
 
 > Privacy note: This public-repository PR is a nonconfidential workflow record, **not** a distribution mechanism for the contract.
